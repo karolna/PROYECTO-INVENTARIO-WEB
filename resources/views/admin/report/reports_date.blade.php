@@ -30,7 +30,7 @@
         <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    
+
                     <div class="d-flex justify-content-between">
                         {{--  <h4 class="card-title">Reporte por rango de fecha </h4>  --}}
                         {{--  <i class="fas fa-ellipsis-v"></i>  --}}
@@ -47,20 +47,20 @@
                     {!! Form::open(['route'=>'report.results', 'method'=>'POST']) !!}
 
                     <div class="row ">
-            
+
                         <div class="col-12 col-md-3">
                             <span>Fecha inicial</span>
                             <div class="form-group">
-                                <input class="form-control" type="date" 
-                                value="{{old('fecha_ini')}}" 
+                                <input class="form-control" type="date"
+                                value="{{old('fecha_ini')}}"
                                 name="fecha_ini" id="fecha_ini">
                             </div>
                         </div>
                         <div class="col-12 col-md-3">
                             <span>Fecha final</span>
                             <div class="form-group">
-                                <input class="form-control" type="date" 
-                                value="{{old('fecha_fin')}}" 
+                                <input class="form-control" type="date"
+                                value="{{old('fecha_fin')}}"
                                 name="fecha_fin" id="fecha_fin">
                             </div>
                         </div>
@@ -69,7 +69,7 @@
                                <button type="submit" class="btn btn-primary btn-sm">Consultar</button>
                             </div>
                         </div>
-                        
+
                         <div class="col-12 col-md-3 text-center">
                             <span>Total de ingresos: <b> </b></span>
                             <div class="form-group">
@@ -78,7 +78,7 @@
                         </div>
                     </div>
                     {!! Form::close() !!}
-                    
+
                     <div class="table-responsive">
                         <table id="order-listing" class="table">
                             <thead>
@@ -104,10 +104,10 @@
                                     <td style="width: 50px;">
 
                                         <a href="{{route('sales.pdf', $sale)}}" class="jsgrid-button jsgrid-edit-button"><i class="far fa-file-pdf"></i></a>
-                                        <a href="{{route('sales.print', $sale)}}" class="jsgrid-button jsgrid-edit-button"><i class="fas fa-print"></i></a>
+   {{--                                     <a href="{{route('sales.print', $sale)}}" class="jsgrid-button jsgrid-edit-button"><i class="fas fa-print"></i></a>--}}
                                         <a href="{{route('sales.show', $sale)}}" class="jsgrid-button jsgrid-edit-button"><i class="far fa-eye"></i></a>
-                                   
-                                      
+
+
                                     </td>
                                 </tr>
                                 @endforeach

@@ -21,7 +21,7 @@ class ProductController extends Controller
        // $this->middleware('can:product.destroy')->only(['destroy']);
 
        // $this->middleware('can:change.status.products')->only(['change_status']);
-        
+
 
     }
 
@@ -44,7 +44,7 @@ class ProductController extends Controller
             $file->move(public_path("/image"),$image_name);
         }
         $product=Product::create($request->all()+[
-        
+
         'image'=>$image_name,
         ]);
         if ($request->code == "") {
@@ -54,7 +54,7 @@ class ProductController extends Controller
         }
 
         return redirect()->route('products.index');
-    
+
     }
     public function show(Product $product)
     {
@@ -94,7 +94,7 @@ class ProductController extends Controller
         if ($product->status == 'ACTIVO') {
             $product->update(['status'=>'DESACTIVO']);
             return redirect()->back();
-        }  
+        }
         if ($product->status == 'DESACTIVO') {
             $product->update(['status'=>'ACTIVO']);
             return redirect()->back();
@@ -110,11 +110,14 @@ class ProductController extends Controller
     public function get_products_by_id(Request $request){
         if ($request->ajax()) {
             $products = Product::findOrFail($request->product_id);
+            // dump($products);
+            // exit();
             return response()->json($products);
+
         }
     }
 
-    
+
     public function print_barcode()
     {
         $products = Product::get();

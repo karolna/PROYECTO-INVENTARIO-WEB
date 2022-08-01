@@ -147,14 +147,14 @@
                 </tbody>
             </table>
         </div>
-        <div id="fact">
+        <div id="fact"  style="padding:10px ; float: right;">
             {{--  <p>
                 {{$sale->user->types_identification}}-VENTA
                 <br>
                 {{$sale->user->id}}
             </p>  --}}
             <p>
-                NUMERO DE VENTA
+                Nº DE VENTA
                 <br>
                 {{$sale->id}}
             </p>

@@ -103,7 +103,7 @@
 </style>
 
 <body>
-  
+
     <header>
         {{--  <div id="logo">
             <img src="img/logo.png" alt="" id="imagen">
@@ -128,22 +128,22 @@
                 </tbody>
             </table>
         </div>
-        <div id="fact">
+        <div id="fact"  style="padding:10px ; float: right;">
             {{--  <p>{{$purchase->provider->document_type}} COMPRA<br />
                 {{$purchase->provider->document_number}}</p>  --}}
-                <p>NUMERO DE COMPRA<br />
-                    {{$purchase->id}}</p>
+                <p>Nº DE COMPRA</p>
+                    <p> {{$purchase->id}}</p>
         </div>
     </header>
     <br>
 
-   
+
     <br>
     <section>
         <div>
             <table id="faccomprador">
                 <thead>
-                    <tr id="fv">
+                    <tr id="fv" style="float: left;">
                         <th>COMPRADOR</th>
                         <th>FECHA COMPRA</th>
                     </tr>
@@ -162,7 +162,7 @@
         <div>
             <table id="facproducto">
                 <thead>
-                    <tr id="fa">
+                    <tr id="fa" style="float: left;">
                         <th>CANTIDAD</th>
                         <th>PRODUCTO</th>
                         <th>PRECIO COMPRA (USD)</th>
@@ -180,7 +180,7 @@
                     @endforeach
                 </tbody>
                 <tfoot>
-                 
+
                     <tr>
                         <th colspan="3">
                             <p align="right">SUBTOTAL:</p>
@@ -189,7 +189,7 @@
                             <p align="right">s/ {{number_format($subtotal,2)}}<p>
                         </td>
                     </tr>
-                  
+
                     <tr>
                         <th colspan="3">
                             <p align="right">TOTAL IMPUESTO ({{$purchase->tax}}%):</p>
@@ -206,7 +206,7 @@
                             <p align="right">s/ {{number_format($purchase->total,2)}}<p>
                         </td>
                     </tr>
-                  
+
                 </tfoot>
             </table>
         </div>

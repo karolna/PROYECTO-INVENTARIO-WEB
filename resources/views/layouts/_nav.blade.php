@@ -7,13 +7,13 @@
                 </div>
                 <div class="profile-name">
                     <p class="name">
-                      
+
                     </p>
                 </div>
             </div>
         </li>
         <li class="nav-item">
-            
+
         </li>
         <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#page-layouts1" aria-expanded="false"
@@ -82,24 +82,5 @@
                 <span class="menu-title">Roles</span>
             </a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="false"
-                aria-controls="page-layouts">
-                <i class="fas fa-cogs menu-icon"></i>
-                <span class="menu-title">Configuración</span>
-                <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="page-layouts">
-                <ul class="nav flex-column sub-menu">
-                    <li class="nav-item d-none d-lg-block">
-                        <a class="nav-link" href="{{route('business.index')}}">Empresa</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('printers.index')}}">Impresora</a>
-                    </li>
-                </ul>
-            </div>
-        </li>
-       
     </ul>
 </nav>

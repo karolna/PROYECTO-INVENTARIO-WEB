@@ -25,7 +25,7 @@
 <div class="content-wrapper">
     <div class="page-header">
         <h3 class="page-title">
-           
+
         </h3>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
@@ -38,7 +38,7 @@
         <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    
+
                     <div class="d-flex justify-content-between">
                         <h4 class="card-title">Compras</h4>
                         {{--  <i class="fas fa-ellipsis-v"></i>  --}}
@@ -79,13 +79,13 @@
                                     @if ($purchase->status == 'VALIDO')
                                     <td>
                                         <a class="jsgrid-button btn btn-success" href="{{route('change.status.purchases', $purchase)}}" title="Editar">
-                                            Activo <i class="fas fa-check"></i>
+                                            VALIDO <i class="fas fa-check"></i>
                                         </a>
                                     </td>
                                     @else
                                     <td>
                                         <a class="jsgrid-button btn btn-danger" href="{{route('change.status.purchases', $purchase)}}" title="Editar">
-                                            Cancelado <i class="fas fa-times"></i>
+                                            CANCELADO <i class="fas fa-times"></i>
                                         </a>
                                     </td>
                                     @endif

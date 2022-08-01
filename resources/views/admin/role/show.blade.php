@@ -103,7 +103,7 @@
                                     </div>
                                     <div class="profile-feed">
                                         <div class="d-flex align-items-start profile-feed-item">
-    
+
                                             <div class="table-responsive">
                                                 <table id="order-listing1" class="table">
                                                     <thead>
@@ -124,15 +124,15 @@
                                                             <td>{{$user->email}}</td>
                                                             <td style="width: 50px;">
                                                                 {!! Form::open(['route'=>['users.destroy',$user], 'method'=>'DELETE']) !!}
-                        
+
                                                                 <a class="jsgrid-button jsgrid-edit-button" href="{{route('users.edit', $user)}}" title="Editar">
                                                                     <i class="far fa-edit"></i>
                                                                 </a>
-                                                                
-                                                                <button class="jsgrid-button jsgrid-delete-button unstyled-button" type="submit" title="Eliminar">
+
+                                                                {{--<button class="jsgrid-button jsgrid-delete-button unstyled-button" type="submit" title="Eliminar">
                                                                     <i class="far fa-trash-alt"></i>
-                                                                </button>
-                        
+                                                                </button>--}}
+
                                                                 {!! Form::close() !!}
                                                             </td>
                                                         </tr>
@@ -140,7 +140,7 @@
                                                     </tbody>
                                                 </table>
                                             </div>
-    
+
                                         </div>
                                     </div>
                                 </div>

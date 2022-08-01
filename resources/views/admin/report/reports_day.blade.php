@@ -30,7 +30,7 @@
         <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    
+
                     <div class="d-flex justify-content-between">
                         {{--  <h4 class="card-title">Reporte de ventas </h4>  --}}
                         {{--  <i class="fas fa-ellipsis-v"></i>  --}}
@@ -89,20 +89,19 @@
                                     <td>{{$sale->total}}</td>
                                     <td>{{$sale->status}}</td>
                                     <td style="width: 50px;">
-                                       
+
                                         {{--  <a class="jsgrid-button jsgrid-edit-button" href="{{route('sales.edit', $sale)}}" title="Editar">
                                             <i class="far fa-edit"></i>
                                         </a>  --}}
-{{--                                          
+{{--
                                         <button class="jsgrid-button jsgrid-delete-button unstyled-button" type="submit" title="Eliminar">
                                             <i class="far fa-trash-alt"></i>
                                         </button>  --}}
 
                                         <a href="{{route('sales.pdf', $sale)}}" class="jsgrid-button jsgrid-edit-button"><i class="far fa-file-pdf"></i></a>
-                                        <a href="{{route('sales.print', $sale)}}" class="jsgrid-button jsgrid-edit-button"><i class="fas fa-print"></i></a>
                                         <a href="{{route('sales.show', $sale)}}" class="jsgrid-button jsgrid-edit-button"><i class="far fa-eye"></i></a>
-                                   
-                                      
+
+
                                     </td>
                                 </tr>
                                 @endforeach

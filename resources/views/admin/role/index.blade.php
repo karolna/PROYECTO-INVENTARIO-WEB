@@ -30,7 +30,7 @@
         <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    
+
                     <div class="d-flex justify-content-between">
                         <h4 class="card-title">Roles del sistema</h4>
                         {{--  <i class="fas fa-ellipsis-v"></i>  --}}
@@ -70,10 +70,10 @@
                                         <a class="jsgrid-button jsgrid-edit-button" href="{{route('roles.edit', $role)}}" title="Editar">
                                             <i class="far fa-edit"></i>
                                         </a>
-                                        
-                                        <button class="jsgrid-button jsgrid-delete-button unstyled-button" type="submit" title="Eliminar">
+
+                                        {{--<button class="jsgrid-button jsgrid-delete-button unstyled-button" type="submit" title="Eliminar">
                                             <i class="far fa-trash-alt"></i>
-                                        </button>
+                                        </button>--}}
 
                                         {!! Form::close() !!}
                                     </td>

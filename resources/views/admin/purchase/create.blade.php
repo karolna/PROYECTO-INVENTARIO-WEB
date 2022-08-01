@@ -26,14 +26,14 @@
             <div class="card">
                 {!! Form::open(['route'=>'purchases.store', 'method'=>'POST']) !!}
                 <div class="card-body">
-                    
+
                     <div class="d-flex justify-content-between">
                         <h4 class="card-title">Registro de compra</h4>
                     </div>
-                    
+
                     @include('admin.purchase._form')
-                     
-                     
+
+
                 </div>
                 <div class="card-footer text-muted">
                     <button type="submit" id="guardar" class="btn btn-primary float-right">Registrar</button>
@@ -59,11 +59,11 @@
             agregar();
         });
     });
-    
+
     var cont = 0;
     total = 0;
     subtotal = [];
-    
+
     $("#guardar").hide();
 
 
@@ -104,15 +104,15 @@
         }
     })
 
-    
+
     function agregar() {
-    
+
         product_id = $("#product_id").val();
         producto = $("#product_id option:selected").text();
         quantity = $("#quantity").val();
         price = $("#price").val();
         impuesto = $("#tax").val();
-    
+
         if (product_id != "" && quantity != "" && quantity > 0 && price != "") {
             subtotal[cont] = quantity * price;
             total = total + subtotal[cont];
@@ -126,16 +126,16 @@
             Swal.fire({
                 type: 'error',
                 text: 'Rellene todos los campos del detalle de la compras',
-    
+
             })
         }
     }
-    
+
     function limpiar() {
         $("#quantity").val("");
         $("#price").val("");
     }
-    
+
     function totales() {
         $("#total").html("USD " + total.toFixed(2));
         total_impuesto = total * impuesto / 100;
@@ -144,7 +144,7 @@
         $("#total_pagar_html").html("USD " + total_pagar.toFixed(2));
         $("#total_pagar").val(total_pagar.toFixed(2));
     }
-    
+
     function evaluar() {
         if (total > 0) {
             $("#guardar").show();
@@ -152,7 +152,7 @@
             $("#guardar").hide();
         }
     }
-    
+
     function eliminar(index) {
         total = total - subtotal[index];
         total_impuesto = total * impuesto / 100;
@@ -164,6 +164,6 @@
         $("#fila" + index).remove();
         evaluar();
     }
-    
+
 </script>
 @endsection

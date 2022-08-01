@@ -27,45 +27,7 @@
             </ol>
         </nav>
     </div>
-    <div class="row">
-        <div class="col-lg-12 grid-margin stretch-card">
-            <div class="card">
-                <div class="card-body">
 
-                    <div class="d-flex justify-content-between">
-                        <h4 class="card-title">Configuración de impresora</h4>
-                        {{--  <i class="fas fa-ellipsis-v"></i>  --}}
-                        {{--  <div class="btn-group">
-                            <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-ellipsis-v"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right">
-                              <a href="{{route('clients.create')}}" class="dropdown-item">Agregar</a>
-                        printers
-                    </div>
-                </div> --}}
-            </div>
-
-            <div class="form-group">
-                <strong><i class="fas fa-file-signature mr-1"></i> Nombre </strong>
-
-                <p class="text-muted">
-                    {{$printer->name}}
-                </p>
-                <hr>
-            </div>
-
-
-        </div>
-        <div class="card-footer text-muted">
-
-            <button type="button" class="btn btn-primary btn-sm float-right" data-toggle="modal"
-                data-target="#exampleModal-2">Actualizar</button>
-
-        </div>
-    </div>
-</div>
-</div>
 </div>
 
 

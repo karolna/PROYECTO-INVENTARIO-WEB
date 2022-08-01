@@ -25,7 +25,7 @@
         <!-- partial:partials/_navbar.html -->
         <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row default-layout-navbar">
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-                <a class="navbar-brand brand-logo" href="https://www.youtube.com/channel/UCMWSlUcDJS00-5pmicciZ_w"><img src="{{asset('melody/images/logo.svg')}}"
+                <a class="navbar-brand brand-logo" ><img src="{{asset('melody/images/logo.svg')}}"
                         alt="logo" /></a>
                 <a class="navbar-brand brand-logo-mini" href="index-2.html"><img src="{{asset('melody/images/logo-mini.svg')}}"
                         alt="logo" /></a>
@@ -40,10 +40,10 @@
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">
-                                        <i class="fas fa-search"></i>
+                                        <i ></i>
                                     </span>
                                 </div>
-                                <input type="text" class="form-control" placeholder="Search" aria-label="Search">
+                                <input type="text" class="form-control" placeholder="" aria-label="Search">
                             </div>
                         </div>
                     </li>
@@ -52,10 +52,24 @@
                     @yield('create')
                     <li class="nav-item nav-profile dropdown">
                         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-                            <img src="{{asset('melody/images/faces/face16.jpg')}}" alt="profile" />
+                          <img src="../../melody/images/faces/face16.jpg" alt="profile"/>
                         </a>
-                       
-                    </li>
+                        <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
+
+                          <div class="dropdown-divider"></div>
+
+
+
+
+                          <a class="dropdown-item" href="#" >
+                            Cerrar sesion
+                        </a>
+
+
+
+
+                        </div>
+                      </li>
                     @yield('options')
                 </ul>
                 <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
@@ -71,14 +85,14 @@
                 <div id="settings-trigger"><i class="fas fa-fill-drip"></i></div>
                 <div id="theme-settings" class="settings-panel">
                     <i class="settings-close fa fa-times"></i>
-                    <p class="settings-heading">SIDEBAR SKINS</p>
+                    <p class="settings-heading">Colores</p>
                     <div class="sidebar-bg-options selected" id="sidebar-light-theme">
-                        <div class="img-ss rounded-circle bg-light border mr-3"></div>Light
+                        <div class="img-ss rounded-circle bg-light border mr-3"></div>Claro
                     </div>
                     <div class="sidebar-bg-options" id="sidebar-dark-theme">
-                        <div class="img-ss rounded-circle bg-dark border mr-3"></div>Dark
+                        <div class="img-ss rounded-circle bg-dark border mr-3"></div>Oscuro
                     </div>
-                    <p class="settings-heading mt-2">HEADER SKINS</p>
+                    <p class="settings-heading mt-2">Otros Colores</p>
                     <div class="color-tiles mx-0 px-4">
                         <div class="tiles primary"></div>
                         <div class="tiles success"></div>
@@ -101,7 +115,7 @@
                 <!-- partial:partials/_footer.html -->
                 <footer class="footer">
                     <div class="d-sm-flex justify-content-center justify-content-sm-between">
-                        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2021.
+                        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2022.
                             Todos los derechos reservados.</span>
                     </div>
                 </footer>

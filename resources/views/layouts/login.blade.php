@@ -7,7 +7,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Sistema Punto De Venta</title>
+  <title>Sistema Inventario Web</title>
   <!-- plugins:css -->
   {!! Html::style('melody/vendors/iconfonts/font-awesome/css/all.min.css') !!}
   {!! Html::style('melody/vendors/css/vendor.bundle.base.css') !!}
@@ -31,7 +31,7 @@
               <div class="brand-logo">
                 <img src="{{asset('melody/images/logo.svg')}}" alt="logo">
               </div>
-              <h4>Texvn Online</h4>
+              <h4>Pablito</h4>
               <h6 class="font-weight-light">Descripción de la empresa.</h6>
 
 
@@ -41,7 +41,7 @@
             </div>
           </div>
           <div class="col-lg-6 login-half-bg d-flex flex-row">
-            <p class="text-white font-weight-medium text-center flex-grow align-self-end">Copyright &copy; 2020 Todos los derechos reservados <a href="https://www.youtube.com/channel/UCMWSlUcDJS00-5pmicciZ_w">Texvn Online</a></p>
+            <p class="text-white font-weight-medium text-center flex-grow align-self-end">Copyright &copy; 2020 Todos los derechos reservados</p>
           </div>
         </div>
       </div>

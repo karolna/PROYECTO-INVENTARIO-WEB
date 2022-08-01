@@ -105,7 +105,7 @@
                             @if ($product->status == 'ACTIVO')
                             <a href="{{route('change.status.products', $product)}}" class="btn btn-success btn-block">Activo</a>
                             @else
-                            <a href="{{route('change.status.products', $product)}}" class="btn btn-danger btn-block">Desactivo</a>
+                            <a href="{{route('change.status.products', $product)}}" class="btn btn-danger btn-block">Inactivo</a>
                             @endif
                         </div>
                         <div class="col-lg-8 pl-lg-5">
@@ -118,16 +118,12 @@
                                 <div class="d-flex align-items-start profile-feed-item">
 
                                     <div class="form-group col-md-6">
-                                        <strong><i class="fab fa-product-hunt mr-1"></i> Código</strong>
-                                        <p class="text-muted">
-                                            {{$product->code}}
-                                        </p>
-                                        <hr>
+
                                         <strong><i class="fab fa-product-hunt mr-1"></i> Stock</strong>
                                         <p class="text-muted">
                                             {{$product->stock}}
                                         </p>
-                                        <hr>
+
                                     </div>
                                     <div class="form-group col-md-6">
                                         <strong>
@@ -136,9 +132,6 @@
                                         <p class="text-muted">
                                             {{$product->sell_price}}
                                         </p>
-                                        <hr>
-                                      
-                                        <hr>
                                         {{--  <strong><i class="fas fa-map-marked-alt mr-1"></i> Categoría</strong>
                                         <p class="text-muted">
                                             {{$product->category->name}}

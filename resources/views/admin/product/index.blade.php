@@ -54,7 +54,7 @@
                                 <tr>
                                     <th>Id</th>
                                     <th>Nombre</th>
-                                    <th>Stock</th>
+                                    <th>Cantidad</th>
                                     <th>Estado</th>
                                     <th>Categoría</th>
                                     <th>Acciones</th>
@@ -77,7 +77,7 @@
                                     @else
                                     <td>
                                         <a class="jsgrid-button btn btn-danger" href="{{route('change.status.products', $product)}}" title="Editar">
-                                            Desactivo <i class="fas fa-times"></i>
+                                        Inactivo <i class="fas fa-times"></i>
                                         </a>
                                     </td>
                                     @endif

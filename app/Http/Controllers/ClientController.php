@@ -49,6 +49,7 @@ class ClientController extends Controller
     {
         return view('admin.client.edit', compact('client'));
     }
+
     public function update(UpdateRequest $request, Client $client)
     {
         $client->update($request->all());

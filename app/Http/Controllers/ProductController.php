@@ -11,19 +11,7 @@ use App\Provider;
 use Barryvdh\DomPDF\Facade as PDF;
 class ProductController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-       // $this->middleware('can:product.create')->only(['create','store']);
-       // $this->middleware('can:product.index')->only(['index']);
-       // $this->middleware('can:product.edit')->only(['edit','update']);
-       // $this->middleware('can:product.show')->only(['show']);
-       // $this->middleware('can:product.destroy')->only(['destroy']);
 
-       // $this->middleware('can:change.status.products')->only(['change_status']);
-
-
-    }
 
     public function index()
     {
@@ -92,10 +80,10 @@ class ProductController extends Controller
     public function change_status(Product $product)
     {
         if ($product->status == 'ACTIVO') {
-            $product->update(['status'=>'DESACTIVO']);
+            $product->update(['status'=>'INACTIVO']);
             return redirect()->back();
         }
-        if ($product->status == 'DESACTIVO') {
+        if ($product->status == 'INACTIVO') {
             $product->update(['status'=>'ACTIVO']);
             return redirect()->back();
         }

@@ -57,6 +57,12 @@
                 <span class="menu-title">Productos</span>
             </a>
         </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{route('reserve.index')}}">
+                <i class="fas fa-boxes menu-icon"></i>
+                <span class="menu-title">Reservas</span>
+            </a>
+        </li>
         <li class="nav-item">
             <a class="nav-link" href="{{route('clients.index')}}">
                 <i class="fas fa-users menu-icon"></i>

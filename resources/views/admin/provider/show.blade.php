@@ -40,10 +40,8 @@
                                     <button type="button" class="list-group-item list-group-item-action active">
                                         Sobre proveedor
                                     </button>
-                                    <button type="button"
-                                        class="list-group-item list-group-item-action">Productos</button>
-                                    <button type="button" class="list-group-item list-group-item-action">Registrar
-                                        producto</button>
+
+
                                 </div>
                             </div>
                         </div>
@@ -56,7 +54,7 @@
                             <div class="profile-feed">
                                 <div class="d-flex align-items-start profile-feed-item">
 
-                                   
+
 
                                     <div class="form-group col-md-6">
                                         <strong><i class="fab fa-product-hunt mr-1"></i> Nombre</strong>

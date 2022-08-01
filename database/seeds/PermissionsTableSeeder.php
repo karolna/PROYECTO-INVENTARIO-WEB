@@ -28,19 +28,19 @@ class PermissionsTableSeeder extends Seeder
         Permission::create([
             'name'          => 'Ver detalle de usuario',
             'slug'          => 'users.show',
-            'description'   => 'Ve en detalle cada usuario del sistema',            
+            'description'   => 'Ve en detalle cada usuario del sistema',
         ]);
-        
+
         Permission::create([
             'name'          => 'Edición de usuarios',
             'slug'          => 'users.edit',
             'description'   => 'Podría editar cualquier dato de un usuario del sistema',
         ]);
-        
+
         Permission::create([
             'name'          => 'Eliminar usuario',
             'slug'          => 'users.destroy',
-            'description'   => 'Podría eliminar cualquier usuario del sistema',      
+            'description'   => 'Podría eliminar cualquier usuario del sistema',
         ]);
 
         //Roles
@@ -53,25 +53,25 @@ class PermissionsTableSeeder extends Seeder
         Permission::create([
             'name'          => 'Ver detalle de un rol',
             'slug'          => 'roles.show',
-            'description'   => 'Ve en detalle cada rol del sistema',            
+            'description'   => 'Ve en detalle cada rol del sistema',
         ]);
-        
+
         Permission::create([
             'name'          => 'Creación de roles',
             'slug'          => 'roles.create',
             'description'   => 'Podría crear nuevos roles en el sistema',
         ]);
-        
+
         Permission::create([
             'name'          => 'Edición de roles',
             'slug'          => 'roles.edit',
             'description'   => 'Podría editar cualquier dato de un rol del sistema',
         ]);
-        
+
         Permission::create([
             'name'          => 'Eliminar roles',
             'slug'          => 'roles.destroy',
-            'description'   => 'Podría eliminar cualquier rol del sistema',      
+            'description'   => 'Podría eliminar cualquier rol del sistema',
         ]);
 
 
@@ -102,7 +102,7 @@ class PermissionsTableSeeder extends Seeder
             'description'=>'Eliminar cualquier dato de una categoría del sistema.',
         ]);
 
-        
+
         Permission::create([
             'name'=>'Navegar por clientes',
             'slug'=>'clients.index',
@@ -129,7 +129,7 @@ class PermissionsTableSeeder extends Seeder
             'description'=>'Eliminar cualquier dato de un cliente del sistema.',
         ]);
 
-          
+
 
         Permission::create([
             'name'=>'Navegar por productos',
@@ -158,7 +158,7 @@ class PermissionsTableSeeder extends Seeder
         ]);
 
 
-           
+
         Permission::create([
             'name'=>'Navegar por proveedores',
             'slug'=>'providers.index',
@@ -185,7 +185,7 @@ class PermissionsTableSeeder extends Seeder
             'description'=>'Eliminar cualquier dato de un proveedor del sistema.',
         ]);
 
-        
+
         Permission::create([
             'name'=>'Navegar por compras',
             'slug'=>'purchases.index',
@@ -202,7 +202,7 @@ class PermissionsTableSeeder extends Seeder
             'description'=>'Crea cualquier dato de un compra del sistema.',
         ]);
 
-         
+
         Permission::create([
             'name'=>'Navegar por ventas',
             'slug'=>'sales.index',
@@ -297,6 +297,16 @@ class PermissionsTableSeeder extends Seeder
             'name'=>'Reporte por fechas',
             'slug'=>'reports.date',
             'description'=>'Permite ver los reportes por un rango de fechas de las ventas.',
+        ]);
+        Permission::create([
+            'name'=>'Reporte por fechas',
+            'slug'=>'index.date',
+            'description'=>'Permite ver los reportes por un rango de fechas de las ventas.',
+        ]);
+        Permission::create([
+            'name'=>'Reporte por día',
+            'slug'=>'index.day',
+            'description'=>'Permite ver los reportes de ventas por día.',
         ]);
 
     }

@@ -23,7 +23,7 @@
         <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    
+
                     <div class="d-flex justify-content-between">
                         <h4 class="card-title">Edición de producto</h4>
                     </div>
@@ -36,7 +36,7 @@
                       <input type="text" name="name" id="name" value="{{$product->name}}" class="form-control" aria-describedby="helpId" required>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group" style="display:none" >
                         <label for="code">Código de barras</label>
                         <input type="text" name="code" id="code" value="{{$product->code}}" class="form-control">
                         <small id="helpId" class="text-muted">Campo opcional</small>
@@ -50,7 +50,7 @@
                       <label for="category_id">Categoría</label>
                       <select class="form-control" name="category_id" id="category_id">
                         @foreach ($categories as $category)
-                        <option value="{{$category->id}}" 
+                        <option value="{{$category->id}}"
                             @if ($category->id == $product->category_id)
                             selected
                             @endif
@@ -78,7 +78,7 @@
                     </div>  --}}
 
 
-                   
+
                     <div class="card-body">
                         <h4 class="card-title d-flex">Imagen de producto
                           <small class="ml-auto align-self-end">

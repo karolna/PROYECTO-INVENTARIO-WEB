@@ -35,7 +35,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    
+
 
                     <div class="d-flex justify-content-between">
                         <h4 class="card-title">Productos de la categoría {{$category->name}}</h4>
@@ -46,7 +46,7 @@
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">
                               <a href="{{route('products.create')}}" class="dropdown-item">Agregar</a>
-                              <a class="dropdown-item" href="{{route('print_barcode')}}">Exportar códigos de barras</a> 
+                              <a class="dropdown-item" href="{{route('print_barcode')}}">Exportar códigos de barras</a>
                               {{--  <button class="dropdown-item" type="button">Another action</button>
                               <button class="dropdown-item" type="button">Something else here</button>  --}}
                             </div>
@@ -59,7 +59,7 @@
                                 <tr>
                                     <th>Id</th>
                                     <th>Nombre</th>
-                                    <th>Stock</th>
+                                    <th>Cantidad</th>
                                     <th>Estado</th>
                                     <th>Categoría</th>
                                     <th>Acciones</th>
@@ -86,7 +86,7 @@
                                         </a>
                                     </td>
                                     @endif
-                                    
+
 
                                     <td>{{$product->category->name}}</td>
                                     <td style="width: 50px;">
@@ -95,7 +95,7 @@
                                         <a class="jsgrid-button jsgrid-edit-button" href="{{route('products.edit', $product)}}" title="Editar">
                                             <i class="far fa-edit"></i>
                                         </a>
-                                        
+
                                         <button class="jsgrid-button jsgrid-delete-button unstyled-button" type="submit" title="Eliminar">
                                             <i class="far fa-trash-alt"></i>
                                         </button>

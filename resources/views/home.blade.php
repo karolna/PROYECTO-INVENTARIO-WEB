@@ -49,7 +49,7 @@
                                 <tr>
                                     <th scope="col">ID</th>
                                     <th>Nombre</th>
-                                    <th>Stock</th>
+                                    <th>Cantidad</th>
                                     <th>Cantidad vendida</th>
                                     <th>Ver detalles</th>
                                 </tr>

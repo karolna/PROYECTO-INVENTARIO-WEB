@@ -1,0 +1,16 @@
+name: Laravel
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  laravel-tests:
+
+    runs-on: self-hosted
+
+    steps:
+    - name: Moverse al directorio
+    - run: cd ~/PROYECTO-INVENTARIO-WEB
+    - name: Descargar los cambios del repo
+    - run: git pull

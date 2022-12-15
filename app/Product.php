@@ -24,10 +24,10 @@ class Product extends Model
         return $this->belongsTo(Provider::class);
     }
     public function saleDetails(){
-        return $this->hasMany(saleDetail::class);
+        return $this->hasMany(SaleDetail::class);
     }
     public function reserve(){
-        return $this->hasMany(reserve::class);
+        return $this->hasMany(Reserve::class);
     }
 
 }

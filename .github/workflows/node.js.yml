@@ -18,6 +18,5 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-    - run: |
-        cd ~/PROYECTO-INVENTARIO-WEB
-        git pull
+    - run: cd ~/PROYECTO-INVENTARIO-WEB
+    - run: git pull

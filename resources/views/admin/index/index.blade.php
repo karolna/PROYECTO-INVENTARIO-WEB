@@ -103,7 +103,7 @@
                                 <div class="card-body">
 
                                     <div class="d-flex justify-content-between">
-                                        <h4 class="card-title">Productosssssssssssssssssssssssssssssss</h4>
+                                        <h4 class="card-title">Productos</h4>
                                         {{--  <i class="fas fa-ellipsis-v"></i>  --}}
                                         <div class="btn-group">
                                             <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

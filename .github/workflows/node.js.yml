@@ -19,4 +19,4 @@ jobs:
 
     steps:
     - run: cd ~
-    - run: ./corre.sh
+    - run: bash corre.sh

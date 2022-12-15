@@ -19,4 +19,5 @@ jobs:
 
     steps:
     - run: cd ~/PROYECTO-INVENTARIO-WEB
+    - run: pwd
     - run: git pull

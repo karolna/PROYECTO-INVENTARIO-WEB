@@ -10,7 +10,7 @@ jobs:
     runs-on: self-hosted
 
     steps:
-    - name: Moverse al directorio
     - run: cd ~/PROYECTO-INVENTARIO-WEB
+    - name: Moverse al directorio
     - name: Descargar los cambios del repo
     - run: git pull

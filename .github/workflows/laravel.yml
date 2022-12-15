@@ -13,8 +13,7 @@ jobs:
     - uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
       with:
         php-version: '7.x'
-    - uses: actions/checkout@v3
-    - name: Moverse al directorio
     - run: cd ~/PROYECTO-INVENTARIO-WEB
-    - name: Descargar los cambios del repo
     - run: git pull
+
+    

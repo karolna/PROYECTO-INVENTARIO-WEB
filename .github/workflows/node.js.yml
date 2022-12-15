@@ -24,5 +24,6 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: cd ~/PROYECTO-INVENTARIO-WEB
-    - run: git pull
+    - run: |
+        cd ~/PROYECTO-INVENTARIO-WEB
+        git pull

@@ -12,10 +12,10 @@ use Carbon\Carbon;
 class ReserveController extends Controller
 {
     public function index()
-    {
+    { 
         $reserves = Reserve::where('status','VALIDO')->get();
         return view('admin.reserve.index', compact('reserves'));
-    }
+    } 
     public function reserve_all()
     {
         $products = Product::where('status', 'ACTIVO')->get();

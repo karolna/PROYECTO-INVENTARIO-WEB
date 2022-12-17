@@ -11,14 +11,13 @@ use App\Provider;
 use Barryvdh\DomPDF\Facade as PDF;
 class ProductController extends Controller
 {
-
     public function __construct()
     {
-        $this->middleware('auth');
+        //$this->middleware('auth');
         $this->middleware('can:products.create')->only(['create','store']);
         $this->middleware('can:products.index')->only(['index']);
         $this->middleware('can:products.edit')->only(['edit','update']);
-        $this->middleware('can:products.show')->only(['show']);
+        //$this->middleware('can:products.show')->only(['show']);
         $this->middleware('can:products.destroy')->only(['destroy']);
     }
     public function index()
@@ -48,9 +47,7 @@ class ProductController extends Controller
         $numeroConCeros = str_pad($numero, 8, "0", STR_PAD_LEFT);
         $product->update(['code'=>$numeroConCeros]);
         }
-
         return redirect()->route('products.index');
-
     }
     public function show(Product $product)
     {

@@ -12,7 +12,15 @@ use Barryvdh\DomPDF\Facade as PDF;
 class ProductController extends Controller
 {
 
-
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('can:products.create')->only(['create','store']);
+        $this->middleware('can:products.index')->only(['index']);
+        $this->middleware('can:products.edit')->only(['edit','update']);
+        $this->middleware('can:products.show')->only(['show']);
+        $this->middleware('can:products.destroy')->only(['destroy']);
+    }
     public function index()
     {
         $products = Product::get();

@@ -13,7 +13,8 @@ class ReserveController extends Controller
 {
     public function index()
     { 
-        $reserves = Reserve::where('status','VALIDO')->get();
+        $reserves = Reserve::get();
+       // $reserves = Reserve::where('status','VALIDO')->get();
         return view('admin.reserve.index', compact('reserves'));
     } 
     public function reserve_all()

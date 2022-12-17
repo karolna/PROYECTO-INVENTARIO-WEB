@@ -14,11 +14,11 @@ class RoleController extends Controller
     {
         $this->middleware('auth');
 
-       // $this->middleware('can:roles.create')->only(['create','store']);
-       // $this->middleware('can:roles.index')->only(['index']);
-        //$this->middleware('can:roles.edit')->only(['edit','update']);
-        //$this->middleware('can:roles.show')->only(['show']);
-        //$this->middleware('can:roles.destroy')->only(['destroy']);
+        $this->middleware('can:roles.create')->only(['create','store']);
+        $this->middleware('can:roles.index')->only(['index']);
+        $this->middleware('can:roles.edit')->only(['edit','update']);
+        $this->middleware('can:roles.show')->only(['show']);
+        $this->middleware('can:roles.destroy')->only(['destroy']);
     }
 
     public function index()

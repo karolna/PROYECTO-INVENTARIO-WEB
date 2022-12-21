@@ -61,9 +61,12 @@
 
 
 
-                          <a class="dropdown-item" href="#" >
-                            Cerrar sesion
-                        </a>
+                          @auth
+                         <form action="/logout" method="POST">
+                            @csrf
+                            <button class="dropdown-item" href="#">Cerrar sesion</button>
+                         </form>
+                        @endauth
 
 
 

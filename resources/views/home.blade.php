@@ -27,7 +27,7 @@
             <div class="card-body">
                 <h4 class="card-title">
                     <i class="fas fa-gift"></i>
-                    Ventas diarias
+                    Ventas diarias de Productos
                 </h4>
                 <canvas id="ventas_diarias" height="100"></canvas>
                 <div id="orders-chart-legend" class="orders-chart-legend"></div>

@@ -11,7 +11,7 @@ class CategoryController extends Controller
 {
     public function __construct()
     {
-       $this->middleware('auth');
+      // $this->middleware('auth');
         $this->middleware('can:categories.create')->only(['create','store']);
         $this->middleware('can:categories.index')->only(['index']);
         $this->middleware('can:categories.edit')->only(['edit','update']);

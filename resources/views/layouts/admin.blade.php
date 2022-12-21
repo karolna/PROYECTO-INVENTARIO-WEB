@@ -64,7 +64,7 @@
                           @auth
                          <form action="/logout" method="POST">
                             @csrf
-                            <button class="dropdown-item" href="#">Cerrar sesion</button>
+                            <button >Cerrar sesion</button>
                          </form>
                         @endauth
 

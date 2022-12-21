@@ -62,10 +62,9 @@
 
 
                           @auth
-                         <form action="/logout" method="POST">
-                            @csrf
-                            <button >Cerrar sesion</button>
-                         </form>
+                       
+                         <a href="{{ route('login') }}">Cerrar Sesión</a>
+                     
                         @endauth
 
 

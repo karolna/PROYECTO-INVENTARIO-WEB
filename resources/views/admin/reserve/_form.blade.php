@@ -8,19 +8,19 @@
     <div class="form-group col-md-3">
         <div class="form-group">
             <label for="name">Nombre</label>
-            <input type="text" class="form-control" name="name" id="name" aria-describedby="helpId" required pattern="[A-Za-z]{5,40}"  max="40" min="6" title="Letras. Tamaño mínimo: 5. Tamaño máximo: 40">
+            <input type="text" class="form-control" name="name" id="name" aria-describedby="helpId" required pattern="[A-Za-z]{5,40}"  max-length="40" min-length="6" title="Letras. Tamaño mínimo: 5. Tamaño máximo: 40">
         </div>
     </div>
     <div class="form-group col-md-3 ">
         <div class="form-group">
             <label for="phone">Telefono</label>
-            <input type="number" class="form-control" name="phone" id="phone" aria-describedby="helpId" max="10" min="9" required  max="40" min="6" title="Números. Tamaño mínimo: 9. Tamaño máximo: 10">
+            <input type="number" class="form-control" name="phone" id="phone" aria-describedby="helpId" max-length="10" min-length="9" required  max="40" min="6" title="Números. Tamaño mínimo: 9. Tamaño máximo: 10">
         </div>
     </div>
     <div class="form-group col-md-3">
         <div class="form-group">
             <label for="dni">CÉDULA</label>
-            <input type="number" class="form-control" name="dni" id="dni" aria-describedby="helpId" required max="10" min="10" title="Números. Tamaño: 10">
+            <input type="number" class="form-control" name="dni" id="dni" aria-describedby="helpId" required max-length="10" min-length="10" title="Números. Tamaño: 10">
 
         </div>
     </div>

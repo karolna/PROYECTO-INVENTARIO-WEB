@@ -55,10 +55,10 @@
                             <thead>
                                 <tr>
                                     <th>Fecha</th>
-                                    <th>Cedula</th>
+                                    <th>Cédula</th>
                                     <th>Nombre</th>
                                     <th>Celular</th>
-                                    <th>Cantidad Reservada</th>
+                                    <th>Cant. Reservada</th>
                                     <th>Producto</th>
                                     <th>Estado</th>
                                       </tr>

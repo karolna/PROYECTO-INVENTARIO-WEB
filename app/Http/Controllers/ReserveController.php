@@ -28,7 +28,7 @@ class ReserveController extends Controller
        // $reserves = Reserve::where('status','VALIDO')->get();
        //$reserves =Reserve::where('status','VALIDO')->get();
        $reserves=Reserve::whereDate('reserve_date', '>=', Carbon::today()->toDateString());
-       dd(Carbon::now()->subDay());
+       dd(Carbon::now());
 
         return view('admin.reserve.index', compact('reserves'));
     }

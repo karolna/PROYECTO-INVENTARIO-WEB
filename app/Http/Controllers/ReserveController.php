@@ -24,12 +24,11 @@ class ReserveController extends Controller
     }
     public function index()
     {
-        $reserves = Reserve::get();
-        dd($reserves);
-        // $reserves = Reserve::where('status','VALIDO')->get();
+        //$reserves = Reserve::get();
+       // $reserves = Reserve::where('status','VALIDO')->get();
        //$reserves =Reserve::where('status','VALIDO')->get();
-      // $reserves=Reserve::whereDate('created_at', '<=', Carbon::now()->toDateTimeString())
-       //->whereDate('created_at', '>=',Carbon::now()->subDay()->toDateTimeString())->get();
+       $reserves=Reserve::whereDate('created_at', '<=', Carbon::now()->toDateTimeString())
+       ->whereDate('created_at', '>=',Carbon::now()->subDay()->toDateTimeString())->get();
      // dd(Carbon::now()->subDay()->toDateTimeString(), Carbon::now()->toDateTimeString());
      // dd($reserves);
       // $reserves=Reserve::whereBetween('created_at', [Carbon::now()->subDay()->toDateTimeString(),Carbon::now()->toDateTimeString()])->get();

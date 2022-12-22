@@ -7,7 +7,9 @@ use App\Product;
 use Illuminate\Http\Request;
 use App\Http\Requests\Reserve\StoreRequest;
 use App\Http\Requests\Reserve\UpdateRequest;
-use Carbon\Carbon;
+use Illuminate\Support\Carbon;
+
+//use Carbon\Carbon;
 
 class ReserveController extends Controller
 {
@@ -21,11 +23,15 @@ class ReserveController extends Controller
        // $this->middleware('can:reserve.destroy')->only(['destroy']);
     }
     public function index()
-    { 
-        $reserves = Reserve::get();
+    {
+        //$reserves = Reserve::get();
        // $reserves = Reserve::where('status','VALIDO')->get();
+       //$reserves =Reserve::where('status','VALIDO')->get();
+       $reserves=Reserve::whereDate('reserve_date', '>=', Carbon::today()->toDateString());
+       dd(Carbon::today()->toDateString());
+
         return view('admin.reserve.index', compact('reserves'));
-    } 
+    }
     public function reserve_all()
     {
         $products = Product::where('status', 'ACTIVO')->get();

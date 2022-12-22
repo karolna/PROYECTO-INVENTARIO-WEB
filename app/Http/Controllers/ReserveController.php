@@ -27,9 +27,9 @@ class ReserveController extends Controller
         //$reserves = Reserve::get();
        // $reserves = Reserve::where('status','VALIDO')->get();
        //$reserves =Reserve::where('status','VALIDO')->get();
-       $reserves=Reserve::whereDate('reserve_date', '<=', Carbon::today()->toDateTimeString())
-       ->whereDate('reserve_date', '>=',Carbon::now()->subDay()->toDateTimeString())->get();
-       dd(Carbon::now()->subDay()->toDateTimeString(), Carbon::today()->toDateTimeString());
+       $reserves=Reserve::whereDate('created_at', '<=', Carbon::now()->toDateTimeString())
+       ->whereDate('created_at', '>=',Carbon::now()->subDay()->toDateTimeString())->get();
+       dd(Carbon::now()->subDay()->toDateTimeString(), Carbon::now()->toDateTimeString());
 
        //$reserves=Reserve::whereBetween('created_at', [Carbon::now()->subDay()->toDateString(), Carbon::today()->toDateString()])->get();
       //($reserves);

@@ -19,5 +19,6 @@ jobs:
 
     steps:
     - run: |
-        cd ~
-        bash corre.sh
+        cd ~/PROYECTO-INVENTARIO-WEB
+        git pull
+        

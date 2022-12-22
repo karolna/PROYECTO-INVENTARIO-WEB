@@ -8,19 +8,19 @@
     <div class="form-group col-md-3">
         <div class="form-group">
             <label for="name">Nombre</label>
-            <input type="text" class="form-control" name="name" id="name" aria-describedby="helpId">
+            <input type="text" class="form-control" name="name" id="name" aria-describedby="helpId" required pattern="[A-Za-z]{5,40}">
         </div>
     </div>
-    <div class="form-group col-md-3">
+    <div class="form-group col-md-3 ">
         <div class="form-group">
             <label for="phone">Telefono</label>
-            <input type="text" class="form-control" name="phone" id="phone" aria-describedby="helpId">
+            <input type="text" class="form-control" name="phone" id="phone" aria-describedby="helpId" required pattern="[0-9]{9,10}">
         </div>
     </div>
     <div class="form-group col-md-3">
         <div class="form-group">
             <label for="dni">CÉDULA</label>
-            <input type="number" class="form-control" name="dni" id="dni" aria-describedby="helpId" required>
+            <input type="number" class="form-control" name="dni" id="dni" aria-describedby="helpId" required pattern="[0-9]{10}">
 
         </div>
     </div>
@@ -46,19 +46,19 @@
     <div class="form-group col-md-2">
         <div class="form-group">
             <label for="">Cantidad actual</label>
-            <input type="text" name="" id="stock" value="" class="form-control" disabled>
+            <input type="text" name="" id="stock" value="" class="form-control" disabled required>
           </div>
     </div>
     <div class="form-group col-md-2">
         <div class="form-group">
             <label for="price">Precio(sin imp)</label>
-            <input type="text" class="form-control" name="price" id="price" aria-describedby="helpId" disabled>
+            <input type="text" class="form-control" name="price" id="price" aria-describedby="helpId" disabled >
         </div>
     </div>
     <div class="form-group col-md-2">
         <div class="form-group">
             <label for="quantity">Cantidad</label>
-            <input type="number" class="form-control" name="quantity" id="quantity" aria-describedby="helpId">
+            <input type="number" class="form-control" name="quantity" id="quantity" aria-describedby="helpId" required>
             <button type="button" class="agregar btn btn-light float-right">Validar cantidad</button>
 
         </div>

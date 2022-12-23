@@ -45,7 +45,7 @@
     </div>
     <div class="form-group col-md-2">
         <div class="form-group">
-            <label for="">Cantidad actual</label>
+            <label for="">Cantidad Permitida</label>
             <input type="text" name="" id="stock" value="" class="form-control" disabled required>
           </div>
     </div>
@@ -58,7 +58,7 @@
     <div class="form-group col-md-2">
         <div class="form-group">
             <label for="quantity">Cantidad</label>
-            <input type="number" class="form-control" name="quantity" id="quantity" min="1" max="{{$product->stock }}" placeholder="{{$product->stock }}" aria-describedby="helpId" required title="Permitidos números">
+            <input type="number" class="form-control" name="quantity" id="quantity" min="1"  aria-describedby="helpId" required title="Permitidos números">
 
 
         </div>

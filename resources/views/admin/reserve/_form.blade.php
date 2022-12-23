@@ -14,7 +14,7 @@
     <div class="form-group col-md-3 ">
         <div class="form-group">
             <label for="phone">Telefono</label>
-            <input type="number" class="form-control" name="phone" id="phone" aria-describedby="helpId" max-length="10" min-length="9" required  max="40" min="6" title="Números. Tamaño mínimo: 9. Tamaño máximo: 10">
+            <input type="text" class="form-control" name="phone" id="phone" aria-describedby="helpId" max-length="10" min-length="9" required  max="40" min="6" title="Números. Tamaño mínimo: 9. Tamaño máximo: 10">
         </div>
     </div>
     <div class="form-group col-md-3">

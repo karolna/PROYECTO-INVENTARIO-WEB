@@ -57,7 +57,7 @@
                         <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
 
                           <div class="dropdown-divider"></div>
-                          <form style="display: inline" action="sistema/logout" method="POST">
+                          <form style="display: inline" action="/logout" method="POST">
                           @auth
                           @csrf
                           <a href="#" onclick="this.closest('form').submit()">Cerrar Sesión</a>

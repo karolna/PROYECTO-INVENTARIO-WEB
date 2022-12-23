@@ -58,7 +58,7 @@
     <div class="form-group col-md-2">
         <div class="form-group">
             <label for="quantity">Cantidad</label>
-            <input type="number" class="form-control" name="quantity" id="quantity" min="1" max="{{$product->stock }}" aria-describedby="helpId" required title="Permitidos números">
+            <input type="number" class="form-control" name="quantity" id="quantity" min="1" max-length="{{$product->stock }}" aria-describedby="helpId" required title="Permitidos números">
 
 
         </div>

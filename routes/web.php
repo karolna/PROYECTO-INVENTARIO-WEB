@@ -88,5 +88,5 @@ Route::get('/barcode', function () {
 // Auth::routes();
 Auth::routes(['register' => true]);
 Route::get('/home', 'HomeController@index')->name('home');
-//Route::post('logout', [LoginController::class, 'logout']);
-Route::resource('sistema/logout', 'LoginController')->names('logout');
+Route::post('logout', [LoginController::class, 'logout']);
+//Route::resource('sistema/logout', 'LoginController')->names('logout');

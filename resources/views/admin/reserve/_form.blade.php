@@ -13,13 +13,13 @@
     </div>
     <div class="form-group col-md-3 ">
         <div class="form-group">
-            <label for="phone">Telefono</label>
-            <input type="text" class="form-control" name="phone" id="phone" aria-describedby="helpId" max-length="10" min-length="9" required  max="40" min="6" title="Números. Tamaño mínimo: 9. Tamaño máximo: 10">
+            <label for="phone">Teléfono</label>
+            <input type="number" class="form-control" name="phone" id="phone" aria-describedby="helpId" max-length="10" min-length="9" required  title="Números. Tamaño mínimo: 9. Tamaño máximo: 10">
         </div>
     </div>
     <div class="form-group col-md-3">
         <div class="form-group">
-            <label for="dni">CÉDULA</label>
+            <label for="dni">Cédula</label>
             <input type="number" class="form-control" name="dni" id="dni" aria-describedby="helpId" required max-length="10" min-length="10" title="Números. Tamaño: 10">
 
         </div>

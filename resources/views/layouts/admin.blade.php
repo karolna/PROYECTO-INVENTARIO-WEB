@@ -57,16 +57,12 @@
                         <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
 
                           <div class="dropdown-divider"></div>
-
-
-
-
+                          <form style="display: inline" action="/logout" method="POST">
                           @auth
-                       
-                         <a href="{{ route('login') }}">Cerrar Sesión</a>
-                     
-                        @endauth
+                          <a href="#" onclick="this.closest('form').submit()">Cerrar Sesión</a>
 
+                        @endauth
+                    </form>
 
 
 

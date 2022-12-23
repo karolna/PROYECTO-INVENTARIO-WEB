@@ -41,6 +41,6 @@ class LoginController extends Controller
     }
     public function logout()
     {
-        return 'hello';
+        Auth::logout();
     }
 }

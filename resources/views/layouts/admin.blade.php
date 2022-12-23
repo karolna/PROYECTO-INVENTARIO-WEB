@@ -59,7 +59,7 @@
                           <div class="dropdown-divider"></div>
                           <form style="display: inline" action="/logout" method="POST">
                           @auth
-                          <a href="#" onclick="this.closest('form').submit()">Cerrars Sesión</a>
+                          <a href="#" onclick="this.closest('form').submit()">Cerrar Sesión</a>
 
                         @endauth
                     </form>

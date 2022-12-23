@@ -58,8 +58,8 @@
     <div class="form-group col-md-2">
         <div class="form-group">
             <label for="quantity">Cantidad</label>
-            <input type="number" class="form-control" name="quantity" id="quantity" min="1" aria-describedby="helpId" required title="Permitidos números">
-            <button type="button" class="agregar btn btn-light float-right">Validar cantidad</button>
+            <input type="number" class="form-control" name="quantity" id="quantity" min="1" max="{{$product->stock }}" aria-describedby="helpId" required title="Permitidos números">
+
 
         </div>
     </div>

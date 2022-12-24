@@ -174,6 +174,7 @@
                     }
                 }
             });
+            console.log(charVenta);
             var varVenta=document.getElementById('ventas_diarias').getContext('2d');
             var charVenta = new Chart(varVenta, {
                 type: 'bar',

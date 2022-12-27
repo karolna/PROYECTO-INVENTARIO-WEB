@@ -17,6 +17,7 @@ class CategoryController extends Controller
         $this->middleware('can:categories.edit')->only(['edit','update']);
         $this->middleware('can:categories.show')->only(['show']);
         $this->middleware('can:categories.destroy')->only(['destroy']);
+        $this->middleware('can:categories.delete')->only(['destroy']);
     }
     public function index()
     {

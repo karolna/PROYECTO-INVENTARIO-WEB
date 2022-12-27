@@ -81,6 +81,11 @@ class PermissionsTableSeeder extends Seeder
             'slug'=>'categories.index',
             'description'=>'Lista y navega por todos los categorías del sistema.',
         ]);
+        Permission::deleteUpdate([
+            'name'=>'Eliminar categorías',
+            'slug'=>'categories.delete',
+            'description'=>'Elimina categorias de productos.',
+        ]);
         Permission::create([
             'name'=>'Ver detalle de categoría',
             'slug'=>'categories.show',

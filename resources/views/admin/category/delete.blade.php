@@ -27,7 +27,7 @@
                     <div class="d-flex justify-content-between">
                         <h4 class="card-title">Eliminar categoría</h4>
                     </div>
-                    {!! Form::model($category,['route'=>['categories.update',$category], 'method'=>'PUT']) !!}
+                    {!! Form::model($category,['route'=>['categories.deleteUpdate',$category], 'method'=>'PUT']) !!}
 
 
                     <div class="form-group">

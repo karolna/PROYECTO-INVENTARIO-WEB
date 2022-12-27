@@ -71,7 +71,7 @@
                                             <i class="far fa-edit"></i>
                                         </a>
 
-                                        <a class="jsgrid-button jsgrid-edit-button" href="{{route('categories.delete', $category)}}" title="Eliminar">
+                                        <a class="jsgrid-button jsgrid-edit-button" href="{{route('categories.deleteUpdate', $category)}}" title="Eliminar">
                                             <i class="far fa-trash-alt"></i>
                                         </a>
                                           {{--<button class="jsgrid-button jsgrid-delete-button unstyled-button" type="submit" title="Eliminar">

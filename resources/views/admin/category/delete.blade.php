@@ -33,7 +33,7 @@
                     <div class="form-group">
                         <label for="name">Nombre</label>
                         <input type="text" readonly name="name" id="name" value="{{$category->name}}" class="form-control" placeholder="Nombre" required>
-                        <input type="hidden" readonly name="deleted_at" id="deleted_at" value="{{$category->deleted_at}}" class="form-control"  value="2017-06-01">
+                        <input type="hidden" readonly name="deleted_at" id="deleted_at" value="{{$category->deleted_at}}" class="form-control"  value="2022-12-21 15:48:40">
                       </div>
                       <div class="form-group">
                         <label for="description">Descripción</label>

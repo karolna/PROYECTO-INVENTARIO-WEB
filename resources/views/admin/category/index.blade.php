@@ -70,6 +70,10 @@
                                         <a class="jsgrid-button jsgrid-edit-button" href="{{route('categories.edit', $category)}}" title="Editar">
                                             <i class="far fa-edit"></i>
                                         </a>
+
+                                        <a class="jsgrid-button jsgrid-edit-button" href="{{route('categories.edit', $category)}}" title="Eliminar">
+                                            <i class="far fa-trash"></i>
+                                        </a>
                                           {{--<button class="jsgrid-button jsgrid-delete-button unstyled-button" type="submit" title="Eliminar">
                                          <i class="far fa-trash-alt"></i>
                                         </button>--}}

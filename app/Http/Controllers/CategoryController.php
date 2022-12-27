@@ -45,6 +45,11 @@ class CategoryController extends Controller
         $category->update($request->all());
         return redirect()->route('categories.index');
     }
+    public function delete(UpdateRequest $request, Category $category)
+    {
+        $category->update($request->all());
+        return redirect()->route('categories.index');
+    }
     public function destroy(Category $category)
     {
         $category->delete();

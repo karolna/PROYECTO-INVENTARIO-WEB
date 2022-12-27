@@ -88,5 +88,11 @@
                 <span class="menu-title">Roles</span>
             </a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ url('/') }}">
+                <i class="fas fa-user-cog menu-icon"></i>
+                <span class="menu-title">Catálogo</span>
+            </a>
+        </li>
     </ul>
 </nav>

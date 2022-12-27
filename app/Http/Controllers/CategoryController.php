@@ -20,7 +20,7 @@ class CategoryController extends Controller
     }
     public function index()
     {
-        $categories = Category::get();
+        $categories = Category::where('deleted_at', NULL)->get();
         return view('admin.category.index', compact('categories'));
     }
     public function create()

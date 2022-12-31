@@ -30,18 +30,11 @@
 
 
                 @include('layouts._navinfo')
-                @include('layouts._banners')
 		<div class="content-wrapper">
         <div class="page-header">
             <h3 class="page-title">
             </h3>
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">Panel administrador</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('reserve.index') }}">Ventas</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Registro de venta</li>
-                </ol>
-            </nav>
+
         </div>
         <div class="row">
             <div class="col-lg-12 grid-margin stretch-card">

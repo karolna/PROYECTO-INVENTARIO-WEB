@@ -69,6 +69,9 @@
                           <li class="nav-item ">
                             <a class="nav-link" href="{{ route('index.defensas') }}">Defensas</a>
                           </li>
+                          <li class="nav-item ">
+                            <a class="nav-link" href="{{ route('index.aros') }}">Aros</a>
+                          </li>
 
                       </ul>
                     </div>

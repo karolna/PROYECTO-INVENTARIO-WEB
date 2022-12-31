@@ -53,12 +53,13 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
                       <ul class="navbar-nav">
-                        <li class="nav-item ">
-                          <a class="nav-link" href="{{ route('index.reencauchadas') }}">Llantas reencauchadas <span class="sr-only">(current)</span></a>
-                        </li>
+
 
                         <li class="nav-item ">
                             <a class="nav-link" href="{{ route('reserve.reserve_all') }}">Reservas </a>
+                          </li>
+                          <li class="nav-item ">
+                            <a class="nav-link" href="{{ route('index.reencauchadas') }}">Llantas reencauchadas </a>
                           </li>
                         <li class="nav-item active">
                             <a class="nav-link" href="{{ route('index.nuevas') }}">Llantas nuevas </a>

@@ -54,22 +54,22 @@
                     <div class="collapse navbar-collapse" id="navbarNav">
                       <ul class="navbar-nav">
                         <li class="nav-item ">
-                            <a class="nav-link" href="{{ route('reserve.reserve_all') }}">Reservas <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="{{ route('reserve.reserve_all') }}">Reservas </a>
                           </li>
                         <li class="nav-item ">
-                          <a class="nav-link" href="{{ route('index.reencauchadas') }}">Llantas reencauchadas <span class="sr-only">(current)</span></a>
+                          <a class="nav-link" href="{{ route('index.reencauchadas') }}">Llantas reencauchadas </a>
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link" href="{{ route('index.nuevas') }}">Llantas nuevas <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="{{ route('index.nuevas') }}">Llantas nuevas </a>
                           </li>
                           <li class="nav-item ">
-                            <a class="nav-link" href="{{ route('index.tubos') }}">Tubos <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="{{ route('index.tubos') }}">Tubos </a>
                           </li>
                           <li class="nav-item active">
-                            <a class="nav-link" href="{{ route('index.defensas') }}">Defensas <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="{{ route('index.defensas') }}">Defensas </a>
                           </li>
                           <li class="nav-item ">
-                            <a class="nav-link" href="{{ route('index.aros') }}">Aros <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="{{ route('index.aros') }}">Aros </a>
                           </li>
 
                       </ul>

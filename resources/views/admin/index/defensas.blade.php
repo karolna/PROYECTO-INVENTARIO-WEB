@@ -29,6 +29,7 @@
         <!-- partial:partials/_navbar.html -->
 
                 @include('layouts._navinfo')
+                @include('layouts._banners')
         <!-- partial -->
         <div class="container-fluid page-body-wrapper" style="padding:0 0 0 0 !important;">             <!-- partial:partials/_settings-panel.html -->
 

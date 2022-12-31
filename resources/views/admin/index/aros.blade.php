@@ -45,56 +45,7 @@
             <div class="navbar-menu-wrapper d-flex align-items-stretch bg-light" style="float: right">
 
 
-
-                <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                    <a class="navbar-brand" href="{{ route('login') }}">Ingresar</a>
-
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                      <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                      <ul class="navbar-nav">
-                        <li class="nav-item ">
-                            <a class="nav-link" href="{{ route('reserve.reserve_all') }}">Reservas </a>
-                          </li>
-                        <li class="nav-item ">
-                          <a class="nav-link" href="{{ route('index.reencauchadas') }}">Llantas reencauchadas</a>
-                        </li>
-                        <li class="nav-item ">
-                            <a class="nav-link" href="{{ route('index.nuevas') }}">Llantas nuevas </a>
-                          </li>
-                          <li class="nav-item ">
-                            <a class="nav-link" href="{{ route('index.tubos') }}">Tubos </a>
-                          </li>
-                          <li class="nav-item ">
-                            <a class="nav-link" href="{{ route('index.defensas') }}">Defensas</a>
-                          </li>
-                          <li class="nav-item active">
-                            <a class="nav-link" href="{{ route('index.aros') }}">Aros </a>
-                          </li>
-
-                      </ul>
-                    </div>
-                  </nav>
-
-
-            </div>
-        </nav>
-
-
-            </div>
-        </nav>
-
-        <div >
-            <br><br><br> </div>
-        <section style="height:50%" >
-            <div class="slick-center" style=" align:center; margin:auto; "   >
-            <img src="{{asset('image/banner1.png')}}">
-                <img src="{{asset('image/banner2.png')}}">
-                <img src="{{asset('image/banner3.png')}}">
-                <img src="{{asset('image/banner4.png')}}">
-            </div>
-        </section>
+                @include('layouts._navinfo')
         <!-- partial -->
         <div class="container-fluid page-body-wrapper" style="padding:0 0 0 0 !important;">             <!-- partial:partials/_settings-panel.html -->
 

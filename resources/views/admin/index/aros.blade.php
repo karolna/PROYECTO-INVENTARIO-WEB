@@ -27,22 +27,6 @@
 <body>
     <div class="container-scroller">
         <!-- partial:partials/_navbar.html -->
-        <nav class=" bg-light navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row default-layout-navbar">
-            <div class="bg-light text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-                <a class="bg-light navbar-brand brand-logo" href="{{ url('/') }}" ><img src="{{asset('melody/images/logo.svg')}}"
-                        alt="logo" /></a>
-                <a class="bg-light navbar-brand brand-logo-mini" href="index-2.html"><img src="{{asset('melody/images/logo-mini.svg')}}"
-                        alt="logo" /></a>
-            </div>
-
-
-
-
-
-
-
-
-            <div class="navbar-menu-wrapper d-flex align-items-stretch bg-light" style="float: right">
 
 
                 @include('layouts._navinfo')

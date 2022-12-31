@@ -35,17 +35,7 @@
                         alt="logo" /></a>
             </div>
 
-
-
-
-
-
-
-
             <div class="navbar-menu-wrapper d-flex align-items-stretch bg-light" style="float: right">
-
-
-
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
                     <a class="navbar-brand" href="{{ route('login') }}">Ingresar</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -89,6 +79,8 @@
                 <img src="{{asset('image/banner4.png')}}">
             </div>
         </section>
+
+        @include('layouts._navinfo')
         <!-- partial -->
         <div class="container-fluid page-body-wrapper" style="padding:0 0 0 0 !important;">             <!-- partial:partials/_settings-panel.html -->
 

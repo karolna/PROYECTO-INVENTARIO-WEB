@@ -8,9 +8,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
-        <li class="nav-item ">
-            <a class="nav-link" href="{{ route('login') }}">Ingresar</a>
-          </li>
+        <a class="navbar-brand" href="{{ route('login') }}">Ingresar</a>
         <li class="nav-item ">
             <a class="nav-link" href="{{ route('reserve.reserve_all') }}">Reservas</a>
           </li>

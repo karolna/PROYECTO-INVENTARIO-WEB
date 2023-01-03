@@ -14,9 +14,17 @@ class Reserve extends Model
         'quantity',
         'price',
         'reserve_date',
-        'status'
+        'status',
+        'client_id'
     ];
     public function product(){
         return $this->belongsTo(Product::class);
+    }
+    public function client(){
+        return $this->belongsTo(Client::class);
+    }
+    public function sale()
+    {
+    return $this->hasOne(Sale::class);
     }
 }

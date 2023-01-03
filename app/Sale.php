@@ -13,6 +13,7 @@ class Sale extends Model
         'tax',
         'total',
         'status',
+        'reserve_id',
     ];
     public function user(){
         return $this->belongsTo(User::class);
@@ -20,7 +21,11 @@ class Sale extends Model
     public function client(){
         return $this->belongsTo(Client::class);
     }
+    public function reserve(){
+        return $this->belongsTo(Reserve::class);
+    }
     public function saleDetails(){
         return $this->hasMany(SaleDetail::class);
     }
+
 }

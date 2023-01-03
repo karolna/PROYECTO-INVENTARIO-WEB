@@ -21,6 +21,10 @@ class Client extends Model
     {
     return $this->hasMany(Order::class);
     }
-   
+    public function reserves()
+    {
+    return $this->hasOne(Reserve::class);
+    }
+
 
 }

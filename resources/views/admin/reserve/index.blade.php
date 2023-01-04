@@ -62,7 +62,7 @@
                                     <th>Producto</th>
                                     <th>Estado</th>
                                     <th>Generar Venta</th>
-                                      </tr>
+                                </tr>
                             </thead>
                             <tbody>
                                 @foreach ($reserves as $reserve)
@@ -83,15 +83,15 @@
                                             Activo <i class="fas fa-check"></i>
                                         </a>
                                     </td>
+                                    <td>
+                                        <a class="jsgrid-button jsgrid-edit-button" href="{{route('createSale.sales', $reserve)}}" title="Ventita">
+                                            Venta <i class="fas fa-edit"></i>
+                                        </a>
+                                    </td>
                                     @else
                                     <td>
                                         <a class="jsgrid-button btn btn-danger" href="{{route('change.status.reserves', $reserve)}}" title="Editar">
                                             Vencido <i class="fas fa-times"></i>
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <a class="jsgrid-button jsgrid-edit-button" href="{{route('sales.createSale', $reserve)}}" title="GenerarVenta">
-                                            <i class="far fa-edit"></i>
                                         </a>
                                     </td>
                                     @endif

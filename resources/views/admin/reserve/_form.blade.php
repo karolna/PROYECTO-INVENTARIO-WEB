@@ -11,6 +11,12 @@
             <input type="text" class="form-control" name="name" id="name" aria-describedby="helpId" required pattern="[A-Za-z]{5,40}"  max-length="40" min-length="6" title="Letras. Tamaño mínimo: 5. Tamaño máximo: 40">
         </div>
     </div>
+    <div class="form-group col-md-3">
+        <div class="form-group">
+            <label for="lastname">Apellido</label>
+            <input type="text" class="form-control" name="lastname" id="lastname" aria-describedby="helpId" required pattern="[A-Za-z]{5,40}"  max-length="40" min-length="6" title="Letras. Tamaño mínimo: 5. Tamaño máximo: 40">
+        </div>
+    </div>
     <div class="form-group col-md-3 ">
         <div class="form-group">
             <label for="phone">Teléfono</label>

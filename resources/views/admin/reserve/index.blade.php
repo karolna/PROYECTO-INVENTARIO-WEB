@@ -69,7 +69,7 @@
                                 <tr>
 
                                     <td>
-                                        {{\Carbon\Carbon::parse($reserve->reserve_date)->format('d M y h:i a')}}
+                                        {{\Carbon\Carbon::parse($reserve->reserve_date)->format('Y-m-d')}}
                                     </td>
 
                                     <td>{{$reserve->dni}}</td>

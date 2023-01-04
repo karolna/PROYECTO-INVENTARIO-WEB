@@ -72,7 +72,7 @@
                                         <a href="{{route('purchases.show', $purchase)}}">{{$purchase->id}}</a>
                                     </th>
                                     <td>
-                                        {{\Carbon\Carbon::parse($purchase->purchase_date)->format('d M y h:i a')}}
+                                        {{\Carbon\Carbon::parse($purchase->purchase_date)->format('Y-m-d')}}
                                     </td>
                                     <td>{{$purchase->total}}</td>
 

@@ -44,7 +44,7 @@
                             <h4 class="card-title">Registro de venta</h4>
                         </div>
 
-                        @include('admin.sale._form')
+                        @include('admin.sale._form_reserve_sale')
 
 
                     </div>

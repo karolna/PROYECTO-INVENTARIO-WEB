@@ -85,7 +85,7 @@
                                     </td>
                                     <td>
                                         <a class="jsgrid-button jsgrid-edit-button" href="{{route('createSale.sales', $reserve)}}" title="Ventita">
-                                            Venta <i class="fas fa-edit"></i>
+                                            Generar Venta <i class="fas fa-file"></i>
                                         </a>
                                     </td>
                                     @else

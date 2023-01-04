@@ -51,11 +51,22 @@ class ReserveController extends Controller
 
     public function store(StoreRequest $request)
     {
-
-        Reserve::create($request->all()+[
-            'reserve_date'=>Carbon::now('America/Guayaquil'),
+        $client = Client::firstWhere('dni', $request->dni);
+        if (!$client) {
+            $values = [
+                'name' => $request->name,
+                'lastname' => $request->lastname,
+                'dni' => $request->dni,
+            ];
+            $client = Client::create($values);
+        }
+        Reserve::create([
+            'product_id'=>$request->product_id,
+            'quantity'=>$request->quantity,
+            'reserve_date' => Carbon::now('America/Guayaquil'),
+            'client_id' => $client->id
         ]);
-        return redirect()->route('reserve.index');
+        return redirect()->route('index.index');
     }
     public function store_all(StoreRequest $request)
     {

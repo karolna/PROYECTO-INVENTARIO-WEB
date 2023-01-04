@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Reserve;
+use App\Client;
 use App\Product;
 use Illuminate\Http\Request;
 use App\Http\Requests\Reserve\StoreRequest;
@@ -58,9 +59,20 @@ class ReserveController extends Controller
     }
     public function store_all(StoreRequest $request)
     {
-
-        Reserve::create($request->all()+[
-            'reserve_date'=>Carbon::now('America/Guayaquil'),
+        $client = Client::firstWhere('dni', $request->dni);
+        if (!$client) {
+            $values = [
+                'name' => $request->name,
+                'lastname' => $request->lastname,
+                'dni' => $request->dni,
+            ];
+            $client = Client::create($values);
+        }
+        Reserve::create([
+            'product_id'=>$request->product_id,
+            'quantity'=>$request->quantity,
+            'reserve_date' => Carbon::now('America/Guayaquil'),
+            'client_id' => $client->id
         ]);
         return redirect()->route('index.index');
     }

@@ -126,9 +126,9 @@ class SaleController extends Controller
     public function createSaleByReserve(Reserve $reserve)
     {
 
-        $client = Client::find($reserve->client_id);
-        $product = Product::find($reserve->product_id);
+        $clients = Client::find($reserve->client_id);
+        $products = Product::find($reserve->product_id);
        // dd($reserve,$client,$product);
-        return view('admin.sale.create_reserve_sale', compact('client', 'product'));
+        return view('admin.sale.create_reserve_sale', compact('clients', 'products'));
     }
 }

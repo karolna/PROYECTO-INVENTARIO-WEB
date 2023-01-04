@@ -7,6 +7,7 @@ use App\Product;
 use Illuminate\Http\Request;
 use App\Http\Requests\Sale\StoreRequest;
 use App\Http\Requests\Sale\UpdateRequest;
+use App\Reserve;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Barryvdh\DomPDF\Facade as PDF;
@@ -40,6 +41,7 @@ class SaleController extends Controller
         $products = Product::where('status', 'ACTIVO')->get();
         return view('admin.sale.create', compact('clients', 'products'));
     }
+
     public function store(StoreRequest $request)
     {
         $sale = Sale::create($request->all()+[
@@ -93,7 +95,7 @@ class SaleController extends Controller
             $saleDetails = $sale->saleDetails;
             foreach ($saleDetails as $saleDetail) {
                 $subtotal += $saleDetail->quantity*$saleDetail->price-$saleDetail->quantity* $saleDetail->price*$saleDetail->discount/100;
-            }  
+            }
             $printer_name = "EPSON L210 Series";
            $connector = new WindowsPrintConnector($printer_name);
            $printer = new Printer($connector);
@@ -119,6 +121,14 @@ class SaleController extends Controller
         } else {
             $sale->update(['status'=>'VALIDO']);
             return redirect()->back();
-        } 
+        }
+    }
+    public function createSaleByReserve(Reserve $reserve)
+    {
+
+        $client = Client::find($reserve->client_id);
+        $product = Product::find($reserve->product_id);
+        dd($reserve, $client,$product);
+        return view('admin.sale.create_reserve_sale', compact('client', 'product'));
     }
 }

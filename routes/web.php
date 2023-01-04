@@ -53,7 +53,7 @@ Route::resource('purchases', 'PurchaseController')->names('purchases')->except([
 Route::resource('sales', 'SaleController')->names('sales')->except([
     'edit', 'update', 'destroy'
 ]);
-Route::get('sales/reserve/{reserve}', 'SaleController@createSaleByReserve')->name('createSale.purchases');
+Route::get('sales/reserve/{reserve}', 'SaleController@createSaleByReserve')->name('createSale.sales');
 
 Route::resource('reserve', 'ReserveController')->names('reserve');
 Route::get('purchases/pdf/{purchase}', 'PurchaseController@pdf')->name('purchases.pdf');

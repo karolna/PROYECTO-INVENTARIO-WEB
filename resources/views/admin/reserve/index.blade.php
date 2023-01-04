@@ -61,6 +61,7 @@
                                     <th>Cant. Reservada</th>
                                     <th>Producto</th>
                                     <th>Estado</th>
+                                    <th>Generar Venta</th>
                                       </tr>
                             </thead>
                             <tbody>
@@ -86,6 +87,11 @@
                                     <td>
                                         <a class="jsgrid-button btn btn-danger" href="{{route('change.status.reserves', $reserve)}}" title="Editar">
                                             Vencido <i class="fas fa-times"></i>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a class="jsgrid-button jsgrid-edit-button" href="{{route('sales.createSaleByReserve', $reserve)}}" title="GenerarVenta">
+                                            <i class="fas fa-document"></i>
                                         </a>
                                     </td>
                                     @endif

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Reserve extends Model
 {
-    protected $guard = [
+    protected $guarded = [
     ];
     public function product(){
         return $this->belongsTo(Product::class);

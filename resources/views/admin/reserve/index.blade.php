@@ -91,7 +91,7 @@
                                     </td>
                                     <td>
                                         <a class="jsgrid-button jsgrid-edit-button" href="{{route('sales.createSale', $reserve)}}" title="GenerarVenta">
-                                            <i class="fas fa-times"></i>
+                                            <i class="far fa-edit"></i>
                                         </a>
                                     </td>
                                     @endif

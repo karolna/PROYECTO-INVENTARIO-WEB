@@ -16,25 +16,26 @@ class ReserveController extends Controller
 {
     public function __construct()
     {
-      // $this->middleware('auth');
-       // $this->middleware('can:reserve.create')->only(['create','store']);
+        // $this->middleware('auth');
+        // $this->middleware('can:reserve.create')->only(['create','store']);
         $this->middleware('can:reserve.index')->only(['index']);
-        $this->middleware('can:reserves.edit')->only(['edit','update']);
+        $this->middleware('can:reserves.edit')->only(['edit', 'update']);
         $this->middleware('can:reserves.show')->only(['show']);
-       // $this->middleware('can:reserve.destroy')->only(['destroy']);
+        // $this->middleware('can:reserve.destroy')->only(['destroy']);
     }
     public function index()
     {
         //$reserves = Reserve::get();
-       // $reserves = Reserve::where('status','VALIDO')->get();
-       //$reserves =Reserve::where('status','VALIDO')->get();
-      // $reserves=Reserve::whereDate('created_at', '<=', Carbon::now()->toDateTimeString())
-       //->whereDate('created_at', '>=',Carbon::now()->subDay()->toDateTimeString())->get();
-     // dd(Carbon::now()->subDay()->toDateTimeString(), Carbon::now()->toDateTimeString());
-     // dd($reserves);
-       $reserves=Reserve::whereBetween('created_at', [Carbon::now()->subDay()->toDateTimeString(), Carbon::now()->toDateTimeString()])->get();
-
-      // dd(Carbon::now());
+        // $reserves = Reserve::where('status','VALIDO')->get();
+        //$reserves =Reserve::where('status','VALIDO')->get();
+        // $reserves=Reserve::whereDate('created_at', '<=', Carbon::now()->toDateTimeString())
+        //->whereDate('created_at', '>=',Carbon::now()->subDay()->toDateTimeString())->get();
+        // dd(Carbon::now()->subDay()->toDateTimeString(), Carbon::now()->toDateTimeString());
+        // dd($reserves);
+        $reserves = Reserve::whereBetween('created_at', [Carbon::now()->subDay()->toDateTimeString(), Carbon::now()->toDateTimeString()])
+            ->with('client')
+            ->get();
+        // dd(Carbon::now());
 
         return view('admin.reserve.index', compact('reserves'));
     }
@@ -42,7 +43,7 @@ class ReserveController extends Controller
     {
         $products = Product::where('status', 'ACTIVO')->get();
         return view('admin.reserve.createall', compact('products'));
-   }
+    }
     public function create()
     {
         $products = Product::where('status', 'ACTIVO')->get();
@@ -57,12 +58,13 @@ class ReserveController extends Controller
                 'name' => $request->name,
                 'lastname' => $request->lastname,
                 'dni' => $request->dni,
+                'phone' => $request->phone,
             ];
             $client = Client::create($values);
         }
         Reserve::create([
-            'product_id'=>$request->product_id,
-            'quantity'=>$request->quantity,
+            'product_id' => $request->product_id,
+            'quantity' => $request->quantity,
             'reserve_date' => Carbon::now('America/Guayaquil'),
             'client_id' => $client->id
         ]);
@@ -76,12 +78,13 @@ class ReserveController extends Controller
                 'name' => $request->name,
                 'lastname' => $request->lastname,
                 'dni' => $request->dni,
+                'phone' => $request->phone,
             ];
             $client = Client::create($values);
         }
         Reserve::create([
-            'product_id'=>$request->product_id,
-            'quantity'=>$request->quantity,
+            'product_id' => $request->product_id,
+            'quantity' => $request->quantity,
             'reserve_date' => Carbon::now('America/Guayaquil'),
             'client_id' => $client->id
         ]);
@@ -109,10 +112,10 @@ class ReserveController extends Controller
     public function change_status(Reserve $reserve)
     {
         if ($reserve->status == 'VALIDO') {
-            $reserve->update(['status'=>'VENCIDO']);
+            $reserve->update(['status' => 'VENCIDO']);
             return redirect()->back();
         } else {
-            $reserve->update(['status'=>'VALIDO']);
+            $reserve->update(['status' => 'VALIDO']);
             return redirect()->back();
         }
     }

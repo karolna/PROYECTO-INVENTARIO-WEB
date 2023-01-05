@@ -57,6 +57,7 @@
                                     <th>Fecha</th>
                                     <th>Cédula</th>
                                     <th>Nombre</th>
+                                    <th>Apellido</th>
                                     <th>Celular</th>
                                     <th>Cant. Reservada</th>
                                     <th>Producto</th>
@@ -72,9 +73,10 @@
                                         {{\Carbon\Carbon::parse($reserve->reserve_date)->format('Y-m-d')}}
                                     </td>
 
-                                    <td>{{$reserve->dni}}</td>
-                                    <td>{{$reserve->name}}</td>
-                                    <td>{{$reserve->phone}}</td>
+                                    <td>{{$reserve->client->dni}}</td>
+                                    <td>{{$reserve->client->name}}</td>
+                                    <td>{{$reserve->client->lastname}}</td>
+                                    <td>{{$reserve->client->phone}}</td>
                                     <td>{{$reserve->quantity}}</td>
                                     <td>{{$reserve->product->name}}</td>
                                     @if ($reserve->status == 'VALIDO')

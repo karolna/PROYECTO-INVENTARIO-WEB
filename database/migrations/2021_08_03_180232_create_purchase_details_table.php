@@ -22,11 +22,11 @@ class CreatePurchaseDetailsTable extends Migration
             $table->integer('quantity');
             $table->decimal('price');
 
-            $table->unsignedBigInteger('order_id');
+            $table->unsignedBigInteger('order_id')->nullable();
             $table->foreign('order_id')->references('id')->on('orders');
-            $table->decimal('series');
-            $table->decimal('state');
-            $table->decimal('validity');
+            $table->decimal('series')->nullable();
+            $table->decimal('state')->nullable();
+            $table->decimal('validity')->nullable();
 
             $table->timestamps();
         });

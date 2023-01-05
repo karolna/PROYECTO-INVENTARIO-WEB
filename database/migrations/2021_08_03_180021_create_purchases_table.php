@@ -27,7 +27,7 @@ class CreatePurchasesTable extends Migration
             $table->decimal('tax');
             $table->decimal('total');
 
-            $table->enum('status',['VALIDO','CANCELADO'])->default('VALIDO');
+            $table->enum('status',['VALIDO','CANCELADO'])->default('VALIDO')->nullable();
             $table->string('picture')->nullable();
             $table->timestamps();
             $table->timestamp('deleted_at')->nullable();

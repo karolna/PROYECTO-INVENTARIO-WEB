@@ -76,6 +76,7 @@
                 {!! Form::open(['route' => 'clients.store', 'method' => 'POST', 'files' => true]) !!}
 
 
+
                 <div class="modal-body">
 
                     <div class="form-group">
@@ -84,12 +85,15 @@
                             required>
                     </div>
                     <div class="form-group">
+                        <label for="lastname">Apellido</label>
+                        <input type="text" class="form-control" name="lastname" id="lastname" aria-describedby="helpId"
+                            required>
+                    </div>
+                    <div class="form-group">
                         <label for="dni">ID</label>
                         <input type="number" class="form-control" name="dni" id="dni" aria-describedby="helpId"
                             required>
                     </div>
-
-                    <input type="hidden" name="sale" value="1">
 
                 </div>
                 <div class="modal-footer">

@@ -42,7 +42,7 @@ Route::resource('printers', 'PrinterController')->names('printers')->only([
 ]);
 
 Route::resource('categories', 'CategoryController')->names('categories')->only([
-    'index', 'update','deleteUpdate','create','show','destroy','edit'
+    'index', 'update','deleteUpdate','create','store','show','destroy','edit'
 ]);
 Route::resource('clients', 'ClientController')->names('clients');
 Route::resource('products', 'ProductController')->names('products');

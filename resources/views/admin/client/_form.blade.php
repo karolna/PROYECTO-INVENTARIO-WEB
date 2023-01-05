@@ -27,6 +27,12 @@
     </div>
     <div class="form-group col-md-3">
         <div class="form-group">
+            <label for="lastname">Apellido</label>
+            <input type="text" class="form-control" name="lastname" id="lastname" aria-describedby="helpId" required>
+        </div>
+    </div>
+    <div class="form-group col-md-3">
+        <div class="form-group">
             <label for="ruc">RUC</label>
             <input type="number" class="form-control" name="ruc" id="ruc" aria-describedby="helpId">
             <small id="helpId" class="form-text text-muted">Este campo es opcional.</small>

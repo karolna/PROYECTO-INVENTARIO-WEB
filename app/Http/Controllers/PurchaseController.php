@@ -98,11 +98,9 @@ class PurchaseController extends Controller
     {
 
         if ($purchase->status == 'VALIDO') {
-            dump($purchase->status);
             $purchase->update(['status'=>'CANCELADO']);
             return redirect()->back();
         } else {
-            dump($purchase->status);
             $purchase->update(['status'=>'VALIDO']);
             return redirect()->back();
         }

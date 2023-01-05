@@ -14,16 +14,19 @@ class CreateSalesTable extends Migration
     public function up()
     {
         Schema::create('sales', function (Blueprint $table) {
-            $table->increments('id');
-            $table->unsignedInteger('client_id');
+            $table->id();
+            $table->unsignedBigInteger('client_id');
             $table->foreign('client_id')->references('id')->on('clients');
-            $table->unsignedInteger('user_id');
+            $table->unsignedBigInteger('reserve_id')->nullable();
+            $table->foreign('reserve_id')->references('id')->on('reserves');
+            $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->dateTime('sale_date');
             $table->decimal('tax');
             $table->decimal('total');
             $table->enum('status',['VALIDO','CANCELADO'])->default('VALIDO');
             $table->timestamps();
+            $table->timestamp('deleted_at')->nullable();
         });
     }
     /**

@@ -14,17 +14,17 @@ class CreateReservesTable extends Migration
     public function up()
     {
         Schema::create('reserves', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name');
-            $table->string('dni');
-            $table->string('phone')->nullable();
-            $table->unsignedInteger('product_id');
+            $table->id();
+            $table->unsignedBigInteger('product_id');
             $table->foreign('product_id')->references('id')->on('products');
+            $table->unsignedBigInteger('client_id');
+            $table->foreign('client_id')->references('id')->on('clients');
             $table->integer('quantity');
             $table->decimal('price');
             $table->dateTime('reserve_date');
-            $table->enum('status',['VALIDO','VENCIDO'])->default('VALIDO');
+            $table->enum('status',['VALIDO','CANCELADO'])->default('VALIDO');
             $table->timestamps();
+            $table->timestamp('deleted_at')->nullable();
         });
     }
 

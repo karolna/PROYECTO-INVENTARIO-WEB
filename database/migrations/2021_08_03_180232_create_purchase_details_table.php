@@ -14,20 +14,20 @@ class CreatePurchaseDetailsTable extends Migration
     public function up()
     {
         Schema::create('purchase_details', function (Blueprint $table) {
-            $table->increments('id');
-            $table->unsignedInteger('purchase_id');
+            $table->id();
+            $table->unsignedBigInteger('purchase_id');
             $table->foreign('purchase_id')->references('id')->on('purchases');
-            $table->unsignedInteger('product_id');
+            $table->unsignedBigInteger('product_id');
             $table->foreign('product_id')->references('id')->on('products');
             $table->integer('quantity');
             $table->decimal('price');
 
-            $table->unsignedInteger('order_id');
+            $table->unsignedBigInteger('order_id');
             $table->foreign('order_id')->references('id')->on('orders');
             $table->decimal('series');
             $table->decimal('state');
-            $table->decimal('validity');           
-           
+            $table->decimal('validity');
+
             $table->timestamps();
         });
     }

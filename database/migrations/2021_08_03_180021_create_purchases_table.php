@@ -14,11 +14,11 @@ class CreatePurchasesTable extends Migration
     public function up()
     {
         Schema::create('purchases', function (Blueprint $table) {
-            $table->increments('id');
-            $table->unsignedInteger('provider_id');
+            $table->id();
+            $table->unsignedBigInteger('provider_id');
             $table->foreign('provider_id')->references('id')->on('providers');
-           
-            $table->unsignedInteger('user_id');
+
+            $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
 
 
@@ -30,6 +30,7 @@ class CreatePurchasesTable extends Migration
             $table->enum('status',['VALIDO','CANCELADO'])->default('VALIDO');
             $table->string('picture')->nullable();
             $table->timestamps();
+            $table->timestamp('deleted_at')->nullable();
         });
     }
 

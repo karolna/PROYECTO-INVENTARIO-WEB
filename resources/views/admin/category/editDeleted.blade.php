@@ -15,7 +15,7 @@
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="#">Panel administrador</a></li>
                 <li class="breadcrumb-item"><a href="{{route('categories.index')}}">Categorías</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Eliminar categoría</li>
+                <li class="breadcrumb-item active" aria-current="page">Editar categoría</li>
             </ol>
         </nav>
     </div>
@@ -25,23 +25,23 @@
                 <div class="card-body">
 
                     <div class="d-flex justify-content-between">
-                        <h4 class="card-title">Eliminar categoría</h4>
+                        <h4 class="card-title">Editar categoría</h4>
                     </div>
                     {!! Form::model($category,['route'=>['categories.deleteUpdate',$category], 'method'=>'PUT']) !!}
 
 
                     <div class="form-group">
                         <label for="name">Nombre</label>
-                        <input type="text" readonly name="name" id="name" value="{{$category->name}}" class="form-control" placeholder="Nombre" required>
-                        <input type="text" readonly name="deleted_at" id="deleted_at" class="form-control"  value="2022-12-21 15:48:40" >
-                      </div>
+                        <input type="text" name="name" id="name" value="{{$category->name}}" class="form-control" placeholder="Nombre" required>
+                        <input type="text"  name="deleted_at" id="deleted_at"  value="2022-12-21 15:48:40" class="form-control"  >
+                    </div>
                       <div class="form-group">
                         <label for="description">Descripción</label>
-                        <textarea class="form-control" readonly name="description" id="description" rows="3">{{$category->description}}</textarea>
+                        <textarea class="form-control" name="description" id="description" rows="3">{{$category->description}}</textarea>
                     </div>
 
 
-                     <button type="submit" class="btn btn-primary mr-2">Eliminar</button>
+                     <button type="submit" class="btn btn-primary mr-2">Actualizar</button>
                      <a href="{{route('categories.index')}}" class="btn btn-light">
                         Cancelar
                      </a>

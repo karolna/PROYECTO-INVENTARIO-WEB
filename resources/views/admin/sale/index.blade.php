@@ -59,6 +59,11 @@
                                 <tr>
                                     <th>Id</th>
                                     <th>Fecha</th>
+                                    <th>Nombre Cliente</th>
+                                    <th>Apellido Cliente</th>
+                                    <th>Teléfono</th>
+                                    <th>Corréo</th>
+
                                     <th>Total</th>
                                     <th>Estado</th>
                                     <th style="width:50px;">Acciones</th>
@@ -73,6 +78,10 @@
                                     <td>
                                         {{\Carbon\Carbon::parse($sale->sale_date)->format('Y-m-d')}}
                                     </td>
+                                    <td>{{$sale->client->name}}</td>
+                                    <td>{{$sale->client->lastname}}</td>
+                                    <td>{{$sale->client->phone}}</td>
+                                    <td>{{$sale->client->email}}</td>
                                     <td>{{$sale->total}}</td>
 
                                     @if ($sale->status == 'VALIDO')

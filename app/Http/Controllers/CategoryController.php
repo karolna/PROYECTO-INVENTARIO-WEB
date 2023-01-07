@@ -15,9 +15,9 @@ class CategoryController extends Controller
         $this->middleware('can:categories.create')->only(['create','store']);
         $this->middleware('can:categories.index')->only(['index']);
         $this->middleware('can:categories.edit')->only(['edit','update']);
+        $this->middleware('can:categories.editDeleted')->only(['editDeleted','deleteUpdate']);
         $this->middleware('can:categories.show')->only(['show']);
         $this->middleware('can:categories.destroy')->only(['destroy']);
-        $this->middleware('can:categories.deleteUpdate')->only(['deleteUpdate']);
     }
     public function index()
     {
@@ -40,6 +40,10 @@ class CategoryController extends Controller
     public function edit(Category $category)
     {
         return view('admin.category.edit', compact('category'));
+    }
+    public function editDeleted(Category $category)
+    {
+        return view('admin.category.editDeleted', compact('category'));
     }
     public function update(UpdateRequest $request, Category $category)
     {

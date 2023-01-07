@@ -32,7 +32,10 @@ class SaleController extends Controller
 
     public function index()
     {
-        $sales = Sale::get();
+        $sales = Sale::with('client')
+
+        ->get();
+
         return view('admin.sale.index', compact('sales'));
     }
     public function create()

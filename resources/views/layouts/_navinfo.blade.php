@@ -30,3 +30,15 @@
       </ul>
     </div>
   </nav>
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link "  href="{{ route('index.defensas') }}" role="tab" aria-controls="home" aria-selected="true">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link"  href="{{ route('index.aros') }}" role="tab" aria-controls="profile" aria-selected="true">Profile</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link"  href="{{ route('index.nuevas') }}" role="tab" aria-controls="contact" aria-selected="true">Contact</a>
+    </li>
+  </ul>
+

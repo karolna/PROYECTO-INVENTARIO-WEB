@@ -60,6 +60,9 @@
                                 <tr>
                                     <th>Id</th>
                                     <th>Fecha</th>
+                                    <th>Nombre del proveedor</th>
+                                    <th>Teléfono del proveedor</th>
+                                    <th>Correo del proveedor</th>
                                     <th>Total</th>
                                     <th>Estado</th>
                                     <th style="width:50px;">Acciones</th>
@@ -71,9 +74,13 @@
                                     <th scope="row">
                                         <a href="{{route('purchases.show', $purchase)}}">{{$purchase->id}}</a>
                                     </th>
+
                                     <td>
                                         {{\Carbon\Carbon::parse($purchase->purchase_date)->format('Y-m-d')}}
                                     </td>
+                                    <td>{{$purchase->provider->name}}</td>
+                                    <td>{{$purchase->provider->phone}}</td>
+                                    <td>{{$purchase->provider->email}}</td>
                                     <td>{{$purchase->total}}</td>
 
                                     @if ($purchase->status == 'VALIDO')

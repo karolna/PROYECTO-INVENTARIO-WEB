@@ -44,7 +44,10 @@ class PurchaseController extends Controller
     }
     public function store(StoreRequest $request)
     {
-        $purchase = Purchase::create($request->all()+[
+        $purchase = Purchase::create([
+            'provider_id'=>$request->provider_id,
+            'tax'=> $request->tax,
+            'total'=> $request->total,
             'user_id'=>Auth::user()->id,
             'purchase_date'=>Carbon::now('America/Guayaquil'),
         ]);
@@ -54,6 +57,7 @@ class PurchaseController extends Controller
         $purchase->purchaseDetails()->createMany($results);
         return redirect()->route('purchases.index');
     }
+
     public function show(Purchase $purchase)
     {
         $subtotal = 0 ;

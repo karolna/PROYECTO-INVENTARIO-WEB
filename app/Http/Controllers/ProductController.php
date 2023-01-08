@@ -9,6 +9,8 @@ use App\Http\Requests\Product\StoreRequest;
 use App\Http\Requests\Product\UpdateRequest;
 use App\Provider;
 use Barryvdh\DomPDF\Facade as PDF;
+use Carbon\Carbon;
+
 class ProductController extends Controller
 {
     public function __construct()
@@ -22,7 +24,7 @@ class ProductController extends Controller
     }
     public function index()
     {
-        $products = Product::get();
+        $products = Product::where('deleted_at', NULL)->get();
         return view('admin.product.index', compact('products'));
     }
     public function create()
@@ -94,6 +96,7 @@ class ProductController extends Controller
         }
     }
 
+
     public function get_products_by_barcode(Request $request){
         if ($request->ajax()) {
             $products = Product::where('code', $request->code)->firstOrFail();
@@ -117,4 +120,12 @@ class ProductController extends Controller
        // $pdf = PDF::loadView('admin.product.barcode', compact('products'));
         //return $pdf->download('codigos_de_barras.pdf');
     }
+    public function change_delete_at(Product $product)
+    {
+
+            $product->update(['deleted_at'=>Carbon::now('America/Guayaquil')]);
+            dd($product);
+            return redirect()->back();
+    }
+
 }

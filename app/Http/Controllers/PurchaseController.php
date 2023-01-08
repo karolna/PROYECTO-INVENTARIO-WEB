@@ -31,7 +31,8 @@ class PurchaseController extends Controller
 
     public function index()
     {
-        $purchases = Purchase::with('provider')
+        $purchases = Purchase::where('deleted_at', NULL)
+        ->with('provider')
             ->with('purchasedetails')
             ->get();
         return view('admin.purchase.index', compact('purchases'));
@@ -110,5 +111,12 @@ class PurchaseController extends Controller
             $purchase->update(['status'=>'VALIDO']);
             return redirect()->back();
         }
+    }
+    public function change_delete_at(Purchase $purchase)
+    {
+
+            $purchase->update(['deleted_at'=>Carbon::now('America/Guayaquil')]);
+
+            return redirect()->back();
     }
 }

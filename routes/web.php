@@ -42,7 +42,7 @@ Route::resource('printers', 'PrinterController')->names('printers')->only([
 ]);
 
 Route::resource('categories', 'CategoryController')->names('categories')->only([
-    'index', 'update','deleteUpdate','create','store','show','destroy','edit','editDeleted'
+    'index', 'update','deleteUpdate','create','store','show','destroy','edit'
 ]);
 Route::resource('clients', 'ClientController')->names('clients');
 Route::resource('products', 'ProductController')->names('products');
@@ -64,6 +64,9 @@ Route::get('purchases/upload/{purchase}', 'PurchaseController@upload')->name('up
 
 Route::get('change_status/products/{product}', 'ProductController@change_status')->name('change.status.products');
 Route::get('change_status/purchases/{purchase}', 'PurchaseController@change_status')->name('change.status.purchases');
+Route::get('change_delete_at/purchases/{purchase}', 'PurchaseController@change_delete_at')->name('change.deleted_at.purchases');
+Route::get('change_delete_at/categories/{category}', 'CategoryController@change_delete_at')->name('change.deleted_at.categories');
+Route::get('change_delete_at/products/{product}', 'ProductController@change_delete_at')->name('change.deleted_at.products');
 Route::get('change_status/sales/{sale}', 'SaleController@change_status')->name('change.status.sales');
 Route::get('change_status/reserves/{reserve}', 'ReserveController@change_status')->name('change.status.reserves');
 Route::get('catalogo/reserve', 'ReserveController@reserve_all')->name('reserve.reserve_all');

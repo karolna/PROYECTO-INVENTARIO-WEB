@@ -74,14 +74,9 @@
                                             </td>
 
                                             <td style="width: 50px;">
-                                                {!! Form::open(['route' => ['categories.destroy', $category], 'method' => 'DELETE']) !!}
-                                                <a class="jsgrid-button jsgrid-edit-button"
-                                                    href="{{ route('categories.editDeleted', $category) }}"   title="Eliminar">
-                                                    <i class="far fa-trash-alt"></i>
-                                                </a>
 
+                                                    <a href="{{route('change.deleted_at.categories', $category)}}" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a>
 
-                                                {!! Form::close() !!}
                                             </td>
                                         </tr>
                                     @endforeach

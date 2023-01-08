@@ -91,12 +91,20 @@
                                             <i class="far fa-edit"></i>
                                         </a>
 
+
                                        {{-- <button class="jsgrid-button jsgrid-delete-button unstyled-button" type="submit" title="Eliminar">
                                             <i class="far fa-trash-alt"></i>
                                         </button>--}}
 
                                         {!! Form::close() !!}
+
+
                                     </td>
+                                    <td style="width: 50px;">
+
+                                        <a href="{{route('change.deleted_at.products', $product)}}" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a>
+
+                                </td>
                                 </tr>
                                 @endforeach
                             </tbody>

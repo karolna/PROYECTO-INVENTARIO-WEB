@@ -105,8 +105,6 @@
     </div>
 
 
-
-
 </div>
 @endsection
 @section('scripts')
@@ -121,11 +119,7 @@
                 data: {
                     labels: [<?php foreach ($comprasmes as $reg)
                         {
-
-                    setlocale(LC_TIME, 'es_ES', 'Spanish_Spain', 'Spanish');
-                    $mes_traducido=strftime('%B',strtotime($reg->mes));
-
-                    echo '"'. $mes_traducido.'",';} ?>],
+                    echo '"'. $reg->mes." - ".$reg->anio.'",';} ?>],
                     datasets: [{
                         label: 'Compras',
                         data: [<?php foreach ($comprasmes as $reg)
@@ -151,10 +145,7 @@
                 data: {
                     labels: [<?php foreach ($ventasmes as $reg)
                 {
-                    setlocale(LC_TIME, 'es_ES', 'Spanish_Spain', 'Spanish');
-                    $mes_traducido=strftime('%B',strtotime($reg->mes));
-
-                    echo '"'. $mes_traducido.'",';} ?>],
+                    echo '"'. $reg->mes." - ".$reg->anio.'",';} ?>],
                     datasets: [{
                         label: 'Ventas',
                         data: [<?php foreach ($ventasmes as $reg)

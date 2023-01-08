@@ -6,6 +6,7 @@ use App\Category;
 use Illuminate\Http\Request;
 use App\Http\Requests\Category\StoreRequest;
 use App\Http\Requests\Category\UpdateRequest;
+use Carbon\Carbon;
 
 class CategoryController extends Controller
 {
@@ -15,7 +16,7 @@ class CategoryController extends Controller
         $this->middleware('can:categories.create')->only(['create','store']);
         $this->middleware('can:categories.index')->only(['index']);
         $this->middleware('can:categories.edit')->only(['edit','update']);
-        $this->middleware('can:categories.editDeleted')->only(['editDeleted','deleteUpdate']);
+
         $this->middleware('can:categories.show')->only(['show']);
         $this->middleware('can:categories.destroy')->only(['destroy']);
     }
@@ -59,5 +60,10 @@ class CategoryController extends Controller
     {
         $category->delete();
         return redirect()->route('categories.index');
+    }
+    public function change_delete_at(Category $category)
+    {
+            $category->update(['deleted_at'=>Carbon::now('America/Guayaquil')]);
+            return redirect()->back();
     }
 }

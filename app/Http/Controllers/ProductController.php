@@ -29,8 +29,8 @@ class ProductController extends Controller
     }
     public function create()
     {
-        $categories = Category::get();
-        $providers = Provider::get();
+        $categories = Category::where('deleted_at', NULL)->get();
+        $providers = Provider::where('deleted_at', NULL)->get();
         return view('admin.product.create', compact('categories', 'providers'));
     }
     public function store(StoreRequest $request)

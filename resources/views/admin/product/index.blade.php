@@ -41,7 +41,7 @@
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">
                               <a href="{{route('products.create')}}" class="dropdown-item">Agregar</a>
-                              <a class="dropdown-item" href="{{route('print_barcode')}}">Exportar códigos de barras</a>
+                              {{-- <a class="dropdown-item" href="{{route('print_barcode')}}">Exportar códigos de barras</a>--}}
                               {{--  <button class="dropdown-item" type="button">Another action</button>
                               <button class="dropdown-item" type="button">Something else here</button>  --}}
                             </div>

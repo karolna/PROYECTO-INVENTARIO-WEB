@@ -1,20 +1,17 @@
-
-
-<nav class="navbar navbar-expand-lg navbar-light bg-light" >
-
+{{--<nav class="navbar navbar-expand-lg navbar-light bg-light" >
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
-        {{--<a class="navbar-brand" href="{{ route('login') }}">Ingresar</a>--}}
-        <li class="nav-item ">
+
+        <li class="nav-item " style="">
             <a class="navbar-brand" href="{{ route('login') }}">Ingresar</a>
           </li>
         <li class="nav-item ">
             <a class="nav-link" href="{{ route('reserve.reserve_all') }}">Reservas</a>
           </li>
-        <li class="nav-item ">
+        <li class="nav-item  ">
           <a class="nav-link " href="{{ route('index.reencauchadas') }}">Llantas reencauchadas</a>
         </li>
         <li class="nav-item ">
@@ -32,6 +29,7 @@
       </ul>
     </div>
   </nav>
+  --}}
  {{-- <ul class="nav nav-tabs" id="myTab" role="tablist">
     <li class="nav-item">
       <a class="nav-link "  href="{{ route('index.defensas') }}" role="tab" aria-controls="home" aria-selected="true">Home</a>

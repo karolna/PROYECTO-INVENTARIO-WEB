@@ -17,6 +17,7 @@
     <!-- End plugin css for this page -->
     <!-- inject:css -->
     {!! Html::style('melody/css/style.css') !!}
+    {!! Html::style('/style.css') !!}
     {!! Html::style('melody/css/slick.css') !!}
     {!! Html::style('melody/css/slick-theme.css') !!}
     @yield('styles')

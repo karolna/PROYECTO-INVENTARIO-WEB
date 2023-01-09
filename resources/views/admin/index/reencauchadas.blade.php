@@ -10,6 +10,7 @@
 
     {!! Html::style('melody/vendors/css/vendor.bundle.base.css') !!}
     {!! Html::style('melody/vendors/css/vendor.bundle.addons.css') !!}
+    {!! Html::style('/style.css') !!}
     {!! Html::style('melody/vendors/css/vendor.bundle.addons.css') !!}
 
     <!-- endinject -->

@@ -1,9 +1,4 @@
 
-<style>
-.navbar-item .nav-item: active, .navbar-item .nav-item: focus{
-    background-color: red;
-}
-</style>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light" >
 

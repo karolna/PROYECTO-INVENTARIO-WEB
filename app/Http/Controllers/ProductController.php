@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Carbon\Carbon;
 use App\Category;
 use App\Product;
 use Illuminate\Http\Request;
@@ -9,7 +9,7 @@ use App\Http\Requests\Product\StoreRequest;
 use App\Http\Requests\Product\UpdateRequest;
 use App\Provider;
 use Barryvdh\DomPDF\Facade as PDF;
-use Carbon\Carbon;
+
 
 class ProductController extends Controller
 {
@@ -83,6 +83,13 @@ class ProductController extends Controller
         $product->delete();
         return redirect()->route('products.index');
     }
+    public function change_delete_at(Product $product)
+    {
+
+            $product->update(['deleted_at'=>Carbon::now('America/Guayaquil')]);
+
+            return redirect()->back();
+    }
 
     public function change_status(Product $product)
     {
@@ -120,12 +127,6 @@ class ProductController extends Controller
        // $pdf = PDF::loadView('admin.product.barcode', compact('products'));
         //return $pdf->download('codigos_de_barras.pdf');
     }
-    public function change_delete_at(Product $product)
-    {
 
-            $product->update(['deleted_at'=>Carbon::now('America/Guayaquil')]);
-            dd($product);
-            return redirect()->back();
-    }
 
 }

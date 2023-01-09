@@ -81,30 +81,15 @@
                                         </a>
                                     </td>
                                     @endif
-
-
                                     <td>{{$product->category->name}}</td>
-                                    <td style="width: 50px;">
+                                    <td style="width: 50px; display:inline-flex;">
                                         {!! Form::open(['route'=>['products.destroy',$product], 'method'=>'DELETE']) !!}
-
                                         <a class="jsgrid-button jsgrid-edit-button" href="{{route('products.edit', $product)}}" title="Editar">
-                                            <i class="far fa-edit"></i>
-                                        </a>
-
-
-                                       {{-- <button class="jsgrid-button jsgrid-delete-button unstyled-button" type="submit" title="Eliminar">
-                                            <i class="far fa-trash-alt"></i>
-                                        </button>--}}
-
+                                            <i class="far fa-edit"></i> </a>
                                         {!! Form::close() !!}
-
+                                        <a href="{{route('change.deleted_at.products', $product)}}" onclick="return confirm('¿Estás seguro de eliminar el producto?, esta accion es reversible con ayuda del desarrollador');"> <i class=" far fa-trash-alt" style="margin-left:5px"></i></a>
 
                                     </td>
-                                    <td style="width: 50px;">
-
-                                        <a href="{{route('change.deleted_at.products', $product)}}" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a>
-
-                                </td>
                                 </tr>
                                 @endforeach
                             </tbody>

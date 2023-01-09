@@ -64,7 +64,6 @@
                                     <th>Teléfono del proveedor</th>
                                     <th>Correo del proveedor</th>
                                     <th>Total</th>
-                                    <th>Eliminar</th>
                                     <th>Estado</th>
                                     <th style="width:50px;">Acciones</th>
                                 </tr>
@@ -83,14 +82,14 @@
                                     <td>{{$purchase->provider->phone}}</td>
                                     <td>{{$purchase->provider->email}}</td>
                                     <td>{{$purchase->total}}</td>
-                                    <td>
+
 
                                         {{-- <a class="jsgrid-button btn btn-success" href="{{route('change.deleted_at.purchases', $purchase)}}" title="Eliminar">
                                             {{\Carbon\Carbon::parse($purchase->purchase_date)->format('Y-m-d')}} <i class="fas fa-check"></i>
                                         </a> --}}
 
-                                        <a href="{{route('change.deleted_at.purchases', $purchase)}}" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a>
-                                    </td>
+                                       {{-- <a href="{{route('change.deleted_at.purchases', $purchase)}}" onclick="return confirm('¿Estás seguro de eliminar el producto?, esta accion es reversible con ayuda del desarrollador');"><i class=" far fa-trash-alt"></i></a>
+                                   --}}
                                     @if ($purchase->status == 'VALIDO')
                                     <td>
                                         <a class="jsgrid-button btn btn-success" href="{{route('change.status.purchases', $purchase)}}" title="Editar">
@@ -109,6 +108,7 @@
 <a href="{{route('purchases.pdf', $purchase)}}" class="jsgrid-button jsgrid-edit-button"><i class="far fa-file-pdf"></i></a>
 {{--  <a href="#" class="jsgrid-button jsgrid-edit-button"><i class="fas fa-print"></i></a>  --}}
 <a href="{{route('purchases.show', $purchase)}}" class="jsgrid-button jsgrid-edit-button"><i class="far fa-eye"></i></a>
+<a href="{{route('change.deleted_at.purchases', $purchase)}}" onclick="return confirm('¿Estás seguro de eliminar el producto?, esta accion es reversible con ayuda del desarrollador');"><i class=" far fa-trash-alt"></i></a>
 
 
 </td>

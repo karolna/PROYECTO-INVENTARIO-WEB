@@ -40,7 +40,7 @@
         margin-left: 2%;
         margin-right: 2%;
         font-size: 20px;
-        background: #d0eff7;
+
     }
 
     section {
@@ -90,12 +90,13 @@
         width: 100%;
         border-collapse: collapse;
         border-spacing: 0;
-        margin-bottom: 15px;
+        margin-bottom: 100px;
+        text-align: center;
     }
 
     #facproducto thead {
         padding: 10px;
-        background: #d0eff7;
+        background: #1f1f1f;
         text-align: center;
         border-bottom: 1px solid #FFFFFF;
     }
@@ -104,6 +105,7 @@
 
 <body>
     <header>
+
         {{--  <div id="logo">
             <img src="{{asset($company->logo)}}" alt="" id="imagen">
         </div>  --}}
@@ -190,28 +192,28 @@
 
                     <tr>
                         <th colspan="4">
-                            <p align="right">SUBTOTAL:</p>
+                            <p style="align:right">SUBTOTAL:</p>
                         </th>
                         <td>
-                            <p align="right">s/ {{number_format($subtotal,2)}}</p>
+                            <p  style="align:right" >s/ {{number_format($subtotal,2)}}</p>
                         </td>
                     </tr>
 
                     <tr>
                         <th colspan="4">
-                            <p align="right">TOTAL IMPUESTO ({{$sale->tax}}%):</p>
+                            <p  style="align:right">TOTAL IMPUESTO ({{$sale->tax}}%):</p>
                         </th>
                         <td>
-                            <p align="right">s/ {{number_format($subtotal*$sale->tax/100,2)}}</p>
+                            <p  style="align:right">s/ {{number_format($subtotal*$sale->tax/100,2)}}</p>
                         </td>
                     </tr>
 
                     <tr>
                         <th colspan="4">
-                            <p align="right">TOTAL PAGAR:</p>
+                            <p  style="align:right">TOTAL PAGAR:</p>
                         </th>
                         <td>
-                            <p align="right">s/ {{number_format($sale->total,2)}}</p>
+                            <p  style="align:right">s/ {{number_format($sale->total,2)}}</p>
                         </td>
                     </tr>
 
@@ -226,6 +228,7 @@
         <!--puedes poner un mensaje aqui-->
         <div id="datos">
             <p id="encabezado">
+
                 {{--  <b>{{$company->name}}</b><br>{{$company->description}}<br>Telefono:{{$company->telephone}}<br>Email:{{$company->email}}  --}}
             </p>
         </div>

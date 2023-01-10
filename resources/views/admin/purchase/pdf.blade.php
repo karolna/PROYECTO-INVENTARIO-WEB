@@ -40,7 +40,7 @@
         margin-left: 2%;
         margin-right: 2%;
         font-size: 20px;
-        background: #33AFFF;
+
     }
 
     section {
@@ -128,7 +128,7 @@
                 </tbody>
             </table>
         </div>
-        <div id="fact"  style="padding:10px ; float: right;">
+        <div id="fact"  style="padding:10px ; float: right; back-groung:white;">
             {{--  <p>{{$purchase->provider->document_type}} COMPRA<br />
                 {{$purchase->provider->document_number}}</p>  --}}
                 <p>Nº DE COMPRA</p>
@@ -171,11 +171,11 @@
                 </thead>
                 <tbody>
                     @foreach ($purchaseDetails as $purchaseDetail)
-                    <tr>
-                        <td>{{$purchaseDetail->quantity}}</td>
-                        <td>{{$purchaseDetail->product->name}}</td>
-                        <td>s/ {{$purchaseDetail->price}}</td>
-                        <td>s/ {{number_format($purchaseDetail->quantity*$purchaseDetail->price,2)}}</td>
+                    <tr >
+                        <td style="float: right">{{$purchaseDetail->quantity}}</td>
+                        <td style="float: right">{{$purchaseDetail->product->name}}</td>
+                        <td style="float: right" >s/ {{$purchaseDetail->price}}</td>
+                        <td style="float: right">s/ {{number_format($purchaseDetail->quantity*$purchaseDetail->price,2)}}</td>
                     </tr>
                     @endforeach
                 </tbody>

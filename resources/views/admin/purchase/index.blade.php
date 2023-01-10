@@ -110,6 +110,12 @@
 <a href="{{route('purchases.show', $purchase)}}" class="jsgrid-button jsgrid-edit-button"><i class="far fa-eye"></i></a>
 <a href="{{route('change.deleted_at.purchases', $purchase)}}" onclick="return confirm('¿Estás seguro de eliminar el producto?, esta accion es reversible con ayuda del desarrollador');"><i class=" far fa-trash-alt"></i></a>
 
+{{--{!! Form::open(['route' => ['purchases.destroy', $purchase], 'method' => 'DELETE']) !!}
+<a class="jsgrid-button jsgrid-edit-button" style="float:left;"
+    href="{{ route('purchases.edit', $purchase) }}" title="Editar">
+    <i class="far fa-edit"></i>
+</a>
+{!! Form::close() !!}--}}
 
 </td>
                                 </tr>

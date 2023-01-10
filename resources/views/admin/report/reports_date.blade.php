@@ -84,6 +84,9 @@
                             <thead>
                                 <tr>
                                     <th>Id</th>
+                                    <th>Nombre del Cliente</th>
+                                    <th>Apellido del Cliente</th>
+                                    <th>Vendedor</th>
                                     <th>Fecha</th>
                                     <th>Total</th>
                                     <th>Estado</th>
@@ -96,6 +99,9 @@
                                     <th scope="row">
                                         <a href="{{route('sales.show', $sale)}}">{{$sale->id}}</a>
                                     </th>
+                                    <td>{{$sale->client->name}}</td>
+                                    <td>{{$sale->client->lastname}}</td>
+                                    <td>{{$sale->user->name}}</td>
                                     <td>
                                         {{\Carbon\Carbon::parse($sale->sale_date)->format('Y-m-d')}}
                                     </td>

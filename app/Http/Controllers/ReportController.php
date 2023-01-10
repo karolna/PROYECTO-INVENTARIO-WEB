@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Sale;
+use Illuminate\Support\Facades\Auth;
+use App\Client;
 use Carbon\Carbon;
 
 class ReportController extends Controller
@@ -15,12 +17,18 @@ class ReportController extends Controller
         $this->middleware('can:reports.date')->only(['reports_date']);
     }
     public function reports_day(){
-        $sales = Sale::WhereDate('sale_date', Carbon::today('America/Guayaquil'))->get();
+        $sales = Sale::WhereDate('sale_date', Carbon::today('America/Guayaquil'))
+        ->with('client')
+        ->with('user')
+        ->get();
         $total = $sales->sum('total');
         return view('admin.report.reports_day', compact('sales', 'total'));
     }
     public function reports_date(){
-        $sales = Sale::whereDate('sale_date', Carbon::today('America/Guayaquil'))->get();
+        $sales = Sale::whereDate('sale_date', Carbon::today('America/Guayaquil'))
+        ->with('client')
+        ->with('user')
+        ->get();
         $total = $sales->sum('total');
         return view('admin.report.reports_date', compact('sales', 'total'));
     }

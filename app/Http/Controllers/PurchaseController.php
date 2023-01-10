@@ -23,7 +23,7 @@ class PurchaseController extends Controller
         $this->middleware('can:purchases.create')->only(['create','store']);
         $this->middleware('can:purchases.index')->only(['index']);
         $this->middleware('can:purchases.show')->only(['show']);
-
+        $this->middleware('can:purchases.edit')->only(['edit','update']);
         $this->middleware('can:change.status.purchases')->only(['change_status']);
         $this->middleware('can:purchases.pdf')->only(['pdf']);
         $this->middleware('can:upload.purchases')->only(['upload']);
@@ -72,13 +72,24 @@ class PurchaseController extends Controller
     }
     public function edit(Purchase $purchase)
     {
-        // $providers = Provider::get();
-        // return view('admin.purchase.edit', compact('purchase'));
+         // $providers = Provider::get();
+         // return view('admin.purchase.edit', compact('purchase'));
+         // $provider = Provider::get();
+         //$purchaseDetails = PurchaseDetails::get();
+          //  $purchase = Purchase::where('deleted_at', NULL)->get();
+          dd($purchase);
+          $purchase = Purchase::where('deleted_at', NULL)
+          ->with('provider')
+              ->with('purchasedetails')
+              ->get();
+
+           // return view('admin.purchase.edit', compact( 'purchase','purchaseDetails','provider'));
+
     }
     public function update(UpdateRequest $request, Purchase $purchase)
     {
-        // $purchase->update($request->all());
-        // return redirect()->route('purchases.index');
+         $purchase->update($request->all());
+         return redirect()->route('purchases.index');
     }
     public function destroy(Purchase $purchase)
     {

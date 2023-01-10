@@ -41,12 +41,12 @@ class ReserveController extends Controller
     }
     public function reserve_all()
     {
-        $products = Product::where('status', 'ACTIVO')->get();
+        $products = Product::where('status', 'EN ESPERA')->get();
         return view('admin.reserve.createall', compact('products'));
     }
     public function create()
     {
-        $products = Product::where('status', 'ACTIVO')->get();
+        $products = Product::where('status', 'EN ESPERA')->get();
         return view('admin.reserve.create', compact('products'));
     }
 
@@ -111,11 +111,11 @@ class ReserveController extends Controller
     }
     public function change_status(Reserve $reserve)
     {
-        if ($reserve->status == 'VALIDO') {
-            $reserve->update(['status' => 'VENCIDO']);
+        if ($reserve->status == 'EN ESPERA') {
+            $reserve->update(['status' => 'ATENDIDO']);
             return redirect()->back();
         } else {
-            $reserve->update(['status' => 'VALIDO']);
+            $reserve->update(['status' => 'EN ESPERA']);
             return redirect()->back();
         }
     }

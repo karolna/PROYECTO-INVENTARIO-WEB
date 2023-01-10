@@ -79,25 +79,26 @@
                                     <td>{{$reserve->client->phone}}</td>
                                     <td>{{$reserve->quantity}}</td>
                                     <td>{{$reserve->product->name}}</td>
-                                    @if ($reserve->status == 'VALIDO')
+
+                                    @if ($reserve->status == 'EN ESPERA')
                                     <td>
                                         <a class="jsgrid-button btn btn-success" href="{{route('change.status.reserves', $reserve)}}" title="Editar">
-                                            Activo <i class="fas fa-check"></i>
+                                            ATENDIDO  <i class="fas fa-check"></i>
                                         </a>
                                     </td>
-                                    <td>
-                                        <a class="jsgrid-button jsgrid-edit-button" href="{{route('createSale.sales', $reserve)}}" title="Ventita">
-                                            Generar Venta <i class="fas fa-file"></i>
-                                        </a>
-                                    </td>
+
                                     @else
                                     <td>
                                         <a class="jsgrid-button btn btn-danger" href="{{route('change.status.reserves', $reserve)}}" title="Editar">
-                                            Vencido <i class="fas fa-times"></i>
+                                            EN ESPERA <i class="fas fa-times"></i>
                                         </a>
                                     </td>
                                     @endif
-
+                                    <td>
+                                        <a class="jsgrid-button jsgrid-edit-button" href="{{route('createSale.sales', $reserve)}}" title="Ventita">
+                                             <i class="fas fa-file"></i>
+                                        </a>
+                                    </td>
 
                                 </tr>
                                 @endforeach

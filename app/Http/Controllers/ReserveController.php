@@ -46,7 +46,7 @@ class ReserveController extends Controller
     }
     public function create()
     {
-        $products = Product::where('status', 'EN ESPERA')->get();
+        $products = Product::where('status', 'ACTIVO')->get();
         return view('admin.reserve.create', compact('products'));
     }
 

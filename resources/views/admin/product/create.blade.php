@@ -23,18 +23,18 @@
         <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    
+
                     <div class="d-flex justify-content-between">
                         <h4 class="card-title">Registro de productos</h4>
                     </div>
                     {!! Form::open(['route'=>'products.store', 'method'=>'POST','files' => true]) !!}
-                   
+
 
                     <div class="form-group">
                       <label for="name">Nombre</label>
                       <input type="text" name="name" id="name" class="form-control" aria-describedby="helpId" required>
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="sell_price">Precio de venta</label>
                         <input type="number" name="sell_price" id="sell_price" class="form-control" aria-describedby="helpId" required>
@@ -70,7 +70,15 @@
                         </h4>
                         <input type="file"  name="picture" id="picture" class="dropify" />
                     </div>
-
+                    @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                      <button type="submit" class="btn btn-primary mr-2">Registrar</button>
                      <a href="{{route('products.index')}}" class="btn btn-light">
                         Cancelar

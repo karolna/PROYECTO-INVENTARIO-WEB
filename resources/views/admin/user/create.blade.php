@@ -14,7 +14,7 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="#">Panel administrador</a></li>
-               
+
                 <li class="breadcrumb-item active" aria-current="page">Registro de usuario</li>
             </ol>
         </nav>
@@ -23,7 +23,7 @@
         <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    
+
                     <div class="d-flex justify-content-between">
                         <h4 class="card-title">Registro de usuario</h4>
                     </div>
@@ -37,13 +37,22 @@
                         <label for="email">Correo electrónico</label>
                         <input type="email" name="email" id="email" class="form-control" placeholder="" aria-describedby="helpId">
                       </div>
-                      
+
                       <div class="form-group">
                           <label for="password">Contraseña</label>
                           <input type="password" name="password" id="password" class="form-control" placeholder="" aria-describedby="helpId">
                       </div>
 
                     @include('admin.user._form')
+                    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
                      <button type="submit" class="btn btn-primary mr-2">Registrar</button>
                      <a href="{{route('users.index')}}" class="btn btn-light">
                         Cancelar

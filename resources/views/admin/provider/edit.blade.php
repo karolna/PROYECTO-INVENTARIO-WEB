@@ -54,7 +54,15 @@
                         <label for="phone">Numero de contacto</label>
                         <input type="number" class="form-control" name="phone" id="phone" value="{{$provider->phone}}" aria-describedby="helpId" required>
                     </div>
-
+                    @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                      <button type="submit" class="btn btn-primary mr-2">Actualizar</button>
                      <a href="{{route('providers.index')}}" class="btn btn-light">
                         Cancelar

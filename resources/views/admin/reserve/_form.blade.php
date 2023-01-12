@@ -27,7 +27,8 @@
         <div class="form-group">
             <label for="dni">Cédula</label>
             <input type="number" class="form-control" name="dni" id="dni" aria-describedby="helpId" required max-length="10" min-length="10" title="Números. Tamaño: 10">
-
+            <button type="button" class="btn btn-light" name="button" onclick="validar()"><small id="helpId" class="form-text text-muted">Valida primero tu Cédula</small>
+            </button>
         </div>
     </div>
 
@@ -71,4 +72,14 @@
     </div>
 
   </div>
+
+  @if ($errors->any())
+  <div class="alert alert-danger">
+      <ul>
+          @foreach ($errors->all() as $error)
+              <li>{{ $error }}</li>
+          @endforeach
+      </ul>
+  </div>
+@endif
 

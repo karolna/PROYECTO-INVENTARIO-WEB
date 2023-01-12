@@ -23,12 +23,12 @@
         <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    
+
                     <div class="d-flex justify-content-between">
                         <h4 class="card-title">Editar usuario</h4>
                     </div>
                     {!! Form::model($user,['route'=>['users.update',$user], 'method'=>'PUT']) !!}
-                    
+
                     <div class="form-group">
                         <label for="name">Nombre</label>
                         <input type="text" name="name" id="name" value="{{$user->name}}" class="form-control" placeholder="" aria-describedby="helpId">
@@ -37,8 +37,8 @@
                         <label for="email">Correo electrónico</label>
                         <input type="email" name="email" id="email" value="{{$user->email}}" class="form-control" placeholder="" aria-describedby="helpId">
                       </div>
-                      
-                      
+
+
 
                       {{--  <div class="form-group">
                           <label for="password">Contraseña</label>
@@ -47,7 +47,15 @@
                       </div>  --}}
 
                     @include('admin.user._form')
-                    
+                    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 
                      <button type="submit" class="btn btn-primary mr-2">Actualizar</button>
                      <a href="{{route('users.index')}}" class="btn btn-light">

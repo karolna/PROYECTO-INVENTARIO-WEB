@@ -40,7 +40,7 @@ class StoreRequest extends FormRequest
             'email.email'=>'No es un correo electrónico.',
             'email.string'=>'El valor no es correcto.',
             'email.max'=>'Solo se permiten 255 caracteres.',
-            'email.unique'=>'Ya se encuentra registrado.',
+            'email.unique'=>'El correo ya se encuentra registrado.',
             'address.max'=>'Solo se permiten 255 caracteres.',
             'address.string'=>'El valor no es correcto.',
             'phone.required'=>'Este campo es requerido.',

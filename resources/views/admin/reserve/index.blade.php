@@ -61,7 +61,7 @@
                                     <th>Celular</th>
                                     <th>Cant. Reservada</th>
                                     <th>Producto</th>
-                                    <th>Estado</th>
+                                  {{--  <th>Estado</th>--}}
                                     <th>Generar Venta</th>
                                 </tr>
                             </thead>
@@ -80,22 +80,23 @@
                                     <td>{{$reserve->quantity}}</td>
                                     <td>{{$reserve->product->name}}</td>
 
-                                    @if ($reserve->status == 'EN ESPERA')
+                                 {{--   @if ($reserve->status == 'EN ESPERA')
                                     <td>
-                                        <a class="jsgrid-button btn btn-success" href="{{route('change.status.reserves', $reserve)}}" title="Editar">
-                                            ATENDIDO  <i class="fas fa-check"></i>
+                                        <a class="jsgrid-button btn btn-danger" href="{{route('change.status.reserves', $reserve)}}" title="Editar">
+                                            EN ESPERA   <i class="fas fa-check"></i>
                                         </a>
                                     </td>
 
                                     @else
                                     <td>
-                                        <a class="jsgrid-button btn btn-danger" href="{{route('change.status.reserves', $reserve)}}" title="Editar">
-                                            EN ESPERA <i class="fas fa-times"></i>
+                                        <a class="jsgrid-button btn btn-success" href="{{route('change.status.reserves', $reserve)}}" title="Editar">
+                                            ATENDIDO   <i class="fas fa-times"></i>
                                         </a>
                                     </td>
                                     @endif
+                                    --}}
                                     <td>
-                                        <a class="jsgrid-button jsgrid-edit-button" href="{{route('createSale.sales', $reserve)}}" title="Ventita">
+                                        <a class="jsgrid-button jsgrid-edit-button" href="{{route('createSale.sales', $reserve)}}" title="Generar Venta">
                                              <i class="fas fa-file"></i>
                                         </a>
                                     </td>

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use Caffeinated\Shinobi\Models\Role;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Requests\User\StoreRequest;
 
 class UserController extends Controller
 {
@@ -29,7 +30,7 @@ class UserController extends Controller
         $roles = Role::get();
         return view('admin.user.create', compact('roles'));
     }
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
         $user = User::create($request->all());
         $user->update(['password'=> Hash::make($request->password)]);

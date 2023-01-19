@@ -98,8 +98,11 @@
                                             ATENDIDO   <i class="fas fa-check"></i>
                                         </a>
                                     </td>
-                                    <a href="{{route('reserve.pdf', $reserve->id)}}" class="jsgrid-button jsgrid-edit-button"><i class="far fa-file-pdf"></i></a>
-
+                                    <td>
+                                        <a class="jsgrid-button jsgrid-edit-button" href="{{route('reserve.pdf', $reserve->id)}}"  title="Comprobante">
+                                             <i class="fas fa-file">Comprobante</i>
+                                        </a>
+                                    </td>
 
                                     @endif
 

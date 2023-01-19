@@ -2,15 +2,18 @@
 
 namespace App\Http\Controllers;
 use App\Sale;
+use App\User;
 use App\Client;
 use App\Product;
 use Illuminate\Http\Request;
 use App\Http\Requests\Sale\StoreRequest;
 use App\Http\Requests\Sale\UpdateRequest;
 use App\Reserve;
+use App\SaleDetail;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Barryvdh\DomPDF\Facade as PDF;
+use item;
 use Mike42\Escpos\PrintConnectors\WindowsPrintConnector;
 use Mike42\Escpos\Printer;
 use Mike42\Escpos\EscposImage;
@@ -22,11 +25,12 @@ class SaleController extends Controller
     {
         $this->middleware('auth');
         $this->middleware('can:sales.create')->only(['create','store']);
+        $this->middleware('can:sales.createSaleByReserve')->only(['create','storeSaleByReserve']);
         $this->middleware('can:sales.index')->only(['index']);
         $this->middleware('can:sales.show')->only(['show']);
-
         $this->middleware('can:change.status.sales')->only(['change_status']);
         $this->middleware('can:sales.pdf')->only(['pdf']);
+        $this->middleware('can:sales.pdf_reserve')->only(['pdf_reserve']);
         $this->middleware('can:sales.print')->only(['print']);
     }
 
@@ -44,19 +48,59 @@ class SaleController extends Controller
         $products = Product::where('status', 'ACTIVO')->get();
         return view('admin.sale.create', compact('clients', 'products'));
     }
-
     public function store(StoreRequest $request)
     {
-        $sale = Sale::create($request->all()+[
+        foreach ($request->product_id as $key => $product) {
+         if($request->reserve_id[$key]=== "null"){
+            $results[] = array("product_id"=>$request->product_id[$key],"quantity"=>$request->quantity[$key], "price"=>$request->price[$key], "discount"=>$request->discount[$key]);
+         }
+         else{
+            $results[] = array("product_id"=>$request->product_id[$key],"reserve_id"=>(int)$request->reserve_id[$key], "quantity"=>$request->quantity[$key], "price"=>$request->price[$key], "discount"=>$request->discount[$key]);
+         }
+
+       $quantityBeforeSale=Product::select('stock')
+       ->where('id', $request->product_id[$key])->get()->toArray();
+                foreach($quantityBeforeSale as $quantityBeforeSal)
+                { $valorFromDataBase=$quantityBeforeSal['stock'];
+                }
+            Product::where('id', $request->product_id[$key])
+            ->update(['stock' => $valorFromDataBase-$request->quantity[$key]]);
+
+        }
+        $sale = Sale::create([
+            'client_id'=>$request->client_id,
+            'tax'=>$request->tax,
+            'total'=>$request->total,
+            'status'=>"VALIDO",
             'user_id'=>Auth::user()->id,
             'sale_date'=>Carbon::now('America/Guayaquil'),
         ]);
-        foreach ($request->product_id as $key => $product) {
-            $results[] = array("product_id"=>$request->product_id[$key], "quantity"=>$request->quantity[$key], "price"=>$request->price[$key], "discount"=>$request->discount[$key]);
-        }
+
         $sale->saleDetails()->createMany($results);
-        return redirect()->route('sales.index');
+
+        foreach ($request->reserve_id as $key => $reserve) {
+            if($reserve !== "null")
+            {
+                $resultsreserveid[] = array("reserve_id"=>$reserve);
+                Reserve::where('id', $request->reserve_id[$key])
+                ->update(['status' => 'ATENDIDO']);
+            }
+         }
+
+
+        return redirect()->route('reserve.index');
+       // dd($request);
+        //$sale = Sale::create($request->all()+[
+          //  'user_id'=>Auth::user()->id,
+           // 'sale_date'=>Carbon::now('America/Guayaquil'),
+       // ]);
+        //foreach ($request->product_id as $key => $product) {
+          //  $results[] = array("product_id"=>$request->product_id[$key], "quantity"=>$request->quantity[$key], "price"=>$request->price[$key], "discount"=>$request->discount[$key]);
+       // }
+        //$sale->saleDetails()->createMany($results);
+        //return redirect()->route('sales.index');
     }
+
     public function show(Sale $sale)
     {
         $subtotal = 0 ;
@@ -83,6 +127,7 @@ class SaleController extends Controller
     }
     public function pdf(Sale $sale)
     {
+
         $subtotal = 0 ;
         $saleDetails = $sale->saleDetails;
         foreach ($saleDetails as $saleDetail) {
@@ -92,6 +137,25 @@ class SaleController extends Controller
         return $pdf->download('Reporte_de_venta_'.$sale->id.'.pdf');
     }
 
+    public function pdf_reserve( Reserve $reserve)
+    {
+
+        $subtotal = 0 ;
+        $saleDetails= SaleDetail::where('reserve_id', $reserve->id)->get();
+        foreach ($saleDetails as $saleDetail) {
+
+            $sale = Sale::where('id',$saleDetail->sale_id )
+            ->with('saleDetails')
+            ->with('user')
+            ->get();
+            }
+
+        foreach ($saleDetails as $saleDetail) {
+            $subtotal += $saleDetail->quantity*$saleDetail->price-$saleDetail->quantity* $saleDetail->price*$saleDetail->discount/100;
+        }
+        $pdf = PDF::loadView('admin.sale.reserve_pdf', compact('sale', 'subtotal', 'saleDetails'));
+        return $pdf->download('Reporte_de_venta_'.$sale[0]->id.'.pdf');
+    }
     public function print(Sale $sale){
         try {
             $subtotal = 0 ;
@@ -128,7 +192,17 @@ class SaleController extends Controller
     }
     public function createSaleByReserve(Reserve $reserve)
     {
+
         $products=Product::all();
-        return view('admin.sale.create_reserve_sale', compact('reserve','products'));
+
+        $reserves = Reserve::whereBetween('created_at', [Carbon::now()->subDay()->toDateTimeString(), Carbon::now()->toDateTimeString()])
+        ->with('client')
+        ->where('client_id',$reserve->client_id)
+        ->where('status','EN ESPERA')
+        ->get();
+
+
+//dd($reserves);
+        return view('admin.sale.create_reserve_sale', compact('reserves','products','reserve'));
     }
 }

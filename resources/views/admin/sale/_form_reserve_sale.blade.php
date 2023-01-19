@@ -14,12 +14,29 @@
             <label for="product_id">Producto</label>
             {{--  <select class="form-control selectpicker" data-live-search="true" name="product_id" id="product_id">  --}}
 
+
+
             <select class="form-control" name="product_id" id="product_id">
-                <option value="" disabled>Selecccione un producto</option>
-                @foreach ($products as $product)
-                <option value="{{$product->id}}" {{$reserve->product_id==$product->id ? 'selected' : ''}}>{{$product->name}}</option>
-                @endforeach
+
+                <optgroup class="product-reserve"  label="Productos de Reserva">
+                    @foreach ($reserves as $reserve)
+                    <option class="reserve_quantity" attr-tipo-product="product-reserve"  attr-quantity-reserve="{{$reserve->quantity}}" attr-reserve="{{$reserve}}" value="{{$reserve->product->id}}" {{$reserve->product_id==$reserve->product->id ? 'selected' : ''}}>{{$reserve->product->name}}</option>
+                   @endforeach
+                </optgroup>
+
+                <optgroup class="all_products" label="Agregar más productos a la venta">
+                    @foreach ($products as $product)
+                     <option  attr-tipo-product="all_products" value="{{$product->id}}" {{$reserve->product_id==$product->id ? 'selected' : ''}}>{{$product->name}}</option>
+                    @endforeach
+                </optgroup>
+
             </select>
+
+            <li class="nav-item d-none d-lg-flex" >
+                <a style="display: none" class="nav-link" type="button" data-toggle="modal" data-target="#exampleModal-2">
+                    <span class="btn btn-warning">+ Agregar productos</span>
+                </a>
+            </li>
         </div>
     </div>
     <div class="form-group col-md-4">
@@ -31,7 +48,7 @@
     <div class="form-group col-md-4">
         <div class="form-group">
             <label for="price">Precio de venta</label>
-            <input type="number" value="{{$reserve->product->sell_price}}"" class="form-control" name="price" id="price" aria-describedby="helpId" disabled>
+            <input type="number" value="{{$reserve->product->sell_price}}" class="form-control" name="price" id="price" aria-describedby="helpId" disabled>
         </div>
     </div>
   </div>
@@ -41,8 +58,8 @@
 
   <div class="form-row">
     <div class="form-group col-md-6">
-        <div class="form-group">
-            <label for="quantity">Cantidad</label>
+        <div class="form-group  reserve_quantity" attr-quantity-reserve="{{$reserve}}">
+            <label for="quantity"  >Cantidad</label>
             <input type="number" value="{{$reserve->quantity}}" class="form-control" name="quantity" id="quantity" aria-describedby="helpId">
         </div>
     </div>

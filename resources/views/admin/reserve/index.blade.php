@@ -61,8 +61,8 @@
                                     <th>Celular</th>
                                     <th>Cant. Reservada</th>
                                     <th>Producto</th>
-                                  {{--  <th>Estado</th>--}}
-                                    <th>Generar Venta</th>
+                                    <th>Estado de reserva</th>
+                                    <th>Acción</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -80,26 +80,30 @@
                                     <td>{{$reserve->quantity}}</td>
                                     <td>{{$reserve->product->name}}</td>
 
-                                 {{--   @if ($reserve->status == 'EN ESPERA')
+                                   @if ($reserve->status == 'EN ESPERA')
                                     <td>
                                         <a class="jsgrid-button btn btn-danger" href="{{route('change.status.reserves', $reserve)}}" title="Editar">
-                                            EN ESPERA   <i class="fas fa-check"></i>
+                                            EN ESPERA   <i class="fas fa-times"></i>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a class="jsgrid-button jsgrid-edit-button" href="{{route('createSale.sales', $reserve)}}" title="Generar Venta">
+                                             <i class="fas fa-file">Generar Venta</i>
                                         </a>
                                     </td>
 
                                     @else
                                     <td>
                                         <a class="jsgrid-button btn btn-success" href="{{route('change.status.reserves', $reserve)}}" title="Editar">
-                                            ATENDIDO   <i class="fas fa-times"></i>
+                                            ATENDIDO   <i class="fas fa-check"></i>
                                         </a>
                                     </td>
+                                    <a href="{{route('reserve.pdf', $reserve->id)}}" class="jsgrid-button jsgrid-edit-button"><i class="far fa-file-pdf"></i></a>
+
+
                                     @endif
-                                    --}}
-                                    <td>
-                                        <a class="jsgrid-button jsgrid-edit-button" href="{{route('createSale.sales', $reserve)}}" title="Generar Venta">
-                                             <i class="fas fa-file"></i>
-                                        </a>
-                                    </td>
+
+
 
                                 </tr>
                                 @endforeach

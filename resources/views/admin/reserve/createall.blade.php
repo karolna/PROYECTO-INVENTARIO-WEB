@@ -4,6 +4,7 @@
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>@yield('title')</title>
 
@@ -12,6 +13,7 @@
     {!! Html::style('melody/vendors/css/vendor.bundle.base.css') !!}
     {!! Html::style('melody/vendors/css/vendor.bundle.addons.css') !!}
     {!! Html::style('melody/vendors/css/vendor.bundle.addons.css') !!}
+    {!! Html::style('jquery-ui/jquery-ui.min.css') !!}
 
     <!-- endinject -->
     <!-- plugin css for this page -->
@@ -28,7 +30,16 @@
 <body>
     <div class="container-scroller">
         <!-- partial:partials/_navbar.html -->
-
+        @if (isset($error))
+        <div class="col-sm-12">
+            <div class="alert  alert-danger alert-dismissible fade show" role="alert">
+              $error
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+            </div>
+        </div>
+    @endif
 
                 @include('layouts._navinfo')
                 <nav class="navbar navbar-expand-lg navbar-light bg-light" >
@@ -152,7 +163,7 @@
                                                 </div>
 
                                              </div>
-@endforeach
+            @endforeach
                                     </div>
 
 
@@ -180,6 +191,7 @@
     </div>
     <!-- container-scroller -->
 
+</body>
     <!-- plugins:js -->
     {!! Html::script('melody/vendors/js/vendor.bundle.base.js') !!}
     {!! Html::script('melody/vendors/js/vendor.bundle.addons.js') !!}
@@ -231,17 +243,34 @@
     <!-- endinject -->
     <!-- Custom js for this page-->
     {!! Html::script('melody/js/dashboard.js') !!}
-
-     <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
+    {!! Html::script('js/jquery/jquery-3.6.3.min.js') !!}
+    {!! Html::script('jquery-ui/jquery-ui.min.js') !!}
 
     <!-- End custom js for this page-->
-  {!! Html::script('melody/js/alerts.js') !!}
-    {!! Html::script('melody/js/avgrund.js') !!}
 
-    {!! Html::script('select/dist/js/bootstrap-select.min.js') !!}
-    {!! Html::script('js/sweetalert2.all.min.js') !!}
+
+
     <script type="text/javascript">
         function validar() {
+            var cedula = document.getElementById("dni").value.trim();
+            var clientes = @json($clients->toArray());
+        console.log(clientes,cedula);
+
+        var dni_clients =$('#dni')
+        var dni_client = dni_clients.val();
+        $.ajax({
+                url: "{{ route('get_client_by_dni') }}",
+                method: 'GET',
+                data: {
+                    dni_client,
+                },
+                success: function(data) {
+                    console.log(data);
+                    $("#phone").val(data.phone);
+                    $("#name").val(data.name);
+                    $("#lastname").val(data.lastname);
+                }
+            })
           var cedula = document.getElementById("dni").value.trim();
     //Preguntamos si la cedula consta de 10 digitos
     if(cedula.length == 10){
@@ -451,10 +480,19 @@
             $("#fila" + index).remove();
             evaluar();
         }
+
+     var clientes = @json($clients->toArray());
+        console.log(clientes)
+        var clientesDni = clientes.map((cliente) => {
+            return cliente.dni;
+        })
+        $('.dni').autocomplete({
+            source: clientesDni
+        });
+
     </script>
     @yield('scripts')
 
-</body>
 
 
 </html>

@@ -56,7 +56,15 @@ class PurchaseController extends Controller
         ]);
         foreach ($request->product_id as $key => $product) {
             $results[] = array("product_id"=>$request->product_id[$key], "quantity"=>$request->quantity[$key], "price"=>$request->price[$key]);
+            $quantityBeforePurchase=Product::select('stock')
+            ->where('id', $request->product_id[$key])->get()->toArray();
+                     foreach($quantityBeforePurchase as $quantityBeforePurchas)
+                     { $valorFromDataBase=$quantityBeforePurchas['stock'];
+                     }
+                 Product::where('id', $request->product_id[$key])
+                 ->update(['stock' => $valorFromDataBase+$request->quantity[$key]]);
         }
+
         $purchase->purchaseDetails()->createMany($results);
         return redirect()->route('purchases.index');
     }

@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\Reserve\StoreRequest;
 use App\Http\Requests\Reserve\UpdateRequest;
 use Illuminate\Support\Carbon;
+use Illuminate\Session\SessionManager;
 
 //use Carbon\Carbon;
 
@@ -41,13 +42,18 @@ class ReserveController extends Controller
     }
     public function reserve_all()
     {
+        $clients=Client::get();
         $products = Product::where('status', 'ACTIVO')->get();
-        return view('admin.reserve.createall', compact('products'));
+        return view('admin.reserve.createall', compact('products','clients'));
     }
     public function create()
     {
+        $clients=Client::select("id", "name", "lastname","dni","phone")
+        ->get();
+
+
         $products = Product::where('status', 'ACTIVO')->get();
-        return view('admin.reserve.create', compact('products'));
+        return view('admin.reserve.create', compact('products','clients'));
     }
 
     public function store(StoreRequest $request)
@@ -68,7 +74,8 @@ class ReserveController extends Controller
             'reserve_date' => Carbon::now('America/Guayaquil'),
             'client_id' => $client->id
         ]);
-        return redirect()->route('index.index');
+
+        return redirect()->route('reserve.index');
     }
     public function store_all(StoreRequest $request)
     {
@@ -88,7 +95,11 @@ class ReserveController extends Controller
             'reserve_date' => Carbon::now('America/Guayaquil'),
             'client_id' => $client->id
         ]);
-        return redirect()->route('index.index');
+       // return redirect()->back();
+      //  return redirect()->back()->with('success','Se ha generado exitosamente su reserva, caduca en 24 horas');
+      return redirect()->back()->withInput()->with('success','Se ha generado exitosamente su reserva, caduca en 24 horas');
+       // return redirect()->back()->with('success','Se ha generado exitosamente su reserva, caduca en 24 horas');
+     //  return  $sessionManager->flash('mensaje', 'Este es el mensaje');
     }
     public function show(Reserve $reserve)
     {
@@ -119,4 +130,28 @@ class ReserveController extends Controller
             return redirect()->back();
         }
     }
+
+    public function get_quantity_reserve_by_id(Request $request){
+        if ($request->ajax()) {
+            $reserve = Reserve::whereBetween('created_at', [Carbon::now()->subDay()->toDateTimeString(), Carbon::now()->toDateTimeString()])
+            ->where('id',$request->reserve_id)
+            ->get();
+
+
+             $products = Product::findOrFail($request->product_id);
+
+            return response()->json($products,$reserve);
+
+        }
+    }
+    public function get_client_by_dni(Request $request){
+        if ($request->ajax()) {
+
+             $client = Client::firstWhere('dni',$request->dni_client );
+            return response()->json($client);
+
+        }
+    }
+
+
 }

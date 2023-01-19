@@ -99,26 +99,28 @@
                     <button type="submit" class="btn btn-success">Registrar</button>
                     <button type="button" class="btn btn-light" data-dismiss="modal">Cancelar</button>
                 </div>
-
                 {!! Form::close() !!}
-
             </div>
         </div>
     </div>
-
-
 @endsection
 @section('scripts')
     {!! Html::script('melody/js/alerts.js') !!}
     {!! Html::script('melody/js/avgrund.js') !!}
-
     {!! Html::script('select/dist/js/bootstrap-select.min.js') !!}
     {!! Html::script('js/sweetalert2.all.min.js') !!}
-
     <script>
         $(document).ready(function() {
             $("#agregar").click(function() {
+                var cloneReserve = [$('option.reserve_quantity').attr('attr-reserve')];
+
                 agregar();
+                $("#product_id option:selected").remove();
+                $("#quantity").empty();
+
+                $("#price").val('');
+            $("#stock").val('');
+            $("#product_id").val('');
             });
         });
 
@@ -127,17 +129,28 @@
         subtotal = [];
         $("#guardar").hide();
 
-      //  $("#product_id").change(mostrarValores);
+        //  $("#product_id").change(mostrarValores);
 
         function mostrarValores() {
             datosProducto = document.getElementById('product_id').value.split('_');
             $("#price").val(datosProducto[2]);
             $("#stock").val(datosProducto[1]);
+
+
+        }
+
+        function mostrarValoresMore() {
+            datosProductoMore = document.getElementById('product_id_more').value.split('_');
+            $("#price").val(datosProductoMore[2]);
+            $("#stock").val(datosProductoMore[1]);
+
         }
 
         var product_selected = $('#product_id');
-        product_selected.on("change", function() {
-            var product_id= product_selected.val();
+        var product_selected_more = $('#product_id_more');
+        product_selected_more.on("change", function() {
+            var product_id = product_selected_more.val();
+            console.log(product_id);
             $.ajax({
                 url: "{{ route('get_products_by_id') }}",
                 method: 'GET',
@@ -150,23 +163,45 @@
                     console.log(data);
                 }
             })
-            // product_id.change(function(){
-            //     $.ajax({
-            //         url: "{{ route('get_products_by_id') }}",
-            //         method: 'GET',
-            //         data:{
-            //             product_id: product_id.val(),
-            //         },
-            //         success: function(data){
-            //             $("#price").val(data.sell_price);
-            //             $("#stock").val(data.stock);
-            //             console.log(data);
-            //     }
-            // });
+
 
         })
         console.log(product_id);
-        ;
+
+
+        product_selected.on("change", function() {
+            var product_id = product_selected.val();
+            console.log('product_id.' ,product_id);
+            var reserve_id = $('option.reserve_quantity').attr('attr-reserve-id');
+
+            var quantityReserve = $('#product_id option:selected').attr('attr-quantity-reserve');
+
+            $("#quantity").val(quantityReserve);
+           console.log(quantityReserve);
+
+            $.ajax({
+                url: "{{ route('get_products_by_id') }}",
+                method: 'GET',
+                data: {
+                    product_id,
+
+
+                },
+                success: function(data) {
+                    $("#price").val(data.sell_price);
+                    $("#stock").val(data.stock);
+
+
+                }
+
+            })
+
+           // var quantityReserve = elem.getAttribute('data-typeId');
+
+
+
+        })
+        console.log(product_id);;
 
 
         $(obtener_registro());
@@ -196,9 +231,13 @@
             }
         })
 
-
         function agregar() {
             datosProducto = document.getElementById('product_id').value.split('_');
+
+            var tipoProducto = $("#product_id option:selected").attr('attr-tipo-product');
+            var attrReserve = $("#product_id option:selected").attr('attr-reserve');
+            var attrQuantityReserve = $("#product_id option:selected").attr('attr-quantity-reserve');
+            var reserve_id=null;
             product_id = datosProducto[0];
             producto = $("#product_id option:selected").text();
             quantity = $("#quantity").val();
@@ -206,27 +245,40 @@
             price = $("#price").val();
             stock = $("#stock").val();
             impuesto = $("#tax").val();
-            if (product_id != "" && quantity != "" && quantity > 0 && discount != "" && price != "") {
+            console.log("este es mi attr reserve:",attrReserve);
+
+            if (product_id != "" &&  quantity != "" && quantity > 0 && discount != "" && price != "") {
+                if (   attrReserve === undefined ) {
+                    reserve_id=null;
+
+                }
+                else
+                {
+
+                   var reserve_all=JSON.parse(attrReserve);
+                reserve_id=reserve_all.id;
+                }
+                console.log("este es id_reserve:",reserve_id);
                 if (parseInt(stock) >= parseInt(quantity)) {
                     subtotal[cont] = (quantity * price) - (quantity * price * discount / 100);
                     total = total + subtotal[cont];
-
-                    //  var fila = '<tr class="selected" id="fila' + cont + '"><td><button type="button" class="btn btn-danger btn-sm" onclick="eliminar(' + cont + ');"><i class="fa fa-times fa-2x"></i></button></td> <td><input type="hidden" name="product_id[]" value="' + product_id + '">' + producto + '</td> <td> <input type="hidden" name="price[]" value="' + parseFloat(price).toFixed(2) + '"> <input class="form-control" type="number" value="' + parseFloat(price).toFixed(2) + '" disabled> </td> <td> <input type="hidden" name="discount[]" value="' + parseFloat(discount) + '"> <input class="form-control" type="number" value="' + parseFloat(discount) + '" disabled> </td> <td> <input type="hidden" name="quantity[]" value="' + quantity + '"> <input type="number" value="' + quantity + '" class="form-control" disabled> </td> <td align="right">s/' + parseFloat(subtotal[cont]).toFixed(2) + '</td></tr>';
-                    // var fila=`<tr class="selected" id="fila${cont}"><td><button type="button" class="btn btn-danger btn-sm" onclick="eliminar(' + cont + ');"><i class="fa fa-times fa-2x"></i></button></td> <td><input type="hidden" name="product_id[]" value="' + product_id + '">' + producto + '</td> <td> <input type="hidden" name="price[]" value="' + parseFloat(price).toFixed(2) + '"> <input class="form-control" type="number" value="' + parseFloat(price).toFixed(2) + '" disabled> </td> <td> <input type="hidden" name="discount[]" value="' + parseFloat(discount) + '"> <input class="form-control" type="number" value="' + parseFloat(discount) + '" disabled> </td> <td> <input type="hidden" name="quantity[]" value="' + quantity + '"> <input type="number" value="' + quantity + '" class="form-control" disabled> </td> <td align="right">s/' + parseFloat(subtotal[cont]).toFixed(2) + '</td></tr>`
                     var fila = `<tr class="selected" id="fila${cont}">
             <td>
-                <button type="button" class="btn btn-danger btn-sm" onclick="eliminar(${cont});">
+                <button type="button" class="btn btn-danger btn-sm" onclick="eliminar(${cont},'${tipoProducto}',${product_id},'${producto}',${attrQuantityReserve},'attrReserve')">
                     <i class="fa fa-times fa-2x"></i>
                 </button>
+
             </td>
+
+                <input type="hidden" name="reserve_id[]" value="${reserve_id}">${reserve_id}
+
+
             <td>
                 <input type="hidden" name="product_id[]" value="${product_id}">${producto}
             </td>
-
             <td> <input type="hidden" name="price[]" value="${parseFloat(price).toFixed(2)}">
                 <input class="form-control" type="number" value="${parseFloat(price).toFixed(2)}" disabled="">
             </td>
-
             <td>
                 <input type="hidden" name="discount[]" value="${parseFloat(discount)}">
                 <input class="form-control" type="number" value="${parseFloat(discount)}" disabled="">
@@ -237,7 +289,7 @@
             <td align="right">${parseFloat(subtotal[cont]).toFixed(2)}
             </td>
         </tr>`;
-
+        console.log("funcionagregar");
                     cont++;
                     limpiar();
                     totales();
@@ -280,7 +332,7 @@
             }
         }
 
-        function eliminar(index) {
+        function eliminar(index,tipoProducto,product_id,producto,attrQuantityReserve,attrReserve) {
             total = total - subtotal[index];
             total_impuesto = total * impuesto / 100;
             total_pagar_html = total + total_impuesto;
@@ -289,8 +341,9 @@
             $("#total_pagar_html").html("USD" + total_pagar_html);
             $("#total_pagar").val(total_pagar_html.toFixed(2));
             $("#fila" + index).remove();
+            $(`#product_id .${tipoProducto}`).append(`<option  class="reserve_quantity"  attr-tipo-product="${tipoProducto}"  attr-quantity-reserve="${attrQuantityReserve}" attr-reserve="${attrReserve}" value=" ${product_id}" >${producto} </option>`);
+
             evaluar();
         }
     </script>
-
 @endsection

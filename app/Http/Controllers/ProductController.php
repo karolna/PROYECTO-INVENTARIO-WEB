@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use App\Category;
 use App\Product;
+use App\Reserve;
 use Illuminate\Http\Request;
 use App\Http\Requests\Product\StoreRequest;
 use App\Http\Requests\Product\UpdateRequest;
@@ -113,8 +114,6 @@ class ProductController extends Controller
     public function get_products_by_id(Request $request){
         if ($request->ajax()) {
             $products = Product::findOrFail($request->product_id);
-            // dump($products);
-            // exit();
             return response()->json($products);
 
         }

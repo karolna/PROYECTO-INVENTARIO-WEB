@@ -58,6 +58,7 @@ Route::get('sales/reserve/{reserve}', 'SaleController@createSaleByReserve')->nam
 Route::resource('reserve', 'ReserveController')->names('reserve');
 Route::get('purchases/pdf/{purchase}', 'PurchaseController@pdf')->name('purchases.pdf');
 Route::get('sales/pdf/{sale}', 'SaleController@pdf')->name('sales.pdf');
+Route::get('sales/pdf_reserve/{reserve}', 'SaleController@pdf_reserve')->name('reserve.pdf');
 Route::get('sales/print/{sale}', 'SaleController@print')->name('sales.print');
 
 Route::get('purchases/upload/{purchase}', 'PurchaseController@upload')->name('upload.purchases');
@@ -72,6 +73,8 @@ Route::get('change_status/reserves/{reserve}', 'ReserveController@change_status'
 Route::get('catalogo/reserve', 'ReserveController@reserve_all')->name('reserve.reserve_all');
 Route::post('catalogo/store_all', 'ReserveController@store_all')->name('reserve.store_all');
 
+
+
 Route::resource('users', 'UserController')->names('users');
 
 Route::resource('roles', 'RoleController')->names('roles');
@@ -79,6 +82,8 @@ Route::resource('roles', 'RoleController')->names('roles');
 Route::get('get_products_by_barcode', 'ProductController@get_products_by_barcode')->name('get_products_by_barcode');
 
 Route::get('get_products_by_id', 'ProductController@get_products_by_id')->name('get_products_by_id');
+Route::get('get_quantity_reserve_by_id', 'ReserveController@get_quantity_reserve_by_id')->name('get_quantity_reserve_by_id');
+Route::get('get_client_by_dni', 'ReserveController@get_client_by_dni')->name('get_client_by_dni');
 
 Route::get('print_barcode', 'ProductController@print_barcode')->name('print_barcode');
 

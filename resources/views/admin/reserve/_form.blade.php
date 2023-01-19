@@ -5,6 +5,14 @@
 
   <div class="form-row">
 
+     <div class="form-group col-md-3">
+        <div class="form-group">
+            <label for="dni">Cédula</label>
+            <input type="number" class="form-control dni " name="dni" id="dni" aria-describedby="helpId" required max-length="10" min-length="10" title="Números. Tamaño: 10">
+            <button type="button" class="btn btn-light" name="button" onclick="validar()"><small id="helpId" class="form-text text-muted">Valida primero tu Cédula</small>
+            </button>
+        </div>
+    </div>
     <div class="form-group col-md-3">
         <div class="form-group">
             <label for="name">Nombre</label>
@@ -23,17 +31,9 @@
             <input type="number" class="form-control" name="phone" id="phone" aria-describedby="helpId" max-length="10" min-length="9" required  title="Números. Tamaño mínimo: 9. Tamaño máximo: 10">
         </div>
     </div>
-    <div class="form-group col-md-3">
-        <div class="form-group">
-            <label for="dni">Cédula</label>
-            <input type="number" class="form-control" name="dni" id="dni" aria-describedby="helpId" required max-length="10" min-length="10" title="Números. Tamaño: 10">
-            <button type="button" class="btn btn-light" name="button" onclick="validar()"><small id="helpId" class="form-text text-muted">Valida primero tu Cédula</small>
-            </button>
-        </div>
-    </div>
+
 
   </div>
-
 
 
 

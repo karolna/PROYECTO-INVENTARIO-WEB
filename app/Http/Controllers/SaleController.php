@@ -127,7 +127,6 @@ class SaleController extends Controller
     }
     public function pdf(Sale $sale)
     {
-
         $subtotal = 0 ;
         $saleDetails = $sale->saleDetails;
         foreach ($saleDetails as $saleDetail) {
@@ -136,10 +135,8 @@ class SaleController extends Controller
         $pdf = PDF::loadView('admin.sale.pdf', compact('sale', 'subtotal', 'saleDetails'));
         return $pdf->download('Reporte_de_venta_'.$sale->id.'.pdf');
     }
-
     public function pdf_reserve( Reserve $reserve)
     {
-
         $subtotal = 0 ;
         $saleDetails= SaleDetail::where('reserve_id', $reserve->id)->get();
         foreach ($saleDetails as $saleDetail) {
@@ -149,7 +146,6 @@ class SaleController extends Controller
             ->with('user')
             ->get();
             }
-
         foreach ($saleDetails as $saleDetail) {
             $subtotal += $saleDetail->quantity*$saleDetail->price-$saleDetail->quantity* $saleDetail->price*$saleDetail->discount/100;
         }

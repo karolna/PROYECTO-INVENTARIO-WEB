@@ -10,6 +10,7 @@ use App\Http\Requests\Reserve\StoreRequest;
 use App\Http\Requests\Reserve\UpdateRequest;
 use Illuminate\Support\Carbon;
 use Illuminate\Session\SessionManager;
+use Illuminate\Support\Facades\DB;
 
 //use Carbon\Carbon;
 
@@ -44,7 +45,15 @@ class ReserveController extends Controller
     {
         $clients=Client::get();
         $products = Product::where('status', 'ACTIVO')->get();
-        return view('admin.reserve.createall', compact('products','clients'));
+
+        $productosvendidos=DB::select('SELECT p.code as code, p.image,
+        sum(dv.quantity) as quantity, p.name as name , p.id as id , p.stock as stock from products p
+        inner join sale_details dv on p.id=dv.product_id
+        inner join sales v on dv.sale_id=v.id where v.status="VALIDO"
+        and year(v.sale_date)=year(curdate())
+        group by p.code ,p.name, p.id , p.stock order by sum(dv.quantity) desc limit 5');
+
+        return view('admin.reserve.createall', compact('products','clients','productosvendidos'));
     }
     public function create()
     {
@@ -152,6 +161,7 @@ class ReserveController extends Controller
 
         }
     }
+
 
 
 }

@@ -76,9 +76,11 @@
             </li>
           </ul>--}}
 
+          @include('layouts._banners')
 
         <!-- partial -->
         <div class="container-fluid page-body-wrapper" style="padding:0 0 0 0 !important;">             <!-- partial:partials/_settings-panel.html -->
+
 
             <!-- partial -->
             <!-- partial:partials/_sidebar.html -->
@@ -88,25 +90,88 @@
                 <div class="content-wrapper">
 
                     <div class="row">
+                        <div class="d-flex justify-content-between">
+                            <h4 class="card-title">Productos más vendidos</h4>
+                            {{--  <i class="fas fa-ellipsis-v"></i>  --}}
+                            <div class="btn-group">
+                                <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fas fa-ellipsis-v"></i>
+                                </a>
+
+                              </div>
+                        </div>
                         <div class="col-lg-12 grid-margin stretch-card">
                             <div class="card">
                                 <div class="card-body">
 
-                                    <div class="d-flex justify-content-between">
-                                        <h4 class="card-title">Productos</h4>
-                                        {{--  <i class="fas fa-ellipsis-v"></i>  --}}
-                                        <div class="btn-group">
-                                            <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <i class="fas fa-ellipsis-v"></i>
-                                            </a>
 
-                                          </div>
-                                    </div>
 
                                     <div class=" card-group col-xs-12 col-md-12 col-lg-12">
+
+                                        @foreach ($productosvendidos as $productosvendido)
+
+
+
+                                        <div class=" col-sx-4 col-md-6 col-lg-2">
+
+                                            <div class="card">
+
+                                                <img class="card-img-top" src="{{asset('image/'.$productosvendido->image)}}" width="1px" height="1px" style=" padding-left:20%,width: 300px; height:200px" alt="Card image cap">
+                                                <div class="card-body">
+                                                <h5 class="card-title"> {{$productosvendido->name}}</h5>
+                                                <p class="card-text"> Quedan pocas Unidades</p>
+                                              </div>
+
+
+                                            </div>
+
+                                         </div>
+
+
+
+
+                                        @endforeach
+
+
+                                    </div>
+
+
+                                </div>
+                                {{--  <div class="card-footer text-muted">
+                                    {{$products->render()}}
+                                </div>  --}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-wrapper">
+
+                    <div class="row">
+                        <div class="d-flex justify-content-between">
+                            <h4 class="card-title">Otros Productos</h4>
+                            {{--  <i class="fas fa-ellipsis-v"></i>  --}}
+                            <div class="btn-group">
+                                <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fas fa-ellipsis-v"></i>
+                                </a>
+
+                              </div>
+                        </div>
+                        <div class="col-lg-12 grid-margin stretch-card">
+                            <div class="card">
+                                <div class="card-body">
+
+
+                                    <div class=" card-group col-xs-12 col-md-12 col-lg-12">
+
+
+
+                                        <br>
+                                        <br>
                                         @foreach ($products as $product)
 
-                                            <div class=" col-sx-12 col-md-6 col-lg-4">
+                                            <div class=" col-sx-12 col-md-6 col-lg-3">
 
                                                 <div class="card">
 
@@ -134,6 +199,8 @@
                         </div>
                     </div>
                 </div>
+
+
                 <!-- content-wrapper ends -->
                 <!-- partial:partials/_footer.html -->
                 <footer class="footer">

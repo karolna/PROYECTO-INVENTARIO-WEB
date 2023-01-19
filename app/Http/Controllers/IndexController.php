@@ -7,13 +7,21 @@ use Illuminate\Http\Request;
 use App\Http\Requests\Product\StoreRequest;
 use App\Http\Requests\Product\UpdateRequest;
 use App\Provider;
+use Illuminate\Support\Facades\DB;
 
 class IndexController extends Controller
 {
 
     public function reports_day(){
         $products = Product::all();
-        return view('admin.index.index', compact('products'));
+        $productosvendidos=DB::select('SELECT p.code as code, p.image,
+        sum(dv.quantity) as quantity, p.name as name , p.id as id , p.stock as stock from products p
+        inner join sale_details dv on p.id=dv.product_id
+        inner join sales v on dv.sale_id=v.id where v.status="VALIDO"
+        and year(v.sale_date)=year(curdate())
+        group by p.code ,p.name, p.id , p.stock order by sum(dv.quantity) desc limit 6');
+
+        return view('admin.index.index', compact('products','productosvendidos'));
     }
     public function reencauchadas(){
         $products = Product::where('category_id', 1)->get();

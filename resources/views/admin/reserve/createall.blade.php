@@ -115,8 +115,48 @@
             </div>
         </div>
     </div>
+    <div class="row">
+        <div class="col-12 grid-margin">
+            <div class="card">
+                <div style="padding-right:10%; padding-left:15z%; display:flex" class="card-body">
 
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col"></th>
+                                    <th></th>
+                                    <th></th>
 
+                                    <th></th>
+                                </tr>
+                            </thead>
+                          {{--  <tbody>
+                                @foreach ($productosvendidos as $productosvendido)
+                                <tr>
+                                    <td style="width:200px ; padding-right:0px; ">
+                                        <img class="card-img-top" src="{{asset('image/'.$productosvendido->image)}}" width="1px" height="1px" style="width: 20%; height:40%" alt="Card image cap">
+
+                                    </td>
+                                    <td>{{$productosvendido->name}}</td>
+                                    <td>Quedan pocas Unidades</td>
+
+                                    <td>
+                                        <a class="btn btn-primary"
+                                            href="{{route('products.show', $productosvendido->id)}}">
+                                            <i class="far fa-eye"></i>
+                                            Ver detalles
+                                        </a>
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tbody>--}}
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
         <!-- partial -->
         <div class="container-fluid page-body-wrapper" style="padding:0 0 0 0 !important;">             <!-- partial:partials/_settings-panel.html -->
@@ -134,7 +174,7 @@
                                 <div class="card-body">
 
                                     <div class="d-flex justify-content-between">
-                                        <h4 class="card-title">Productos</h4>
+                                        <h4 class="card-title">Otros roductos</h4>
                                         {{--  <i class="fas fa-ellipsis-v"></i>  --}}
                                         <div class="btn-group">
                                             <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -144,7 +184,7 @@
                                           </div>
                                     </div>
 
-                                    <div class=" card-group col-xs-12 col-md-12 col-lg-12">
+<div class=" card-group col-xs-12 col-md-12 col-lg-12">
                                         @foreach ($products as $product)
 
                                             <div class=" col-sx-12 col-md-6 col-lg-4">
@@ -163,8 +203,9 @@
                                                 </div>
 
                                              </div>
-            @endforeach
+                     @endforeach
                                     </div>
+
 
 
                                 </div>

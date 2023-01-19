@@ -207,6 +207,7 @@
             price = $("#price").val();
             stock = $("#stock").val();
             impuesto = $("#tax").val();
+            reserve_id = "null";
             if (product_id != "" && quantity != "" && quantity > 0 && discount != "" && price != "") {
                 if (parseInt(stock) >= parseInt(quantity)) {
                     subtotal[cont] = (quantity * price) - (quantity * price * discount / 100);
@@ -220,6 +221,7 @@
                     <i class="fa fa-times fa-2x"></i>
                 </button>
             </td>
+            <input type="hidden" name="reserve_id[]" value="${reserve_id}">${reserve_id}
             <td>
                 <input type="hidden" name="product_id[]" value="${product_id}">${producto}
             </td>

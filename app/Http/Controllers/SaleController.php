@@ -50,6 +50,7 @@ class SaleController extends Controller
     }
     public function store(StoreRequest $request)
     {
+
         foreach ($request->product_id as $key => $product) {
          if($request->reserve_id[$key]=== "null"){
             $results[] = array("product_id"=>$request->product_id[$key],"quantity"=>$request->quantity[$key], "price"=>$request->price[$key], "discount"=>$request->discount[$key]);

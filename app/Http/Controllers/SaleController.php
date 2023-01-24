@@ -140,16 +140,27 @@ class SaleController extends Controller
     {
         $subtotal = 0 ;
         $saleDetails= SaleDetail::where('reserve_id', $reserve->id)->get();
+
         foreach ($saleDetails as $saleDetail) {
 
             $sale = Sale::where('id',$saleDetail->sale_id )
             ->with('saleDetails')
             ->with('user')
             ->get();
+
             }
+
+            foreach ($sale as $sales) {
+
+                $saleDetails=SaleDetail::where('sale_id', $sales->id)->get();
+
+                }
+
+
         foreach ($saleDetails as $saleDetail) {
             $subtotal += $saleDetail->quantity*$saleDetail->price-$saleDetail->quantity* $saleDetail->price*$saleDetail->discount/100;
         }
+
         $pdf = PDF::loadView('admin.sale.reserve_pdf', compact('sale', 'subtotal', 'saleDetails'));
         return $pdf->download('Reporte_de_venta_'.$sale[0]->id.'.pdf');
     }

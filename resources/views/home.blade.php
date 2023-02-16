@@ -26,7 +26,7 @@
             <div class="card-body">
                 <h4 class="card-title">
                     <i class="fas fa-gift"></i>
-                    Ventas diarias de Productos
+                    Salida diaria de Productos
                 </h4>
                 <canvas id="ventas_diarias" height="100"></canvas>
                 <div id="orders-chart-legend" class="orders-chart-legend"></div>
@@ -40,7 +40,7 @@
                 <div class="card-body">
                     <h4 class="card-title">
                         <i class="fas fa-envelope"></i>
-                        Productos más vendidos
+                        Productos con más salidas
                     </h4>
                     <div class="table-responsive">
                         <table class="table">
@@ -83,7 +83,7 @@
                 <div class="card-body">
                     <h4 class="card-title">
                         <i class="fas fa-gift"></i>
-                        Compras - Meses
+                        Entrada de inventario - Meses
                     </h4>
                     <canvas id="compras"></canvas>
                     <div id="orders-chart-legend" class="orders-chart-legend"></div>
@@ -95,7 +95,7 @@
                 <div class="card-body">
                     <h4 class="card-title">
                         <i class="fas fa-chart-line"></i>
-                        Ventas - Meses
+                        Salida de inventario - Meses
                     </h4>
                     <canvas id="ventas"></canvas>
                 </div>

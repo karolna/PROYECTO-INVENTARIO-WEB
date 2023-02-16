@@ -44,7 +44,7 @@
                                     </a>
                                     <a class="list-group-item list-group-item-action" id="list-profile-list"
                                         data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">
-                                        Historial de compras
+                                        Historial de entrada de inventario
                                     </a>
                                     {{--  <button type="button" class="list-group-item list-group-item-action">Registrar
                                         producto</button>  --}}
@@ -67,7 +67,7 @@
                                     </div>
                                     <div class="profile-feed">
                                         <div class="d-flex align-items-start profile-feed-item">
-                                            
+
                                             <div class="form-group col-md-6">
                                                 <strong><i class="fab fa-product-hunt mr-1"></i> Nombre</strong>
                                                 <p class="text-muted">
@@ -85,7 +85,7 @@
                                                 </p>
                                                 <hr>
                                             </div>
-        
+
                                             <div class="form-group col-md-6">
                                                 <strong>
                                                     <i class="fas fa-mobile mr-1"></i>
@@ -116,12 +116,12 @@
 
                                     <div class="d-flex justify-content-between">
                                         <div>
-                                            <h4>Historial de compras</h4>
+                                            <h4>Historial de entrada de inventario</h4>
                                         </div>
                                     </div>
                                     <div class="profile-feed">
                                         <div class="d-flex align-items-start profile-feed-item">
-    
+
                                             <div class="table-responsive">
                                                 <table id="order-listing" class="table">
                                                     <thead>
@@ -141,7 +141,7 @@
                                                             </th>
                                                             <td>{{$sale->purchase_date}}</td>
                                                             <td>{{$sale->total}}</td>
-                        
+
                                                             @if ($sale->status == 'VALID')
                                                             <td>
                                                                 <a class="jsgrid-button btn btn-success" href="{{route('change.status.sales', $sale)}}" title="Editar">
@@ -156,25 +156,25 @@
                                                             </td>
                                                             @endif
                                                             <td style="width: 50px;">
-                        
+
                                                                 <a href="{{route('sales.pdf', $sale)}}" class="jsgrid-button jsgrid-edit-button"><i class="far fa-file-pdf"></i></a>
                                                                 {{--  <a href="#" class="jsgrid-button jsgrid-edit-button"><i class="fas fa-print"></i></a>  --}}
                                                                 <a href="{{route('sales.show', $sale)}}" class="jsgrid-button jsgrid-edit-button"><i class="far fa-eye"></i></a>
-                                                           
-                                                              
+
+
                                                             </td>
                                                         </tr>
                                                         @endforeach
                                                     </tbody>
                                                     <tfoot>
                                                         <tr>
-                                                          <td colspan="2"><strong>Total de monto comprado: </strong></td>
+                                                          <td colspan="2"><strong>Total de monto de ingreso de inventario: </strong></td>
                                                           <td colspan="3" align="left"><strong>s/{{$total_purchases}}</strong></td>
                                                         </tr>
                                                     </tfoot>
                                                 </table>
                                             </div>
-    
+
                                         </div>
                                     </div>
 

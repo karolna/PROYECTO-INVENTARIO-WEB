@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title','Reporte de ventas')
+@section('title','Reporte de Salida de inventario')
 @section('styles')
 <style type="text/css">
     .unstyled-button {
@@ -22,7 +22,7 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="#">Módulo administrador</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Reporte de ventas</li>
+                <li class="breadcrumb-item active" aria-current="page">Reporte de salida de inventario</li>
             </ol>
         </nav>
     </div>

@@ -48,9 +48,9 @@
                                     <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" user="tab" aria-controls="home">
                                         Sobre el usuario
                                     </a>
-                                    <a type="button" class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" user="tab" aria-controls="profile">Historial de compras</a>
+                                    <a type="button" class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" user="tab" aria-controls="profile">Historial de entrada de inventario</a>
 
-                                    <a type="button" class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" user="tab" aria-controls="messages">Historial de ventas</a>
+                                    <a type="button" class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" user="tab" aria-controls="messages">Historial de salida de inventario</a>
 
                                 </div>
                             </div>
@@ -82,7 +82,7 @@
                                                 </p>
                                                 <hr>
                                             </div>
-        
+
                                             <div class="form-group col-md-6">
                                                 <strong>
                                                     <i class="fas fa-mobile mr-1"></i>
@@ -93,7 +93,7 @@
                                                 <hr>
                                             </div>
 
-                                            
+
                                         </div>
 
                                     </div>
@@ -101,15 +101,15 @@
                                 </div>
 
                                 <div class="tab-pane fade" id="list-profile" user="tabpanel" aria-labelledby="list-profile-list">
-                                    
+
                                     <div class="d-flex justify-content-between">
                                         <div>
-                                            <h4>Historial de compras</h4>
+                                            <h4>Historial de entrada de inventario</h4>
                                         </div>
                                     </div>
                                     <div class="profile-feed">
                                         <div class="d-flex align-items-start profile-feed-item">
-    
+
                                             <div class="table-responsive">
                                                 <table id="order-listing" class="table">
                                                     <thead>
@@ -129,7 +129,7 @@
                                                             </th>
                                                             <td>{{$purchase->purchase_date}}</td>
                                                             <td>{{$purchase->total}}</td>
-                        
+
                                                             @if ($purchase->status == 'VALIDO')
                                                             <td>
                                                                 <a class="jsgrid-button btn btn-success" href="{{route('change.status.purchases', $purchase)}}" title="Editar">
@@ -144,25 +144,25 @@
                                                             </td>
                                                             @endif
                                                             <td style="width: 50px;">
-                        
+
                                                                 <a href="{{route('purchases.pdf', $purchase)}}" class="jsgrid-button jsgrid-edit-button"><i class="far fa-file-pdf"></i></a>
                                                                 {{--  <a href="#" class="jsgrid-button jsgrid-edit-button"><i class="fas fa-print"></i></a>  --}}
                                                                 <a href="{{route('purchases.show', $purchase)}}" class="jsgrid-button jsgrid-edit-button"><i class="far fa-eye"></i></a>
-                                                           
-                                                              
+
+
                                                             </td>
                                                         </tr>
                                                         @endforeach
                                                     </tbody>
                                                     <tfoot>
                                                         <tr>
-                                                          <td colspan="2"><strong>Monto total comprado: </strong></td>
+                                                          <td colspan="2"><strong>Monto total de entrada de inventario: </strong></td>
                                                           <td colspan="3" align="left"><strong>s/{{$total_amount_sold}}</strong></td>
                                                         </tr>
                                                     </tfoot>
                                                 </table>
                                             </div>
-    
+
                                         </div>
                                     </div>
 
@@ -171,12 +171,12 @@
                                 <div class="tab-pane fade" id="list-messages" user="tabpanel" aria-labelledby="list-messages-list">
                                     <div class="d-flex justify-content-between">
                                         <div>
-                                            <h4>Historial de ventas</h4>
+                                            <h4>Historial de salida de inventario</h4>
                                         </div>
                                     </div>
                                     <div class="profile-feed">
                                         <div class="d-flex align-items-start profile-feed-item">
-    
+
                                             <div class="table-responsive">
                                                 <table id="order-listing1" class="table">
                                                     <thead>
@@ -196,7 +196,7 @@
                                                             </th>
                                                             <td>{{$sale->sale_date}}</td>
                                                             <td>{{$sale->total}}</td>
-                        
+
                                                             @if ($sale->status == 'VALIDO')
                                                             <td>
                                                                 <a class="jsgrid-button btn btn-success" href="{{route('change.status.sales', $sale)}}" title="Editar">
@@ -210,14 +210,14 @@
                                                                 </a>
                                                             </td>
                                                             @endif
-                        
+
                                                             <td style="width: 50px;">
-                        
+
                                                                 <a href="{{route('sales.pdf', $sale)}}" class="jsgrid-button jsgrid-edit-button"><i class="far fa-file-pdf"></i></a>
                                                                 <a href="{{route('sales.print', $sale)}}" class="jsgrid-button jsgrid-edit-button"><i class="fas fa-print"></i></a>
                                                                 <a href="{{route('sales.show', $sale)}}" class="jsgrid-button jsgrid-edit-button"><i class="far fa-eye"></i></a>
-                                                           
-                                                              
+
+
                                                             </td>
                                                         </tr>
                                                         @endforeach
@@ -230,7 +230,7 @@
                                                     </tfoot>
                                                 </table>
                                             </div>
-    
+
                                         </div>
                                     </div>
                                 </div>

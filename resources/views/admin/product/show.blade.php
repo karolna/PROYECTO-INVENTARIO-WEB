@@ -128,7 +128,7 @@
                                     <div class="form-group col-md-6">
                                         <strong>
                                             <i class="fas fa-mobile mr-1"></i>
-                                            Precio de venta</strong>
+                                            Precio</strong>
                                         <p class="text-muted">
                                             {{$product->sell_price}}
                                         </p>

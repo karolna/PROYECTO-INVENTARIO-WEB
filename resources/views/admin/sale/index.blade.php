@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title','Gestión de ventas')
+@section('title','Gestión de salida de inventario')
 @section('styles')
 <style type="text/css">
     .unstyled-button {
@@ -13,7 +13,7 @@
 @section('create')
 <li class="nav-item d-none d-lg-flex">
     <a class="nav-link" href="{{route('sales.create')}}">
-      <span class="btn btn-primary">+ Registrar venta</span>
+      <span class="btn btn-primary">+ Registrar salida de inventario</span>
     </a>
   </li>
 @endsection
@@ -29,7 +29,7 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="#">Panel administrador</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Ventas</li>
+                <li class="breadcrumb-item active" aria-current="page">Salida de inventario</li>
             </ol>
         </nav>
     </div>
@@ -39,7 +39,7 @@
                 <div class="card-body">
 
                     <div class="d-flex justify-content-between">
-                        <h4 class="card-title">Ventas</h4>
+                        <h4 class="card-title">Salida de inventario</h4>
                         {{--  <i class="fas fa-ellipsis-v"></i>  --}}
                         <div class="btn-group">
                             <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

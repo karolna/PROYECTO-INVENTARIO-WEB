@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title', 'Registro de venta')
+@section('title', 'Registro de salida de inventario')
 @section('styles')
     {!! Html::style('select/dist/css/bootstrap-select.min.css') !!}
     <style type="text/css">
@@ -29,8 +29,8 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="#">Panel administrador</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('sales.index') }}">Ventas</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Registro de venta</li>
+                    <li class="breadcrumb-item"><a href="{{ route('sales.index') }}">Salida de inventario</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Registro de salida de inventario</li>
                 </ol>
             </nav>
         </div>
@@ -41,7 +41,7 @@
                     <div class="card-body">
 
                         <div class="d-flex justify-content-between">
-                            <h4 class="card-title">Registro de venta</h4>
+                            <h4 class="card-title">Registro de salida</h4>
                         </div>
 
                         @include('admin.sale._form_reserve_sale')
@@ -110,6 +110,7 @@
     {!! Html::script('select/dist/js/bootstrap-select.min.js') !!}
     {!! Html::script('js/sweetalert2.all.min.js') !!}
     <script>
+        var producto_eliminar='';
         $(document).ready(function() {
             $("#agregar").click(function() {
                 var cloneReserve = [$('option.reserve_quantity').attr('attr-reserve')];
@@ -177,7 +178,7 @@
             var quantityReserve = $('#product_id option:selected').attr('attr-quantity-reserve');
 
             $("#quantity").val(quantityReserve);
-           console.log(quantityReserve);
+           console.log("cantidad",quantityReserve);
 
             $.ajax({
                 url: "{{ route('get_products_by_id') }}",
@@ -233,9 +234,10 @@
 
         function agregar() {
             datosProducto = document.getElementById('product_id').value.split('_');
-
+           console.log(datosProducto);
             var tipoProducto = $("#product_id option:selected").attr('attr-tipo-product');
             var attrReserve = $("#product_id option:selected").attr('attr-reserve');
+
             var attrQuantityReserve = $("#product_id option:selected").attr('attr-quantity-reserve');
             var reserve_id=null;
             product_id = datosProducto[0];
@@ -245,26 +247,29 @@
             price = $("#price").val();
             stock = $("#stock").val();
             impuesto = $("#tax").val();
-            console.log("este es mi attr reserve:",attrReserve);
+            console.log("este es mi attrreservefuera de los ifs",attrReserve);
 
             if (product_id != "" &&  quantity != "" && quantity > 0 && discount != "" && price != "") {
-                if (   attrReserve === undefined ) {
+                if (   attrReserve == undefined || attrReserve == 'undefined') {
                     reserve_id=null;
-
+                    console.log("este es mi attrreserve en undefined",attrReserve);
                 }
                 else
                 {
-
+                    console.log("este es mi attrreserve en valores que si existen",attrReserve);
                    var reserve_all=JSON.parse(attrReserve);
+                   console.log("este es mi json to parse ",reserve_all);
                 reserve_id=reserve_all.id;
                 }
+
                 console.log("este es id_reserve:",reserve_id);
                 if (parseInt(stock) >= parseInt(quantity)) {
                     subtotal[cont] = (quantity * price) - (quantity * price * discount / 100);
                     total = total + subtotal[cont];
+                    producto_eliminar=attrReserve;
                     var fila = `<tr class="selected" id="fila${cont}">
             <td>
-                <button type="button" class="btn btn-danger btn-sm" onclick="eliminar(${cont},'${tipoProducto}',${product_id},'${producto}',${attrQuantityReserve},'attrReserve')">
+                <button type="button" class="btn btn-danger btn-sm" onclick="eliminar(${cont},'${tipoProducto}',${product_id},'${producto}',${attrQuantityReserve})">
                     <i class="fa fa-times fa-2x"></i>
                 </button>
 
@@ -289,7 +294,7 @@
             <td align="right">${parseFloat(subtotal[cont]).toFixed(2)}
             </td>
         </tr>`;
-        console.log("funcionagregar");
+
                     cont++;
                     limpiar();
                     totales();
@@ -304,9 +309,10 @@
             } else {
                 Swal.fire({
                     type: 'error',
-                    text: 'Rellene todos los campos del detalle de la venta.',
+                    text: 'Rellene todos los campos del detalle de la salida de inventario.',
                 })
             }
+            console.log("funcionagregar");
         }
 
         function limpiar() {
@@ -332,7 +338,8 @@
             }
         }
 
-        function eliminar(index,tipoProducto,product_id,producto,attrQuantityReserve,attrReserve) {
+        function eliminar(index,tipoProducto,product_id,producto,attrQuantityReserve) {
+            console.log("eliminar");
             total = total - subtotal[index];
             total_impuesto = total * impuesto / 100;
             total_pagar_html = total + total_impuesto;
@@ -341,8 +348,9 @@
             $("#total_pagar_html").html("USD" + total_pagar_html);
             $("#total_pagar").val(total_pagar_html.toFixed(2));
             $("#fila" + index).remove();
-            $(`#product_id .${tipoProducto}`).append(`<option  class="reserve_quantity"  attr-tipo-product="${tipoProducto}"  attr-quantity-reserve="${attrQuantityReserve}" attr-reserve="${attrReserve}" value=" ${product_id}" >${producto} </option>`);
-
+            console.log(producto_eliminar);
+            $(`#product_id .${tipoProducto}`).append(`<option  class="reserve_quantity"  attr-tipo-product="${tipoProducto}"  attr-quantity-reserve="${attrQuantityReserve}" attr-reserve='${producto_eliminar}' value=" ${product_id}" >${producto} </option>`);
+            console.log("final de agregar");
             evaluar();
         }
     </script>

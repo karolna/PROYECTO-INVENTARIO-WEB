@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title','Registro de compra')
+@section('title','Registro de entrada de inventario')
 @section('styles')
 {!! Html::style('select/dist/css/bootstrap-select.min.css') !!}
 @endsection
@@ -11,13 +11,13 @@
 <div class="content-wrapper">
     <div class="page-header">
         <h3 class="page-title">
-            Edición de compra
+            Edición de entrada de inventario
         </h3>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="#">Panel administrador</a></li>
-                <li class="breadcrumb-item"><a href="{{route('purchases.index')}}">Compras</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Registro de compra</li>
+                <li class="breadcrumb-item"><a href="{{route('purchases.index')}}">Entrada de inventario</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Registro de entrada de inventario</li>
             </ol>
         </nav>
     </div>
@@ -28,7 +28,7 @@
                 <div class="card-body">
 
                     <div class="d-flex justify-content-between">
-                        <h4 class="card-title">Registro de compra</h4>
+                        <h4 class="card-title">Registro de entrada de inventario</h4>
                     </div>
 
                    {{-- @include('admin.purchase._form')--}}
@@ -79,7 +79,7 @@
     </div>
     <div class="form-group col-md-2">
         <div class="form-group">
-            <label for="price">Precio de compra</label>
+            <label for="price">Precio</label>
             <input type="number" class="form-control" name="price" id="price" aria-describedby="helpId">
         </div>
     </div>
@@ -88,7 +88,7 @@
     <button type="button" id="agregar" class="btn btn-primary float-right">Agregar producto</button>
 </div>
 <div class="form-group">
-    <h4 class="card-title">Detalles de compra</h4>
+    <h4 class="card-title">Detalles de entrada de inventario</h4>
     <div class="table-responsive col-md-12">
         <table id="detalles" class="table table-striped">
             <thead>
@@ -228,7 +228,7 @@
         } else {
             Swal.fire({
                 type: 'error',
-                text: 'Rellene todos los campos del detalle de la compras',
+                text: 'Rellene todos los campos del detalle de la entrada de inventario',
 
             })
         }

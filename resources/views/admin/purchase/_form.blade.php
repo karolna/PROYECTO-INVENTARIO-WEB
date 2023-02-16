@@ -45,7 +45,7 @@
     </div>
     <div class="form-group col-md-2">
         <div class="form-group">
-            <label for="price">Precio de compra</label>
+            <label for="price">Precio</label>
             <input type="number" class="form-control" name="price" id="price" aria-describedby="helpId">
         </div>
     </div>
@@ -54,7 +54,7 @@
     <button type="button" id="agregar" class="btn btn-primary float-right">Agregar producto</button>
 </div>
 <div class="form-group">
-    <h4 class="card-title">Detalles de compra</h4>
+    <h4 class="card-title">Detalles de entrada de inventario</h4>
     <div class="table-responsive col-md-12">
         <table id="detalles" class="table table-striped">
             <thead>

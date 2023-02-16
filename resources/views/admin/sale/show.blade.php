@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title','Detalles de venta')
+@section('title','Detalles de salida de inventario')
 @section('styles')
 
 @endsection
@@ -20,8 +20,8 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="#">Panel administrador</a></li>
-                <li class="breadcrumb-item"><a href="#">Ventas</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Detalles de venta</li>
+                <li class="breadcrumb-item"><a href="#">Salida de inventario</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Detalles de salida de inventario</li>
             </ol>
         </nav>
     </div>
@@ -39,19 +39,19 @@
                             <p>{{$sale->user->name}}</p>
                         </div>
                         <div class="col-md-4 text-center">
-                            <label class="form-control-label"><strong>Número Venta</strong></label>
+                            <label class="form-control-label"><strong>Número de salida de inventario</strong></label>
                             <p>{{$sale->id}}</p>
                         </div>
                     </div>
                     <br /><br />
                     <div class="form-group">
-                        <h4 class="card-title">Detalles de venta</h4>
+                        <h4 class="card-title">Detalles de salida de inventario</h4>
                         <div class="table-responsive col-md-12">
                             <table id="saleDetails" class="table">
                                 <thead>
                                     <tr>
                                         <th>Producto</th>
-                                        <th>Precio Venta (USD)</th>
+                                        <th>Precio (USD)</th>
                                         <th>Descuento(USD)</th>
                                         <th>Cantidad</th>
                                         <th>SubTotal(USD)</th>

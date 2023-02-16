@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title','Gestión de compras')
+@section('title','Gestión de entrada de inventario')
 @section('styles')
 <style type="text/css">
     .unstyled-button {
@@ -13,7 +13,7 @@
 @section('create')
 <li class="nav-item d-none d-lg-flex">
     <a class="nav-link" href="{{route('purchases.create')}}">
-      <span class="btn btn-primary">+ Registrar compra</span>
+      <span class="btn btn-primary">+ Registrar entrada de inventario</span>
     </a>
   </li>
 @endsection
@@ -30,7 +30,7 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="#">Panel administrador</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Compras</li>
+                <li class="breadcrumb-item active" aria-current="page">Entrada de inventario</li>
             </ol>
         </nav>
     </div>
@@ -40,7 +40,7 @@
                 <div class="card-body">
 
                     <div class="d-flex justify-content-between">
-                        <h4 class="card-title">Compras</h4>
+                        <h4 class="card-title">Entrada de inventario</h4>
                         {{--  <i class="fas fa-ellipsis-v"></i>  --}}
                         <div class="btn-group">
                             <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -88,7 +88,7 @@
                                             {{\Carbon\Carbon::parse($purchase->purchase_date)->format('Y-m-d')}} <i class="fas fa-check"></i>
                                         </a> --}}
 
-                                       {{-- <a href="{{route('change.deleted_at.purchases', $purchase)}}" onclick="return confirm('¿Estás seguro de eliminar el producto?, esta accion es reversible con ayuda del desarrollador');"><i class=" far fa-trash-alt"></i></a>
+                                       {{-- <a href="{{route('change.deleted_at.purchases', $purchase)}}" onclick="return confirm('¿Estás seguro de eliminar el registro?, esta accion es reversible con ayuda del desarrollador');"><i class=" far fa-trash-alt"></i></a>
                                    --}}
                                     @if ($purchase->status == 'VALIDO')
                                     <td>
@@ -108,7 +108,7 @@
 <a href="{{route('purchases.pdf', $purchase)}}" class="jsgrid-button jsgrid-edit-button"><i class="far fa-file-pdf"></i></a>
 {{--  <a href="#" class="jsgrid-button jsgrid-edit-button"><i class="fas fa-print"></i></a>  --}}
 <a href="{{route('purchases.show', $purchase)}}" class="jsgrid-button jsgrid-edit-button"><i class="far fa-eye"></i></a>
-<a href="{{route('change.deleted_at.purchases', $purchase)}}" onclick="return confirm('¿Estás seguro de eliminar el producto?, esta accion es reversible con ayuda del desarrollador');"><i class=" far fa-trash-alt"></i></a>
+<a href="{{route('change.deleted_at.purchases', $purchase)}}" onclick="return confirm('¿Estás seguro de eliminar el siguiente registro?, esta accion es reversible con ayuda del desarrollador');"><i class=" far fa-trash-alt"></i></a>
 
 {{--{!! Form::open(['route' => ['purchases.destroy', $purchase], 'method' => 'DELETE']) !!}
 <a class="jsgrid-button jsgrid-edit-button" style="float:left;"

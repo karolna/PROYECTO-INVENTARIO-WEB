@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title', 'Registro de venta')
+@section('title', 'Registro de salida de inventario')
 @section('styles')
     {!! Html::style('select/dist/css/bootstrap-select.min.css') !!}
     <style type="text/css">
@@ -29,8 +29,8 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="#">Panel administrador</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('sales.index') }}">Ventas</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Registro de venta</li>
+                    <li class="breadcrumb-item"><a href="{{ route('sales.index') }}">Salida de inventario</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Registro de salida de inventario</li>
                 </ol>
             </nav>
         </div>
@@ -41,7 +41,7 @@
                     <div class="card-body">
 
                         <div class="d-flex justify-content-between">
-                            <h4 class="card-title">Registro de venta</h4>
+                            <h4 class="card-title">Registro de salida de inventario</h4>
                         </div>
 
                         @include('admin.sale._form')
@@ -255,7 +255,7 @@
             } else {
                 Swal.fire({
                     type: 'error',
-                    text: 'Rellene todos los campos del detalle de la venta.',
+                    text: 'Rellene todos los campos del detalle de la salida de inventario.',
                 })
             }
         }

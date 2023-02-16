@@ -87,8 +87,8 @@
                                         </a>
                                     </td>
                                     <td>
-                                        <a class="jsgrid-button jsgrid-edit-button" href="{{route('createSale.sales', $reserve)}}" title="Generar Venta">
-                                             <i class="fas fa-file">Generar Venta</i>
+                                        <a class="jsgrid-button jsgrid-edit-button" href="{{route('createSale.sales', $reserve)}}" title="Generar salida de inventario">
+                                             <i class="fas fa-file">Generar salida de inventario </i>
                                         </a>
                                     </td>
 
@@ -100,7 +100,7 @@
                                     </td>
                                     <td>
                                         <a class="jsgrid-button jsgrid-edit-button" href="{{route('reserve.pdf', $reserve->id)}}"  title="Comprobante">
-                                             <i class="fas fa-file">Comprobante</i>
+                                             <i class="fas fa-file">Generar Comprobante</i>
                                         </a>
                                     </td>
 

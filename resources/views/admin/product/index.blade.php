@@ -87,7 +87,7 @@
                                         <a class="jsgrid-button jsgrid-edit-button" href="{{route('products.edit', $product)}}" title="Editar">
                                             <i class="far fa-edit"></i> </a>
                                         {!! Form::close() !!}
-                                        <a href="{{route('change.deleted_at.products', $product)}}" onclick="return confirm('¿Estás seguro de eliminar el producto?, esta accion es reversible con ayuda del desarrollador');"> <i class=" far fa-trash-alt" style="margin-left:5px"></i></a>
+                                        <a href="{{route('change.deleted_at.products', $product)}}" onclick="return confirm('¿Estás seguro de eliminar el siguiente registro?, esta accion es reversible con ayuda del desarrollador');"> <i class=" far fa-trash-alt" style="margin-left:5px"></i></a>
 
                                     </td>
                                 </tr>

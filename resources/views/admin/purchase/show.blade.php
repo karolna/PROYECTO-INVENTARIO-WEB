@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title','Detalles de compra')
+@section('title','Detalles de Entrada de inventario')
 @section('styles')
 
 @endsection
@@ -16,13 +16,13 @@
 <div class="content-wrapper">
     <div class="page-header">
         <h3 class="page-title">
-            Detalles de compra
+            Detalles de entrada de inventario
         </h3>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="#">Panel administrador</a></li>
-                <li class="breadcrumb-item"><a href="#">Compras</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Detalles de compra</li>
+                <li class="breadcrumb-item"><a href="#">Entrada de inventario</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Detalles de entrada de inventario</li>
             </ol>
         </nav>
     </div>
@@ -30,24 +30,24 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                   
+
                     <div class="form-group row">
                         <div class="col-md-4 text-center">
                             <label class="form-control-label" for="nombre"><strong>Proveedor</strong></label>
                             <p>{{$purchase->provider->name}}</p>
                         </div>
                         <div class="col-md-4 text-center">
-                            <label class="form-control-label" for="num_compra"><strong>Número Compra</strong></label>
+                            <label class="form-control-label" for="num_compra"><strong>Número entrada de inventario</strong></label>
                             <p>{{$purchase->id}}</p>
                         </div>
                         <div class="col-md-4 text-center">
-                            <label class="form-control-label" for="num_compra"><strong>Comprador</strong></label>
+                            <label class="form-control-label" for="num_compra"><strong>Responsable del ingreso de inventario</strong></label>
                             <p>{{$purchase->user->name}}</p>
                         </div>
                     </div>
                     <br /><br />
                     <div class="form-group row ">
-                        <h4 class="card-title ml-3">Detalles de compra</h4>
+                        <h4 class="card-title ml-3">Detalles de entrada de inventario</h4>
                         <div class="table-responsive col-md-12">
                             <table id="detalles" class="table">
                                 <thead>
@@ -83,7 +83,7 @@
                                             <p align="right">s/{{number_format($purchase->total,2)}}</p>
                                         </th>
                                     </tr>
-                    
+
                                 </tfoot>
                                 <tbody>
                                     @foreach($purchaseDetails as $purchaseDetail)
@@ -98,7 +98,7 @@
                             </table>
                         </div>
                     </div>
-                    
+
 
 
                 </div>

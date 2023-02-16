@@ -43,7 +43,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="sell_price">Precio de venta</label>
+                        <label for="sell_price">Precio</label>
                         <input type="number" name="sell_price" id="sell_price" value="{{$product->sell_price}}" class="form-control" aria-describedby="helpId" required>
                     </div>
                     <div class="form-group">

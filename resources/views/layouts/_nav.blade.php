@@ -36,13 +36,13 @@
         <li class="nav-item">
             <a class="nav-link" href="{{route('purchases.index')}}">
                 <i class="fas fa-cart-plus menu-icon"></i>
-                <span class="menu-title">Compras</span>
+                <span class="menu-title">Entrada de inventario</span>
             </a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="{{route('sales.index')}}">
                 <i class="fas fa-shopping-cart menu-icon"></i>
-                <span class="menu-title">Ventas</span>
+                <span class="menu-title">Salida de inventario</span>
             </a>
         </li>
         <li class="nav-item">

@@ -3,7 +3,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>Reporte de compra</title>
+<title>Reporte de Entrada de inventario</title>
 <style>
     body {
         /*position: relative;*/
@@ -131,7 +131,7 @@
         <div id="fact"  style="padding:10px ; float: right; back-groung:white;">
             {{--  <p>{{$purchase->provider->document_type}} COMPRA<br />
                 {{$purchase->provider->document_number}}</p>  --}}
-                <p>Nº DE COMPRA</p>
+                <p>Nº DE COMPROBANTE DE ENTRADA DE INVENTARIO</p>
                     <p> {{$purchase->id}}</p>
         </div>
     </header>
@@ -144,8 +144,8 @@
             <table id="faccomprador">
                 <thead>
                     <tr id="fv" style="float: left;">
-                        <th>COMPRADOR</th>
-                        <th>FECHA COMPRA</th>
+                        <th>RESPONSABLE</th>
+                        <th>FECHA</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -165,7 +165,7 @@
                     <tr id="fa" style="float: left;">
                         <th>CANTIDAD</th>
                         <th>PRODUCTO</th>
-                        <th>PRECIO COMPRA (USD)</th>
+                        <th>PRECIO (USD)</th>
                         <th>SUBTOTAL (USD)</th>
                     </tr>
                 </thead>

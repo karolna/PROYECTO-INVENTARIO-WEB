@@ -3,7 +3,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>Reporte de venta</title>
+<title>Reporte de Salida de inventario</title>
 <style>
     body {
         /*position: relative;*/
@@ -154,7 +154,7 @@
                 {{$sale->user->id}}
             </p>  --}}
             <p>
-                Nº DE VENTA
+                Nº DE SALIDA DE INVENTARIO
                 <br>
                 {{$sale->id}}
             </p>
@@ -169,7 +169,7 @@
                     <tr id="fa">
                         <th>CANTIDAD</th>
                         <th>PRODUCTO</th>
-                        <th>PRECIO VENTA(USD)</th>
+                        <th>PRECIO (USD)</th>
                         <th>DESCUENTO(%)</th>
                         <th>SUBTOTAL(USD)</th>
                     </tr>

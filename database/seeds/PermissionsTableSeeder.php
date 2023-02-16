@@ -192,19 +192,19 @@ class PermissionsTableSeeder extends Seeder
 
 
         Permission::create([
-            'name'=>'Navegar por compras',
+            'name'=>'Navegar por entrada de inventario',
             'slug'=>'purchases.index',
-            'description'=>'Lista y navega por todos los compras del sistema.',
+            'description'=>'Lista y navega por todas las entradas de inventario del sistema.',
         ]);
         Permission::create([
-            'name'=>'Ver detalle de compra',
+            'name'=>'Ver detalle de entrada de inventario',
             'slug'=>'purchases.show',
-            'description'=>'Ver en detalle cada compra del sistema.',
+            'description'=>'Ver en detalle cada entrada de inventario del sistema.',
         ]);
         Permission::create([
-            'name'=>'Creación de compras',
+            'name'=>'Creación de entrada de inventario',
             'slug'=>'purchases.create',
-            'description'=>'Crea cualquier dato de un compra del sistema.',
+            'description'=>'Crea cualquier dato de una o varias entradas de inventario en el sistema.',
         ]);
 
 
@@ -226,16 +226,16 @@ class PermissionsTableSeeder extends Seeder
 
 
         Permission::create([
-            'name'=>'Descargar PDF reporte de compras',
+            'name'=>'Descargar PDF reporte de entrada de inventario',
             'slug'=>'purchases.pdf',
-            'description'=>'Puede descargar todos los reportes de las compras en PDF.',
+            'description'=>'Puede descargar todos los reportes de la entrada de inventario en PDF.',
         ]);
 
 
         Permission::create([
-            'name'=>'Descargar PDF reporte de ventas',
+            'name'=>'Descargar PDF reporte de salida de inventario',
             'slug'=>'sales.pdf',
-            'description'=>'Puede descargar todos los reportes de las ventas en PDF.',
+            'description'=>'Puede descargar todos los reportes de la salida de inventario en PDF.',
         ]);
 
         Permission::create([
@@ -269,9 +269,9 @@ class PermissionsTableSeeder extends Seeder
         ]);
 
         Permission::create([
-            'name'=>'Subir archivo de compra',
+            'name'=>'Subir archivo de entrada de inventario',
             'slug'=>'upload.purchases',
-            'description'=>'Puede subir comprobantes de una compra.',
+            'description'=>'Puede subir comprobantes de una entrada de inventario.',
         ]);
 
         Permission::create([
@@ -281,37 +281,37 @@ class PermissionsTableSeeder extends Seeder
         ]);
 
         Permission::create([
-            'name'=>'Cambiar estado de compra',
+            'name'=>'Cambiar estado de entrada de inventario',
             'slug'=>'change.status.purchases',
-            'description'=>'Permite cambiar el estado de un compra.',
+            'description'=>'Permite cambiar el estado de un entrada de inventario.',
         ]);
 
         Permission::create([
-            'name'=>'Cambiar estado de venta',
+            'name'=>'Cambiar estado de salida de inventario',
             'slug'=>'change.status.sales',
-            'description'=>'Permite cambiar el estado de un venta.',
+            'description'=>'Permite cambiar el estado de un salida de inventario.',
         ]);
 
 
         Permission::create([
             'name'=>'Reporte por día',
             'slug'=>'reports.day',
-            'description'=>'Permite ver los reportes de ventas por día.',
+            'description'=>'Permite ver los reportes de salida de inventario por día.',
         ]);
         Permission::create([
             'name'=>'Reporte por fechas',
             'slug'=>'reports.date',
-            'description'=>'Permite ver los reportes por un rango de fechas de las ventas.',
+            'description'=>'Permite ver los reportes por un rango de fechas de la salida de inventario.',
         ]);
         Permission::create([
             'name'=>'Reporte por fechas',
             'slug'=>'index.date',
-            'description'=>'Permite ver los reportes por un rango de fechas de las ventas.',
+            'description'=>'Permite ver los reportes por un rango de fechas de la salida de inventario.',
         ]);
         Permission::create([
             'name'=>'Reporte por día',
             'slug'=>'index.day',
-            'description'=>'Permite ver los reportes de ventas por día.',
+            'description'=>'Permite ver los reportes de salida de inventario por día.',
         ]);
 
     }
